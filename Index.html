@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Summit</title>
+  <link rel="stylesheet" href="Style.css">
+
+  <style>
+    /* Estilos del modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    #ticketCanvas {
+      display: block;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <p class="logo">DIGITAL SUMMIT</p>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#" class="nav-link">Speakers</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Lugar del evento</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Conferencias</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    <h1 class="heading">DIGITAL SUMMIT</h1>
+    <p class="text">Ingresa tu correo para verificar tu entrada.</p>
+
+    <form id="searchForm" class="form" onsubmit="return false;">
+      <input type="text" id="emailInput" class="input" placeholder="Enter your email">
+      <button id="submitBtn" class="btn">Verificar</button>
+    </form>
+    <p id="message"></p>
+  </main>
+
+  <footer class="footer">
+    <p class="copyright">&copy; 2025. Copyright by Evento</p>
+    <p class="stats">24,452 events. 322 cities.</p>
+  </footer>
+
+  <!-- Overlay y Modal -->
+  <div class="overlay" id="overlay"></div>
+  <div class="modal" id="qrModal">
+    <canvas id="ticketCanvas" width="850" height="280"></canvas> <!-- Canvas del boleto -->
+    <button id="downloadPdfBtn">Descargar Boleto como PDF</button>
+    <button id="closeModal">Cerrar</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> <!-- Librería jsPDF -->
+
+  <script>
+    const validUsers = new Map(); // Almacenamos correos y datos del CSV
+    const boletoURL = 'boleto.png'; // URL pública del boleto
+
+    // Cargar lista de correos y datos desde el CSV
+    window.onload = function() {
+      cargarListaCorreosDesdeURL('Pruebads.csv'); // Cambia la ruta según tu estructura
+    };
+
+    function cargarListaCorreosDesdeURL(url) {
+      fetch(url)
+        .then(response => {
+          if (!response.ok) throw new Error('Error al cargar el archivo CSV');
+          return response.text();
+        })
+        .then(data => {
+          const lines = data.split('\n');
+          for (let i = 1; i < lines.length; i++) {
+            const [correo, nombre, codigoQR] = lines[i].split(',').map(item => item.trim());
+            if (correo && codigoQR) validUsers.set(correo, { nombre, codigoQR });
+          }
+          console.log('Usuarios cargados:', validUsers); // Verificar en consola
+        })
+        .catch(error => console.error('Error al cargar el archivo CSV:', error));
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', function() {
+      const emailInput = document.getElementById('emailInput').value.trim();
+
+      if (validUsers.has(emailInput)) {
+        const { nombre, codigoQR } = validUsers.get(emailInput); // Obtener datos del usuario
+        generarBoleto(nombre, codigoQR); // Generar boleto con QR
+        document.getElementById('message').textContent = `¡Bienvenido, ${nombre}!`;
+      } else {
+        document.getElementById('message').textContent = 'Correo no encontrado.';
+      }
+    });
+
+    // Función para generar el boleto en el canvas
+    function generarBoleto(nombre, qrURL) {
+      const canvas = document.getElementById('ticketCanvas');
+      const ctx = canvas.getContext('2d');
+      const boletoImage = new Image();
+      const qrImage = new Image();
+
+      boletoImage.src = boletoURL; // Cargar la imagen del boleto
+      qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`; // Cargar el QR
+
+      // Esperamos a que ambas imágenes estén completamente cargadas
+      Promise.all([
+        new Promise((resolve) => { boletoImage.onload = resolve; }),
+        new Promise((resolve) => { qrImage.onload = resolve; })
+      ]).then(() => {
+        // Dibujar la imagen de fondo del boleto
+        ctx.drawImage(boletoImage, 0, 0, canvas.width, canvas.height);
+
+        // Dibujar el código QR en el canvas
+        ctx.drawImage(qrImage, 650, 50, 150, 150); // Posición del QR
+
+        // Añadir el nombre del usuario al boleto
+        ctx.font = '20px Arial';
+        ctx.fillStyle = 'black';
+        ctx.fillText(`Nombre: ${nombre}`, 50, 50); // Posición del nombre
+
+        mostrarModal(); // Mostrar el modal después de generar el boleto
+      });
+    }
+
+    // Función para mostrar el modal
+    function mostrarModal() {
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('qrModal').style.display = 'block';
+    }
+
+    // Función para cerrar el modal
+    document.getElementById('closeModal').addEventListener('click', function() {
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('qrModal').style.display = 'none';
+    });
+
+    // Función para descargar el boleto como PDF utilizando jsPDF
+    document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+      const canvas = document.getElementById('ticketCanvas');
+      const imgData = canvas.toDataURL('image/png'); // Convertimos el contenido del canvas a PNG
+
+      // jsPDF setup
+      const { jsPDF } = window.jspdf; // Obtener jsPDF desde el UMD bundle
+      const pdf = new jsPDF('landscape', 'pt', [canvas.width, canvas.height]); // Crear PDF en horizontal
+
+      // Añadir la imagen al PDF
+      pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+
+      // Descargar el PDF
+      pdf.save('boleto.pdf');
+    });
+  </script>
+</body>
+</html>
