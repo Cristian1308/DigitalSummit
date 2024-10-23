@@ -276,6 +276,7 @@ p {
 }
 
 .heroT {
+    display: flex;
     position: absolute; left: 0; right: 0; margin: auto;
     height: 10em;
     padding-top: -9em;
