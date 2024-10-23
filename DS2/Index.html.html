@@ -28,18 +28,49 @@
   </div>
 </div>
 <div class="heroSubP">
-  <p>Bienvenidos</p>
+  <p>Introduce tu correo de compra y Descarga tu Entrada</p>
 </div>
 <div class="hero">
   <div class="heroT">
     <h2>Digital Summit</h2>
     <h2>Digital Summit</h2>
   </div>
+  <!-- Campo de correo y botón de enviar -->
 </div>
-<p class="heroP">Confirma tu entrada y descargala</p>
+<div class="input-container-custom">
+  <input type="email" placeholder="Ingresa tu correo" class="input-animated-custom" id="emailInputCustom">
+  <button class="submit-btn-custom" id="submitBtnCustom">Enviar</button>
+</div>
+
+<!-- Este contenedor es necesario para mostrar los mensajes de éxito o error -->
+<div id="message" style="color: #00FF8C;"></div>
+
+
+    <!-- Contenedor del boleto -->
+    <div class="ticket-container" id="ticketContainer">
+      <div id="ticket" class="ticket">
+        <img id="qrCode" class="qr-code" src="" alt="Código QR">
+      </div>
+
+      <!-- Botones de acciones del boleto -->
+      <div class="ticket-actions">
+        <button id="downloadBtn" class="btn-small">Descargar Boleto</button>
+        <button id="closeBtn" class="btn-small btn-close">Cerrar</button>
+        <button id="whatsappBtn" class="btn-small">Enviar a WhatsApp</button>
+      </div>
+
+      <!-- Input para número de teléfono con indicativo -->
+      <input type="tel" id="phoneInput" class="input-phone" placeholder="Número telefónico con indicativo" style="display: none;">
+      <button id="sendBtn" class="btn-send" style="display: none;">Enviar</button>
+    </div>
+
+
+
+
 <div class="mountains">
   <div></div>
   <div></div>
   <div></div>
 </div>
 <div class="hero-spacer"></div>
+<script src="app.js"></script>

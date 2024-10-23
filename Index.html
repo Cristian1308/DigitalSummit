@@ -1,193 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Summit</title>
-  <link rel="stylesheet" href="Style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Summit</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/hubot-sans');
+        *{ box-sizing: border-box; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth;}
+        html, body { height: 100%; }
 
-  <style>
-    /* Estilos del modal */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: white;
-      padding: 20px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      border-radius: 8px;
-      text-align: center;
-    }
+        html::-webkit-scrollbar { display: none; }
+        html { -ms-overflow-style: none; scrollbar-width: none; }
 
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 999;
-    }
+        body {
+            margin: 0;
+            font-family: Untitled Sans, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+            background: #05060f linear-gradient(0deg,rgba(216,236,248,.06),rgba(152,192,239,.06));
+            font-size: max(calc(var(--_size) * 0.03), 10px);
+            --_factor: min(600px, 80vh);
+            --_size: min(var(--_factor), 80vw);
+        }
 
-    #ticketCanvas {
-      display: block;
-      margin: 0 auto;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
+        body.gold .header h2 ,
+        body.gold p,
+        body.gold > * > * :not(.contact-btn) {
+            filter: invert(1) brightness(4.7);
+        }
+        body.gold .header h2 a{
+            filter: hue-rotate(0deg);
+        }
+        body.gold canvas {
+            filter: drop-shadow(2em 4em 0px #d8bd10) drop-shadow(-8em -14em 0px #d8bd10);
+        }
+        body.gold .header .spotlight {
+            filter: invert(1) brightness(4.7) opacity(0.5);
+        }
+        body.gold .mountains > div {
+            box-shadow: 
+            -1em -0.2em 0.4em -1.1em #c2ccff,
+            inset 0em 0em 0em 2px #d8a910,
+            inset 0.2em 0.3em 0.2em -0.2em #c2ccff,
+            inset 10.2em 10.3em 2em -10em #d4e6ff2f;
+        }
 
-    button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        h2 {
+            font-family: 'Hubot-Sans', sans-serif;
+        }
+        h2, p {
+            margin: 0; padding: 0;
+        }
+        h2 a {
+            text-decoration: none;
+            color: unset;
+        }
 
-    button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+        .header {
+            display: flex; width: 100%;
+            justify-content: center;
+            color: #bad6f7;
+            padding: 2em;
+            position: absolute;
+            top: 0; left: 0; right: 0; margin: 0 auto;
+            opacity: 0;
+            translate: 0 -1em;
+            animation: load 2s ease-in 2s forwards, up 1.4s ease-out 2s forwards;
+        }
+
+        .header > h2{
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 0.04s ease-in-out;
+        }
+
+        .header > h2:hover {
+            opacity: 1;
+            text-shadow: 0 2px 16px rgba(174,207,242, 0.6);
+            width: fit-content;
+        }
+
+        .header > div.mid-spot {
+            width: 1.8em; height: 1.8em;
+            border-radius: 50%;
+            background: black;
+            box-shadow: 0 0 1em 0 #98c0ef;
+            cursor: pointer;
+            transition: box-shadow 1s ease-in-out;
+        }
+
+        body.gold .header > div.mid-spot {
+            box-shadow: 0 0 1em 0 #d8bd10;
+        }
+
+        button.contact-btn {
+            position: absolute; left: min(46em, 60vw); right: 0; margin: 0 auto;
+            width: 8em; height: 2.4em;
+            cursor: pointer;
+            border-radius: 20em;
+            border: none;
+            background: #121521;
+            color: #9dc3f7;
+        }
+
+        .hero {
+            width: 100%;
+            height: 100%;
+            max-height: 140px;
+            position: absolute; top: 16em;
+        }
+
+        .heroT {
+            position: absolute; left: 0; right: 0; margin: auto;
+            height: 20em;
+            padding-top: 2em;
+            translate: 0 -1.6em;
+            opacity: 0;
+            animation: load 2s ease-in-out 0.6s forwards;
+        }
+
+        .heroT > h2 {
+            position: absolute;left: 0; right: 0; margin: auto;
+            width: fit-content;
+            font-size: 7em;
+            font-weight: 600;
+            color: #9dc3f7;
+            background:
+            radial-gradient( 2em 2em at 50% 50%,
+                transparent calc(var(--p) - 2em),
+                #fff calc(var(--p) - 1em), 
+                #fff calc(var(--p) - 0.4em), 
+                transparent var(--p) 
+            ),
+            linear-gradient(0deg, #bad1f1 30%, #9dc3f7 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 16px rgba(174,207,242,.24);
+            --p:0%;
+            transition:--p 3s linear;
+            animation: pulse 10s linear 1.2s infinite;
+        }
+
+        @keyframes pulse { 
+            0% { --p:0%; }
+            50% { --p:300%; }
+            100% { --p:300%; }
+        }
+
+        p.heroP {
+            font-size: 1.2em;
+            position: absolute; left: 0; right: 0; top: 20.6em; margin: auto;
+            height: fit-content; width: fit-content; text-align: center;
+            opacity: 0;
+            translate: 0 1em;
+            animation: load 2s ease-out 2s forwards, up 1.4s ease-out 2s forwards;
+            color: #d8ecf8;
+            text-shadow: 0 2px 16px rgba(174,207,242,.24);
+            background: linear-gradient(0deg, #d8ecf8 0, #98c0ef 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 1.5em;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 2s ease-out 4s forwards; /* Animación retrasada para el input */
+        }
+
+        input[type="email"] {
+            width: 16em;
+            padding: 0.8em 1em;
+            font-size: 1em;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            background: #121521;
+            color: #9dc3f7;
+            box-shadow: 0 0 10px rgba(152, 192, 239, 0.3);
+            transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+        }
+
+        input[type="email"]::placeholder {
+            color: #98c0ef;
+        }
+
+        input[type="email"]:focus {
+            background: #0f1a2b;
+            box-shadow: 0 0 15px rgba(152, 192, 239, 0.6);
+        }
+
+        .submit-btn {
+            margin-top: 1em;
+            padding: 0.6em 1.5em;
+            font-size: 1em;
+            border-radius: 50px;
+            border: none;
+            background: #121521;
+            color: #9dc3f7;
+            box-shadow: 0 0 10px rgba(152, 192, 239, 0.3);
+            cursor: pointer;
+            transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .submit-btn:hover {
+            background: #0f1a2b;
+            box-shadow: 0 0 15px rgba(152, 192, 239, 0.6);
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="header">
-    <p class="logo">DIGITAL SUMMIT</p>
-    <nav class="nav">
-      <ul class="nav-list">
-        <li class="nav-item"><a href="#" class="nav-link">Speakers</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Lugar del evento</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Conferencias</a></li>
-      </ul>
-    </nav>
-  </header>
+    <div class="header">
+        <div class="mid-spot" onclick="document.body.classList.toggle('gold');"></div>
+        <div class="spotlight">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
 
-  <main class="main">
-    <h1 class="heading">DIGITAL SUMMIT</h1>
-    <p class="text">Ingresa tu correo para verificar tu entrada.</p>
+    <canvas id="particleCanvas"></canvas>
 
-    <form id="searchForm" class="form" onsubmit="return false;">
-      <input type="text" id="emailInput" class="input" placeholder="Enter your email">
-      <button id="submitBtn" class="btn">Verificar</button>
-    </form>
-    <p id="message"></p>
-  </main>
+    <div class="heroSubP">
+        <p>Bienvenidos</p>
+    </div>
 
-  <footer class="footer">
-    <p class="copyright">&copy; 2025. Copyright by Evento</p>
-    <p class="stats">24,452 events. 322 cities.</p>
-  </footer>
+    <div class="hero">
+        <div class="heroT">
+            <h2>Digital Summit</h2>
+            <h2>Digital Summit</h2>
+        </div>
+    </div>
 
-  <!-- Overlay y Modal -->
-  <div class="overlay" id="overlay"></div>
-  <div class="modal" id="qrModal">
-    <canvas id="ticketCanvas" width="850" height="280"></canvas> <!-- Canvas del boleto -->
-    <button id="downloadPdfBtn">Descargar Boleto como PDF</button>
-    <button id="closeModal">Cerrar</button>
-  </div>
+    <p class="heroP">Confirma tu entrada y descárgala</p>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> <!-- Librería jsPDF -->
+    <!-- Campo de correo y botón de enviar -->
+    <div class="input-container">
+        <input type="email" placeholder="Ingresa tu correo" class="input-animated" id="emailInput">
+        <button class="submit-btn input-animated" id="submitBtn">Enviar</button>
+    </div>
 
-  <script>
-    const validUsers = new Map(); // Almacenamos correos y datos del CSV
-    const boletoURL = 'boleto.png'; // URL pública del boleto
+    <div class="hero-spacer"></div>
 
-    // Cargar lista de correos y datos desde el CSV
-    window.onload = function() {
-      cargarListaCorreosDesdeURL('Pruebads.csv'); // Cambia la ruta según tu estructura
-    };
-
-    function cargarListaCorreosDesdeURL(url) {
-      fetch(url)
-        .then(response => {
-          if (!response.ok) throw new Error('Error al cargar el archivo CSV');
-          return response.text();
-        })
-        .then(data => {
-          const lines = data.split('\n');
-          for (let i = 1; i < lines.length; i++) {
-            const [correo, nombre, codigoQR] = lines[i].split(',').map(item => item.trim());
-            if (correo && codigoQR) validUsers.set(correo, { nombre, codigoQR });
-          }
-          console.log('Usuarios cargados:', validUsers); // Verificar en consola
-        })
-        .catch(error => console.error('Error al cargar el archivo CSV:', error));
-    }
-
-    document.getElementById('submitBtn').addEventListener('click', function() {
-      const emailInput = document.getElementById('emailInput').value.trim();
-
-      if (validUsers.has(emailInput)) {
-        const { nombre, codigoQR } = validUsers.get(emailInput); // Obtener datos del usuario
-        generarBoleto(nombre, codigoQR); // Generar boleto con QR
-        document.getElementById('message').textContent = `¡Bienvenido, ${nombre}!`;
-      } else {
-        document.getElementById('message').textContent = 'Correo no encontrado.';
-      }
-    });
-
-    // Función para generar el boleto en el canvas
-    function generarBoleto(nombre, qrURL) {
-      const canvas = document.getElementById('ticketCanvas');
-      const ctx = canvas.getContext('2d');
-      const boletoImage = new Image();
-      const qrImage = new Image();
-
-      boletoImage.src = boletoURL; // Cargar la imagen del boleto
-      qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`; // Cargar el QR
-
-      // Esperamos a que ambas imágenes estén completamente cargadas
-      Promise.all([
-        new Promise((resolve) => { boletoImage.onload = resolve; }),
-        new Promise((resolve) => { qrImage.onload = resolve; })
-      ]).then(() => {
-        // Dibujar la imagen de fondo del boleto
-        ctx.drawImage(boletoImage, 0, 0, canvas.width, canvas.height);
-
-        // Dibujar el código QR en el canvas
-        ctx.drawImage(qrImage, 650, 50, 150, 150); // Posición del QR
-
-        // Añadir el nombre del usuario al boleto
-        ctx.font = '20px Arial';
-        ctx.fillStyle = 'black';
-        ctx.fillText(`Nombre: ${nombre}`, 50, 50); // Posición del nombre
-
-        mostrarModal(); // Mostrar el modal después de generar el boleto
-      });
-    }
-
-    // Función para mostrar el modal
-    function mostrarModal() {
-      document.getElementById('overlay').style.display = 'block';
-      document.getElementById('qrModal').style.display = 'block';
-    }
-
-    // Función para cerrar el modal
-    document.getElementById('closeModal').addEventListener('click', function() {
-      document.getElementById('overlay').style.display = 'none';
-      document.getElementById('qrModal').style.display = 'none';
-    });
-
-    // Función para descargar el boleto como PDF utilizando jsPDF
-    document.getElementById('downloadPdfBtn').addEventListener('click', function() {
-      const canvas = document.getElementById('ticketCanvas');
-      const imgData = canvas.toDataURL('image/png'); // Convertimos el contenido del canvas a PNG
-
-      // jsPDF setup
-      const { jsPDF } = window.jspdf; // Obtener jsPDF desde el UMD bundle
-      const pdf = new jsPDF('landscape', 'pt', [canvas.width, canvas.height]); // Crear PDF en horizontal
-
-      // Añadir la imagen al PDF
-      pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
-
-      // Descargar el PDF
-      pdf.save('boleto.pdf');
-    });
-  </script>
 </body>
 </html>
