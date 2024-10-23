@@ -79,10 +79,14 @@ document.getElementById('closeBtn').addEventListener('click', function() {
 
 // Función para descargar el boleto como PNG
 document.getElementById('downloadBtn').addEventListener('click', function() {
-  const link = document.createElement('a');
-  link.download = 'boleto.png'; // Nombre del archivo
-  link.href = boletoImageURL; // Convertir el canvas a una URL de imagen
-  link.click(); // Simular clic para descargar la imagen
+  if (boletoImageURL) { // Asegurarse de que la URL esté generada
+    const link = document.createElement('a');
+    link.download = 'boleto.png'; // Nombre del archivo
+    link.href = boletoImageURL; // Convertir el canvas a una URL de imagen
+    link.click(); // Simular clic para descargar la imagen
+  } else {
+    console.error('La URL del boleto no está disponible.');
+  }
 });
 
 // Mostrar campo para ingresar el número de teléfono
