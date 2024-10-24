@@ -482,7 +482,7 @@ p {
     translate: 5em 0;
 }
 
-.accent-lines {
+/* .accent-lines {
     pointer-events: none;
     position: absolute; 
     top: 0; 
@@ -513,7 +513,7 @@ p {
     position: absolute; top: 0; right: 0; left: 0; margin: auto;
     width: 1px; height: 100%;
     background: var(--accent-lines-clr);
-}
+} */
 @keyframes accentload {
     0% {
         opacity: 0; scale: 0;
@@ -930,18 +930,35 @@ p {
 
 
 
-@media (max-width : 1100px) {
+@media (max-width : 1300px) {
 
     .heroT > h2 {
         font-size: 6rem;
     }
 
     .use {
-        width: 30%;
+        width: 3    0%;
     }
 
 
+    .heroSubP {
+        top: 8em; 
+        
+    }
 
+    .input-container-custom {
+        top: 21em;
+    }
+
+    .use{
+        top: 26em; 
+        
+    }
+
+    .mountains {
+ 
+        top: 36em; 
+    }
     
 }
 
