@@ -930,14 +930,14 @@ p {
 
 
 
-@media (max-width : 950px) {
+@media (max-width : 1100px) {
 
     .heroT > h2 {
         font-size: 6rem;
     }
 
     .use {
-        width: 50%;
+        width: 30%;
     }
 
 
@@ -1057,6 +1057,6 @@ p {
         left: 34%;
     }
 
-    /* Es
+
 
 }
