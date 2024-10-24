@@ -8,9 +8,17 @@ html { -ms-overflow-style: none; scrollbar-width: none; }
 body {
     margin: 0;
     font-family: Untitled Sans, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
-    background: #05060f linear-gradient(0deg,rgba(216,236,248,.06),rgba(152,192,239,.06));
+    font-family: Arial, sans-serif;
+    background-image: url('../BACKGROUND\ DIGITAL\ SUMMIT-03.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: darken;
+    /* background: #05060f linear-gradient(0deg,rgba(216,236,248,.06),rgba(152,192,239,.06)); */
 
     font-size: max(calc(var(--_size) * 0.03), 10px);
+
+
     --_factor: min(600px, 100vh);
     --_size: min(var(--_factor), 100vw);
 
@@ -35,9 +43,9 @@ body.gold .header .spotlight {
 }
 body.gold .mountains > div {
     box-shadow: 
-    -1em -0.2em 0.4em -1.1em #c2ccff,
+    -1em -0.2em 0.4em -1.1em #00BEBE,
     inset 0em 0em 0em 2px #d8a910,
-    inset 0.2em 0.3em 0.2em -0.2em #c2ccff,
+    inset 0.2em 0.3em 0.2em -0.2em #00BEBE,
     inset 10.2em 10.3em 2em -10em #d4e6ff2f;
 }
 
@@ -63,7 +71,7 @@ h2 a {
     justify-content: space-between;
     align-items: center; /* Alinea verticalmente los elementos en el centro */
     width: 100%;
-    color: #bad6f7;
+    color: #00BEBE;
     padding: 2em; /* Ajusta el padding para que no sea demasiado grande */
     position: absolute;
     top: 0; 
@@ -109,7 +117,7 @@ h2 a {
     height: 1.8em;
     border-radius: 50%; /* Cambia a 50% para un círculo perfecto */
     background: black;
-    box-shadow: 0 0 1em 0 #98c0ef;
+    box-shadow: 0 0 1em 0 #00BEBE;
     cursor: pointer;
     transition: box-shadow 1s ease-in-out;
 }
@@ -149,7 +157,7 @@ h2 a {
 
 
 body.gold .header > div.mid-spot:hover {
-    box-shadow: -0.3em 0.1em 0.2em 0 #98c0ef;
+    box-shadow: -0.3em 0.1em 0.2em 0 #00BEBE;
 }
 
 body.gold .header > div.mid-spot {
@@ -177,7 +185,7 @@ button.contact-btn {
     padding-top: 0.3em;
 
     background: #121521;
-    color: #9dc3f7;
+    color: #00BEBE;
     white-space:nowrap;
 }
 button.contact-btn::before {
@@ -250,7 +258,6 @@ button.contact-btn:hover .glow::after, button.contact-btn:hover .glow::before {
     pointer-events: none;
     position: absolute; left: 0; right: 0; top:0; margin: 0 auto;
     transition: filter 1s ease-in-out;
-
     height: 60em; width: 100%;
     overflow: hidden;
 }
@@ -343,15 +350,15 @@ p {
     
     font-size: 7rem;
     font-weight: 600;
-    color: #9dc3f7;
+    color: #00BEBE;
     background:
     radial-gradient( 2em 2em at 50% 50%,
         transparent calc(var(--p) - 2em),
-        #fff calc(var(--p) - 1em), 
-        #fff calc(var(--p) - 0.4em), 
+        #00BEBE calc(var(--p) - 1em), 
+        #00FF8C calc(var(--p) - 0.4em), 
         transparent var(--p) 
     ),
-    linear-gradient(0deg, #bad1f1 30%, #9dc3f7 100%);
+    linear-gradient(0deg, #00FF8C 30%, #00BEBE 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
