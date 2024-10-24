@@ -3,7 +3,14 @@
 <link rel="stylesheet" href="Style.css">
 <div class="header">
   <div class="mid-spot" onclick="document.body.classList.toggle('gold');"></div>
-
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item"><a href="#" class="nav-link">Speakers</a></li>
+      <li class="nav-item"><a href="http://127.0.0.1:3000/LugarEvento.html" class="nav-link">Lugar del evento</a></li>
+      <li class="nav-item"><a href="http://127.0.0.1:3000/Index.html" class="nav-link">Conferencias</a></li>
+      <li class="nav-item"><a href="http://127.0.0.1:3000/Hoteles.html" class="nav-link">Hoteles</a></li>
+    </ul>
+  </nav>
   <div class="spotlight">
     <div></div>
     <div></div>
@@ -13,7 +20,7 @@
 
 <canvas id="particleCanvas"></canvas>
 
-<div class="accent-lines">
+ <!-- <div class="accent-lines">
   <div>
     <div></div>
     <div></div>
@@ -27,20 +34,24 @@
     <div></div>
     <div></div>
   </div>
-</div>
-<div class="heroSubP">
-  <p>Introduce tu correo de compra y Descarga tu Entrada</p>
-</div>
+</div> -->
+
 <div class="hero">
   <div class="heroT">
     <h2>Digital Summit</h2>
-    <h2>Digital Summit</h2>
+  </div>
+  <div class="heroSubP">
+    <p>Introduce tu correo de compra y Descarga tu Entrada</p>
   </div>
   <!-- Campo de correo y botón de enviar -->
 </div>
 <div class="input-container-custom">
   <input type="email" placeholder="Ingresa tu correo" class="input-animated-custom" id="emailInputCustom">
   <button class="submit-btn-custom" id="submitBtnCustom">Enviar</button>
+</div>
+
+<div class="use">
+  <p>Al consultar su código QR, usted acepta el tratamiento y uso de su imagen personal para la creación de contenido audiovisual, incluyendo pero no limitado a videos, fotografías, y otros medios digitales, de acuerdo con nuestras políticas de privacidad y protección de datos.</p>
 </div>
 
 <!-- Este contenedor es necesario para mostrar los mensajes de éxito o error -->

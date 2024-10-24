@@ -11,8 +11,8 @@ body {
     background: #05060f linear-gradient(0deg,rgba(216,236,248,.06),rgba(152,192,239,.06));
 
     font-size: max(calc(var(--_size) * 0.03), 10px);
-    --_factor: min(600px, 80vh);
-    --_size: min(var(--_factor), 80vw);
+    --_factor: min(600px, 100vh);
+    --_size: min(var(--_factor), 100vw);
 
     height: 100%;
     max-width: 100%; 
@@ -48,7 +48,7 @@ body.gold .content-section ::after{
 }
 
 h2 {
-    font-family: 'Hubot-Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 h2, p {
     margin: 0; padding: 0;
@@ -59,25 +59,37 @@ h2 a {
 }
 
 .header {
-    display: flex; width: 100%;
-    justify-content: center;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; /* Alinea verticalmente los elementos en el centro */
+    width: 100%;
     color: #bad6f7;
-    padding: 2em;
+    padding: 2em; /* Ajusta el padding para que no sea demasiado grande */
     position: absolute;
-    top: 0; left: 0; right: 0; margin: 0 auto;
-
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    margin: 0 auto;
     opacity: 0;
     translate: 0 -1em;
     animation: load 2s ease-in 2s forwards, up 1.4s ease-out 2s forwards;
 }
 .header > :nth-child(1) {
     font-size: 1em;
-    position: absolute; left: 0; right: 29em; margin: 0.2em auto;
+    position: absolute; 
+    left: 0; 
+    right: 29em; 
+    margin: 0.2em auto;
     width: fit-content;
 }
 .header > :nth-child(2) {
-    position: absolute; left: 0; right: 0; margin: 0 auto;
-    width: fit-content;
+    position: 
+    absolute;
+    left: 0; 
+    right: 0; 
+    margin: 0 
+    auto;
+    width: fit-content;    
 }
 .header > h2{
     opacity: 0.5;
@@ -91,8 +103,9 @@ h2 a {
 }
 
 .header > div.mid-spot {
-    width: 1.8em; height: 1.8em;
-    border-radius: 50%;
+    width: 1.8em; 
+    height: 1.8em;
+    border-radius: 50%; /* Cambia a 50% para un círculo perfecto */
     background: black;
     box-shadow: 0 0 1em 0 #98c0ef;
     cursor: pointer;
@@ -101,6 +114,38 @@ h2 a {
 .header > div.mid-spot:hover {
     box-shadow: -0.3em 0.1em 0.2em 0 #d8bd10;
 }
+
+.nav {
+    padding: 0; /* Elimina el padding superior e inferior */
+}
+
+.nav-list {
+    display: flex;
+    column-gap: 20px; /* Aumenta el espacio entre los elementos del menú */
+    list-style: none; /* Elimina los puntos de la lista */
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 0; /* Elimina el padding por defecto */
+}
+
+.nav-item {
+    gap: 5em;
+    /* Añade un poco de margen a cada item si es necesario */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: rgba(225, 225, 225, 0.7);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s; /* Mejora la transición solo para el color */
+}
+
+.nav-link:hover {
+    color: rgba(225, 225, 225, 1);
+    text-shadow: 0 2px 8px rgba(174, 207, 242, 0.6); /* Añade un efecto de sombra al pasar el mouse */
+}
+
+
 body.gold .header > div.mid-spot:hover {
     box-shadow: -0.3em 0.1em 0.2em 0 #98c0ef;
 }
@@ -110,7 +155,7 @@ body.gold .header > div.mid-spot {
 }
 
 .header > :nth-child(2):hover ~ .spotlight {
-    animation: colorize 10s linear infinite;
+    animation: colorize 20s linear infinite;
 }
 @keyframes colorize {
     0%{filter: hue-rotate(0deg); }
@@ -204,14 +249,15 @@ button.contact-btn:hover .glow::after, button.contact-btn:hover .glow::before {
     position: absolute; left: 0; right: 0; top:0; margin: 0 auto;
     transition: filter 1s ease-in-out;
 
-    height: 42em; width: 100%;
+    height: 60em; width: 100%;
     overflow: hidden;
 }
 .header .spotlight > div {
     border-radius: 0 0 50% 50%;
     position: absolute; left: 0; right: 0; margin: 0 auto; 
     top: 3em;
-    width: 30em; height: max(42em, 86vh);
+    width: 30em; 
+    height: max(60em, 100vh);
     background-image: conic-gradient(from 0deg at 50% -5%, transparent 45%, rgba(124, 145, 182, .3) 49%, rgba(124, 145, 182, .5) 50%, rgba(124, 145, 182, .3) 51%, transparent 55%);
     transform-origin: 50% 0;
     filter: blur(15px) opacity(0.5);
@@ -262,6 +308,7 @@ canvas#particleCanvas {
     animation: load 0.4s ease-in-out forwards;
     z-index: 1;
     width: 100%;
+    height: 100%;
 }   
 
 p {
@@ -272,14 +319,14 @@ p {
     width: 100%;
     height: 100%;
     max-height: 140px;
-    position: absolute; top: 16em;
+    position: absolute; top: 10em;
 }
 
 .heroT {
     display: flex;
     position: absolute; left: 0; right: 0; margin: auto;
     height: 10em;
-    padding-top: -9em;
+    padding-top: -13em;
     translate: 0 -1.6em;
     opacity: 0;
     animation: load 2s ease-in-out 0.6s forwards;
@@ -359,18 +406,49 @@ p {
 }
 
 .heroSubP {
-    position: absolute; left: 0; right: 0; top: 13em; margin: auto;
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    top: 12em; 
+    margin: auto;
     height: fit-content;
     opacity: 0;
     translate: 0 -1em;
     animation: load3 2s ease-in 0s forwards, up 1.4s ease-out 0s forwards;
 }
+
+.use {
+    width: 26%;
+    text-align: center;
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    top: 30em; 
+    margin: auto;
+    height: fit-content;
+    opacity: 0;
+    translate: 0 -1em;
+    animation: load3 2s ease-in 0s forwards, up 1.4s ease-out 0s forwards;
+}
+
+.use p {
+    font-size: 0.8em;
+    position: relative; width: fit-content; margin: auto;
+    color: #d8ecf8;
+    text-shadow: 0 2px 16px rgba(174,207,242,.24);
+    background: linear-gradient(0deg, #d8ecf8 0, #98c0ef 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
 @keyframes load3 {  
     0% { opacity: 0;}    
     100% { opacity: 0.7;}    
 }
 .heroSubP p {
-    font-size: 1em;
+    font-size: 1.2em;
     position: relative; width: fit-content; margin: auto;
     color: #d8ecf8;
     text-shadow: 0 2px 16px rgba(174,207,242,.24);
@@ -404,8 +482,12 @@ p {
 
 .accent-lines {
     pointer-events: none;
-    position: absolute; top: 0; left: 0; right: 0;
-    width: 100%; height: 42em;
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0;
+    width: 100%; 
+    height: 100%;
     z-index: -2;
     --accent-lines-clr: rgba(186, 215, 247, .18);
 }
@@ -518,8 +600,13 @@ p {
 }
 
 .mountains {
-    position: absolute; left: 0; right: 0; top: 31em; margin: auto;
-    width: 100%; height: 10em;
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    top: 41em; 
+    margin: auto;
+    width: 100%; 
+    height: 10em;
     pointer-events: none;
 }
 .mountains::before {
@@ -666,14 +753,14 @@ p {
 }
 
 .input-container-custom {
-    font-size: 1.2em;
+    font-size: 1em;
     position: absolute; 
-    left: 0; 
-    right: 0; 
-    top: 20em; /* Ajusta este valor según la posición deseada */
+    /* left: 0; 
+    right: 0;  */
+    top: 26em; /* Ajusta este valor según la posición deseada */
     margin: auto;
     height: fit-content;
-    width: fit-content;
+    width: 100%;
     text-align: center;
     opacity: 1; /* Aseguramos que el contenedor sea visible */
     transform: translateY(0); /* Usamos 'transform' en lugar de 'translate' */
@@ -689,9 +776,9 @@ p {
 }
 
 #emailInputCustom, #submitBtnCustom {
-    padding: 0.8em;
-    font-size: 1.2em;
-    border-radius: 0.5em;
+    padding: 0.5em;
+    font-size: 1em;
+    border-radius:1vh;
     border: 1px solid #9dc3f7;
     background-color: rgba(186, 215, 247, 0.1);
     color: #d8ecf8;
@@ -706,11 +793,11 @@ p {
 }
 
 #submitBtnCustom {
+    font-size: 1em;
     background-color: transparent; /* Fondo transparente */
     color: #00FF8C; /* Texto verde */
     cursor: pointer;
     border: 2px solid #00FF8C; /* Borde verde */
-    padding: 0.8em 1.5em; /* Espacio adecuado alrededor del texto */
     font-weight: bold; /* Texto en negrita para mayor legibilidad */
     transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
@@ -828,4 +915,79 @@ p {
 
 .close-btn:hover {
     color: #00ff6e; /* Cambia a rojo al pasar el mouse */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width : 950px) {
+
+    .heroT > h2 {
+        font-size: 6rem;
+    }
+
+    .use {
+        width: 50%;
+    }
+
+
+}
+
+
+
+@media (max-width : 700px) {
+
+    .heroT > h2 {
+        font-size: 5rem;
+    }
+
+    .use {
+        width: 50%;
+    }
+
+
+}
+
+
+@media (max-width : 600px) {
+
+    .heroT > h2 {
+        font-size: 4rem;
+    }
+
+    .use {
+        width: 50%;
+    }
+
+
+}
+
+
+
+@media (max-width : 600px) {
+
+    .heroT > h2 {
+        font-size: 3rem;
+    }
+
+    .use {
+        width: 50%;
+    }
+
+
 }
