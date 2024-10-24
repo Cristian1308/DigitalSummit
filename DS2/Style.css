@@ -831,7 +831,7 @@ p {
     align-items: center;
     flex-direction: column;
     padding: 20px;
-    border: 2px solid #ccc;
+    border: 2px solid #ffffff;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -869,9 +869,8 @@ p {
 
 /* QR Code centrado dentro del boleto */
 .ticket .qr-code {
-    width: 120px;
-    height: 120px;
-    border: 1px solid #000;
+    width: 115px;
+    height: 115px;
     background-color: #fff;
     position: absolute;
     top: 26.5%;
