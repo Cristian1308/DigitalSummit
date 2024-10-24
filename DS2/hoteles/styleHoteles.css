@@ -3,7 +3,7 @@
 /* Estilos generales */
 body, html {
     font-family: Arial, sans-serif;
-    background-image: url('../Fondo.jpg');
+    background-image: url('../../Fondo.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.5);
