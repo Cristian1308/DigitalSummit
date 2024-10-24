@@ -797,20 +797,19 @@ p {
 /* Media Query para dispositivos móviles */
 @media (max-width: 768px) {
     .ticket {
-        width: 350px;  /* Ancho más grande para móviles */
-        height: 550px; /* Alto más grande para móviles */
+        width: 90vw;  /* Ancho del boleto como 90% del ancho de la pantalla */
+        height: 90vh; /* Alto del boleto como 90% del alto de la pantalla */
     }
 
     .ticket .qr-code {
-        width: 120px; /* Hacemos el QR un poco más grande también */
-        height: 120px;
+        width: 140px; /* Hacemos el QR un poco más grande también */
+        height: 140px;
     }
 
     .ticket-container {
         padding: 30px; /* Ajustar el padding del contenedor si es necesario */
     }
 }
-
 
 
 /* Estilos del botón de cerrar */
