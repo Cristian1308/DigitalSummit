@@ -619,6 +619,8 @@ p {
     height: 10em;
     pointer-events: none;
 }
+
+
 .mountains::before {
     content: ''; 
     display: block;
