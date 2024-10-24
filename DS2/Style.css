@@ -960,6 +960,10 @@ p {
         width: 50%;
     }
 
+    .nav-link {
+        font-size: 0.8rem;
+    }
+
 
 }
 
@@ -974,12 +978,16 @@ p {
         width: 50%;
     }
 
+    .nav-link {
+        font-size: 0.8rem;
+    }
+
 
 }
 
 
 
-@media (max-width : 600px) {
+@media (max-width : 400px) {
 
     .heroT > h2 {
         font-size: 3rem;
