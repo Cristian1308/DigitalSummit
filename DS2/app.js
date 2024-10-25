@@ -52,7 +52,7 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   };
 }
 
-
+//hola
 // Función para cerrar el boleto
 document.getElementById('closeBtn').addEventListener('click', function() {
   document.getElementById('ticketContainer').style.display = 'none'; // Ocultar el boleto
