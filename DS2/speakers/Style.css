@@ -314,7 +314,7 @@ canvas#particleCanvas {
     }
 
     .container {
-        margin-top: 41em;
+        margin-top: 40em;
         display: flex;
         flex-direction: column;
     }
