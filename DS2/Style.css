@@ -623,7 +623,7 @@ p {
 .title img {
     margin-left: 25px;
     margin-top: 20px;
-    max-width: 75%;
+    max-width: 100%;
     height: auto;
 }
 
@@ -990,7 +990,7 @@ p {
 
 
 
-@media (max-width : 1300px) {
+@media (max-width : 1400px) {
 
     .heroT > h2 {
         font-size: 6rem;
@@ -1002,12 +1002,12 @@ p {
 
 
     .heroSubP {
-        top: 8em; 
+        top: 20em; 
         
     }
 
     .input-container-custom {
-        top: 21em;
+        top: 23em;
     }
 
     .use{
@@ -1038,6 +1038,9 @@ p {
         font-size: 0.8rem;
     }
 
+    .title {   
+        width: 80%;
+    }
 
     .ticket-container {
         padding-bottom: 15px;
@@ -1082,6 +1085,10 @@ p {
 
     .nav-link {
         font-size: 0.8rem;
+    }
+
+    .title {   
+        width: 80%;
     }
 
     .mountains {
