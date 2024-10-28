@@ -298,6 +298,7 @@ canvas#particleCanvas {
 
 /* Estilos para las imágenes */
 .container div img {
+    border-radius: 5%;
     width: 100%; /* Asegura que la imagen ocupe el 100% del contenedor */
     height: auto; /* Mantiene la relación de aspecto de la imagen */
     box-shadow: 0 4px 8px rgba(26, 26, 26, 1); /* Sombra suave */
