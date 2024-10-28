@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   submitButton.disabled = true;
 
-  
+
   checkbox.addEventListener('change', function () {
     submitButton.disabled = !checkbox.checked; // Activa o desactiva el botón
   });
@@ -56,18 +56,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const emailInput = document.getElementById('emailInputCustom').value.trim();
 
     // Verifica si el checkbox está marcado antes de continuar
-    if (!checkbox.checked) {
-      document.getElementById('message').textContent = 'Debes aceptar los términos y condiciones para continuar.';
-      return; // Detiene la ejecución si el checkbox no está marcado
-    }
+    // if (!checkbox.checked) {
+    //   document.getElementById('message').textContent = 'Debes aceptar los términos y condiciones para continuar.';
+    //   return; 
+    // }
 
     // Aquí va la lógica de validación del correo
     if (validUsers.has(emailInput)) {
       const { qrLink, idBoleto, nombre } = validUsers.get(emailInput);
       generarBoleto(qrLink, idBoleto, nombre);
-      document.getElementById('message').textContent = `¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto}`;
+      // document.getElementById('message').textContent = `¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto}`;
     } else {
-      document.getElementById('message').textContent = 'Correo no encontrado.';
+      // document.getElementById('message').textContent = 'Correo no encontrado.';
     }
   });
 });
