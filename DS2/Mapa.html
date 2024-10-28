@@ -1,0 +1,106 @@
+<!-- design inspired by https://www.authkit.com/ -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="Style.css">
+<style>
+    .map-container {
+        width: 50%;
+        max-width: 800px;
+        height: 450px;
+        margin: 350px auto 0;
+        /* Ajusta el margen superior */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .map-button {
+        text-decoration: none;
+        color: #fff;
+        background-color: #4285F4;
+        padding: 10px 20px;
+        margin: 0 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    .map-button:hover {
+        background-color: #3367D6;
+    }
+</style>
+<div class="header">
+    <!-- <div class="mid-spot" onclick="document.body.classList.toggle('gold');"></div> -->
+    <nav class="nav">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#" class="nav-link">Inicio</a></li>
+            <li class="nav-item"><a href="" class="nav-link">Speakers</a></li>
+            <li class="nav-item"><a href="" class="nav-link">Hospedaje<a href=""></a></a></li>
+            <li class="nav-item"><a href="hoteles/Hoteles.html" class="nav-link">Cómo llegar</a></li>
+        </ul>
+    </nav>
+    <div class="spotlight">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+<canvas id="particleCanvas"></canvas>
+
+<!-- <div class="accent-lines">
+  <div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div> -->
+
+<div class="hero">
+    <!-- <div class="heroT"> -->
+    <div class="title">
+        <img src="../../DS FULL COLOR.png" alt="DIGITAL SUMMIT">
+    </div>
+</div>
+<div class="heroSubP">
+    <p>Lugar Del Evento</p>
+</div>
+<!-- Campo de correo y botón de enviar -->
+
+<div class="map-container">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8888.501857141504!2d-73.11442972614194!3d7.082162422735071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f991cc23c09%3A0xebd807ddb7749538!2sG12%20Centro%20De%20Convenciones%20Bucaramanga!5e0!3m2!1ses!2sco!4v1730133578010!5m2!1ses!2sco"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+
+<div class="button-container">
+    <a href="https://maps.app.goo.gl/1dyvwcjVuog85EYR9" target="_blank"
+        class="map-button">Abrir con Google Maps</a>
+    <a href="https://waze.com/ul?ll=37.42199997982524,-122.08424968469056&navigate=yes" target="_blank"
+        class="map-button">Abrir con Waze</a>
+</div>
+
+
+<div class="hero-spacer"></div>
+<script src="app.js"></script>
