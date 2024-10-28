@@ -1170,3 +1170,58 @@ p {
 
 
 }
+
+/* Estilos para el modal único */
+.modal-unique {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content-unique {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .close-btn-unique {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .modal-buttons-unique button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .modal-buttons-unique button:first-child {
+    background-color: #4285f4;
+    color: #fff;
+  }
+  
+  .modal-buttons-unique button:last-child {
+    background-color: #34a853;
+    color: #fff;
+  }
+  
+  .modal-buttons-unique button:hover {
+    opacity: 0.9;
+  }
