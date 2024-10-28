@@ -848,13 +848,6 @@ p {
     box-shadow: 0 0 10px #00FF8C; /* Sombra verde */
 }
 
-.checkbox-container {
-    display: flex;
-    align-items: center; /* Centra verticalmente el checkbox y el texto */
-    margin: 10px 0; /* Espaciado superior e inferior */
-    font-family: Arial, sans-serif; /* Fuente del texto */
-    font-size: 16px; /* Tamaño de fuente */
-}
 
 /* Estilos para el checkbox */
 #consentCheckbox {
@@ -865,8 +858,8 @@ p {
 }
 
 /* Estilos para el texto */
-.checkbox-label {
-    color: #333; /* Color del texto */
+.use label {
+    color: #ffffff; /* Color del texto */
 }
 
 /* Efecto al pasar el mouse sobre el checkbox */
