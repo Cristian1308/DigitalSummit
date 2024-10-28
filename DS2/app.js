@@ -93,7 +93,7 @@ function realizarCompraUnique() {
   window.location.href = "https://compras.tuempresa.com"; // URL de la página de compra
 }
 
-// Función para generar el boleto en HTML y crear una URL temporal
+// Función para generar el boleto en HTML y crear una URL temporal en formato JPG
 function generarBoleto(qrURL) {
   const qrImg = document.getElementById('qrCode');
   qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
@@ -102,43 +102,45 @@ function generarBoleto(qrURL) {
   qrImg.onload = function () {
     document.getElementById('ticketContainer').style.display = 'flex'; // Mostrar el contenedor del boleto
 
-    // Generar el boleto como imagen y convertirla en URL temporal
+    // Generar el boleto como imagen en formato JPG y convertirla en URL temporal
     const ticketElement = document.getElementById('ticket');
     html2canvas(ticketElement, { useCORS: true }).then(function (canvas) {
-      boletoImageURL = canvas.toDataURL('image/png'); // Convertir el boleto a una URL temporal
+      boletoImageURL = canvas.toDataURL('image/jpeg', 1.0); // Convertir el boleto a una URL temporal en JPG
 
-      // Copiar la URL de la imagen al portapapeles automáticamente
+      // Copiar la URL de la imagen al portapapeles automáticamente (opcional)
       copiarURLAlPortapapeles(boletoImageURL);
-      alert("El boleto ha sido generado y la URL se ha copiado al portapapeles.");
+      alert("El boleto ha sido generado y ya lo puedes descargar");
 
     }).catch(function (error) {
       console.error("Error al generar la imagen del boleto: ", error);
     });
   };
+
+  // Manejo de error en la carga del QR
+  qrImg.onerror = function () {
+    alert("Error al cargar el código QR. Verifica la URL del QR.");
+  };
 }
 
-// Función para copiar la URL de la imagen al portapapeles
-function copiarURLAlPortapapeles(url) {
-  const tempInput = document.createElement('input');
-  tempInput.value = url;
-  document.body.appendChild(tempInput);
-  tempInput.select();
-  document.execCommand('copy');
-  document.body.removeChild(tempInput);
-}
+// Función para descargar el boleto como JPG
+document.getElementById('downloadBtn').addEventListener('click', function () {
+  if (boletoImageURL) {
+    const link = document.createElement('a');
+    link.download = 'boleto.jpg'; // Nombre del archivo
+    link.href = boletoImageURL; // Convertir el canvas a una URL de imagen en JPG
+    link.click(); // Simular clic para descargar la imagen
+  } else {
+    alert("Primero debes generar el boleto.");
+  }
+});
+
 
 // Función para cerrar el boleto
 document.getElementById('closeBtn').addEventListener('click', function () {
   document.getElementById('ticketContainer').style.display = 'none'; // Ocultar el boleto
 });
 
-// Función para descargar el boleto como PNG
-document.getElementById('downloadBtn').addEventListener('click', function () {
-  const link = document.createElement('a');
-  link.download = 'boleto.png'; // Nombre del archivo
-  link.href = boletoImageURL; // Convertir el canvas a una URL de imagen
-  link.click(); // Simular clic para descargar la imagen
-});
+
 
 // Mostrar campo para ingresar el número de teléfono
 document.getElementById('whatsappBtn').addEventListener('click', function () {
@@ -187,5 +189,3 @@ function iniciarCuentaRegresiva() {
   // Actualizar el contador cada segundo
   const interval = setInterval(actualizarCuenta, 1000);
 }
-
-
