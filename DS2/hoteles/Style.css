@@ -74,7 +74,7 @@ h2 a {
 
     opacity: 0;
     translate: 0 -1em;
-    animation: load 2s ease-in 2s forwards, up 1.4s ease-out 2s forwards;
+    animation: load 1s ease-in 1s forwards, up 1s ease-out 1s forwards;
 }
 
 
@@ -99,7 +99,7 @@ h2 a {
     color: rgba(225, 225, 225, 0.7);
     font-size: 1.2rem;
     font-weight: 500;
-    transition: color 0.3s; /* Mejora la transición solo para el color */
+    transition: color 0.2s; /* Mejora la transición solo para el color */
 }
 
 .nav-link:hover {
