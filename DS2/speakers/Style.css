@@ -221,6 +221,21 @@ canvas#particleCanvas {
     100% { opacity: 1;}    
 }
 
+.title{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+}
+h2 {
+    width: 40%;
+    text-align: center;
+    font-size: 3em; /* Ajusta el tamaño de fuente según sea necesario */
+    background: linear-gradient(90deg, #00FF8C, #00BEBE); /* Degradado de color */
+    -webkit-background-clip: text; /* Clipa el fondo al texto */
+    -webkit-text-fill-color: transparent; /* Hace que el color del texto sea transparente */
+}
 
 .container {
     height: 70%;
