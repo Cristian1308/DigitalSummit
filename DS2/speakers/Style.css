@@ -44,15 +44,26 @@ h2 {
     box-shadow: 0 4px 8px rgba(26, 26, 26, 1); 
 }
 
+
+@media (max-width: 1400px) {
+
+    .container {
+        overflow: scroll;
+    }
+
+}
+
+
 /* Media Queries */
 @media (max-width: 800px) {
-
-
 
     h2 {
         font-size: 2em; 
         margin-bottom: 1%;
     }  
+
+
+
 }
 
 @media (max-width: 600px) {
