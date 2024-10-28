@@ -26,16 +26,50 @@ function cargarListaCorreosDesdeURL(url) {
 }
 
 // Manejador de evento para buscar el correo y mostrar el boleto
-document.getElementById('submitBtnCustom').addEventListener('click', function () {
-  const emailInput = document.getElementById('emailInputCustom').value.trim();
+// document.getElementById('submitBtnCustom').addEventListener('click', function () {
+//   const emailInput = document.getElementById('emailInputCustom').value.trim();
 
-  if (validUsers.has(emailInput)) {
-    const { qrLink, idBoleto, nombre } = validUsers.get(emailInput);
-    generarBoleto(qrLink, idBoleto, nombre);
-    document.getElementById('message').textContent = `¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto}`;
-  } else {
-    document.getElementById('message').textContent = 'Correo no encontrado.';
-  }
+//   if (validUsers.has(emailInput)) {
+//     const { qrLink, idBoleto, nombre } = validUsers.get(emailInput);
+//     generarBoleto(qrLink, idBoleto, nombre);
+//     document.getElementById('message').textContent = `¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto}`;
+//   } else {
+//     document.getElementById('message').textContent = 'Correo no encontrado.';
+//   }
+// });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const checkbox = document.getElementById('consentCheckbox');
+  const submitButton = document.getElementById('submitBtnCustom');
+
+  // Habilitar o deshabilitar el botón según el estado del checkbox
+
+  submitButton.disabled = true;
+
+  
+  checkbox.addEventListener('change', function () {
+    submitButton.disabled = !checkbox.checked; // Activa o desactiva el botón
+  });
+
+  // Lógica para manejar el clic en el botón "Enviar"
+  submitButton.addEventListener('click', function () {
+    const emailInput = document.getElementById('emailInputCustom').value.trim();
+
+    // Verifica si el checkbox está marcado antes de continuar
+    if (!checkbox.checked) {
+      document.getElementById('message').textContent = 'Debes aceptar los términos y condiciones para continuar.';
+      return; // Detiene la ejecución si el checkbox no está marcado
+    }
+
+    // Aquí va la lógica de validación del correo
+    if (validUsers.has(emailInput)) {
+      const { qrLink, idBoleto, nombre } = validUsers.get(emailInput);
+      generarBoleto(qrLink, idBoleto, nombre);
+      document.getElementById('message').textContent = `¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto}`;
+    } else {
+      document.getElementById('message').textContent = 'Correo no encontrado.';
+    }
+  });
 });
 
   // Función para generar el boleto en HTML y crear una URL temporal

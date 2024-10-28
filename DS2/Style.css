@@ -1,28 +1,25 @@
 @import url('https://fonts.cdnfonts.com/css/hubot-sans');
-*{ box-sizing: border-box; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth;}
+*{ 
+    box-sizing: border-box; 
+    -webkit-font-smoothing: antialiased; 
+    text-rendering: optimizeLegibility; 
+    scroll-behavior: smooth;}
+
 html, body { height: 100%; }
 
 html::-webkit-scrollbar { display: none; }
 html { -ms-overflow-style: none; scrollbar-width: none; }
 
 body {
+    background-color: rgba(26, 26, 26, 0.9);
     margin: 0;
-    font-family: Untitled Sans, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
-    font-family: Arial, sans-serif;
-    background-image: url('../BACKGROUND\ DIGITAL\ SUMMIT-03.png');
+    /* font-family: 'Montserrat', Arial, sans-serif;  */
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: darken;
-    /* background: #05060f linear-gradient(0deg,rgba(216,236,248,.06),rgba(152,192,239,.06)); */
-
     font-size: max(calc(var(--_size) * 0.03), 10px);
-
-
     --_factor: min(600px, 100vh);
     --_size: min(var(--_factor), 100vw);
-/* 
-    height: 100%; */
     max-width: 100%; 
     overflow: hidden;
 }
@@ -55,9 +52,9 @@ body.gold .content-section ::after{
     filter: invert(1) brightness(4.4) opacity(1);
 }
 
-h2 {
+/* h2 {
     font-family: 'Montserrat', sans-serif;
-}
+} */
 h2, p {
     margin: 0; padding: 0;
 }
@@ -67,23 +64,25 @@ h2 a {
 }
 
 .header {
+    border: 1px solid rgb(255, 255, 255);
     display: flex; 
-    justify-content: space-between;
-    align-items: center; /* Alinea verticalmente los elementos en el centro */
+    justify-content: center;
+    align-items: center;
+    
     width: 100%;
     color: #00BEBE;
-    padding: 2em; /* Ajusta el padding para que no sea demasiado grande */
-    position: absolute;
-    top: 0; 
+    padding: 2em; 
+    /* position: absolute; */
+    /* top: 0; 
     left: 0; 
     right: 0; 
-    margin: 0 auto;
+    margin: 0 auto; */
     opacity: 0;
     translate: 0 -1em;
     animation: load 2s ease-in 2s forwards, up 1.4s ease-out 2s forwards;
 }
 
-.header > :nth-child(1) {
+/* .header > :nth-child(1) {
     font-size: 1em;
     position: absolute; 
     left: 0; 
@@ -100,8 +99,8 @@ h2 a {
     margin: 0 
     auto;
     width: fit-content;    
-}
-.header > h2{
+} */
+/* .header > h2{
     opacity: 0.5;
     cursor: pointer;
     transition: opacity 0.04s ease-in-out;
@@ -110,42 +109,42 @@ h2 a {
     opacity: 1;
     text-shadow: 0 2px 16px rgba(174,207,242, 0.6);
     width: fit-content;
-}
+} */
 
-.header > div.mid-spot {
+/* .header > div.mid-spot {
     width: 1.8em; 
     height: 1.8em;
-    border-radius: 50%; /* Cambia a 50% para un círculo perfecto */
+    border-radius: 50%; 
     background: black;
     box-shadow: 0 0 1em 0 #00BEBE;
     cursor: pointer;
     transition: box-shadow 1s ease-in-out;
-}
-.header > div.mid-spot:hover {
+} */
+/* .header > div.mid-spot:hover {
     box-shadow: -0.3em 0.1em 0.2em 0 #d8bd10;
-}
+} */
 
 .nav {
+    border: 1px solid darkcyan;
     padding: 0; /* Elimina el padding superior e inferior */
 }
 
 .nav-list {
     display: flex;
-    column-gap: 20px; /* Aumenta el espacio entre los elementos del menú */
+    column-gap: 5em; /* Aumenta el espacio entre los elementos del menú */
     list-style: none; /* Elimina los puntos de la lista */
     margin: 0; /* Elimina el margen por defecto */
     padding: 0; /* Elimina el padding por defecto */
 }
 
-.nav-item {
-    gap: 5em;
-    /* Añade un poco de margen a cada item si es necesario */
-}
+/* .nav-item {
+    gap: 50em;
+} */
 
 .nav-link {
     text-decoration: none;
     color: rgba(225, 225, 225, 0.7);
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 500;
     transition: color 0.3s; /* Mejora la transición solo para el color */
 }
@@ -325,26 +324,32 @@ p {
 }
 
 .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
     max-height: 140px;
     position: absolute; top: 10em;
 }
 
-.heroT {
+/* .heroT {
     display: flex;
-    position: absolute; left: 0; right: 0; margin: auto;
+    position: absolute; 
+    left: 0;
+    right: 0; 
+    margin: auto;
     height: 10em;
     padding-top: -13em;
     translate: 0 -1.6em;
     opacity: 0;
     animation: load 2s ease-in-out 0.6s forwards;
-}
+} */
 @keyframes load {  
     0% { opacity: 0;}    
     100% { opacity: 1;}    
 }
-.heroT > h2 {
+/* .heroT > h2 {
     position: absolute;left: 0; right: 0; margin: auto;
     width: fit-content;
     
@@ -384,7 +389,7 @@ p {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: blur(16px) opacity(0.4);
-}
+} */
 @keyframes pulse { 
     0% { --p:0%; }
     50% { --p:300%;}
@@ -418,7 +423,7 @@ p {
     position: absolute; 
     left: 0; 
     right: 0; 
-    top: 12em; 
+    top: 22em; 
     margin: auto;
     height: fit-content;
     opacity: 0;
@@ -609,6 +614,21 @@ p {
     }
 } */
 
+.title {   
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    width: 40%;
+}
+
+.title img {
+    margin-left: 25px;
+    margin-top: 20px;
+    max-width: 75%;
+    height: auto;
+}
+
 .mountains {
     position: absolute; 
     left: 0; 
@@ -791,6 +811,12 @@ p {
     
 }
 
+#submitBtnCustom:disabled {
+    background-color: #ccc; /* Color del botón desactivado */
+    color: #666; /* Color del texto desactivado */
+    cursor: not-allowed; /* Cambia el cursor para indicar que está deshabilitado */
+    border: 2px solid #ccc; /* Borde gris para el estado desactivado */
+}
 #emailInputCustom, #submitBtnCustom {
     padding: 0.5em;
     font-size: 1em;

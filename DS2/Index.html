@@ -1,14 +1,16 @@
 <!-- design inspired by https://www.authkit.com/ -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="Style.css">
+<style>
+</style>
 <div class="header">
-  <div class="mid-spot" onclick="document.body.classList.toggle('gold');"></div>
+  <!-- <div class="mid-spot" onclick="document.body.classList.toggle('gold');"></div> -->
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item"><a href="#" class="nav-link">Inicio</a></li>
-      <li class="nav-item"><a href="" class="nav-link">Lugar del evento</a></li>
-      <li class="nav-item"><a href="" class="nav-link">Lugar del evento</a></li>
-      <li class="nav-item"><a href="hoteles/Hoteles.html" class="nav-link">Hoteles</a></li>
+      <li class="nav-item"><a href="" class="nav-link">Speakers</a></li>
+      <li class="nav-item"><a href="" class="nav-link">Hospedaje<a href=""></a></a></li>
+      <li class="nav-item"><a href="hoteles/Hoteles.html" class="nav-link">Cómo llegar</a></li>
     </ul>
   </nav>
   <div class="spotlight">
@@ -37,8 +39,10 @@
 </div> -->
 
 <div class="hero">
-  <div class="heroT">
-    <h2>DIGITAL SUMMIT™</h2>
+  <!-- <div class="heroT"> -->
+    <div class="title">
+      <img src="../../DS FULL COLOR.png" alt="DIGITAL SUMMIT">
+    </div>
   </div>
   <div class="heroSubP">
     <p>INTRODUCE TU CORREO DE COMPRA Y DESCARGA TU ENTRADA</p>
@@ -52,6 +56,9 @@
 
 <div class="use">
   <p>Al ser escaneado por el personal autorizado, usted acepta el tratamiento y uso de su imagen personal para la creación de contenido audiovisual, incluyendo, videos, fotografías y otros medios digitales, de acuerdo con nuestras políticas de privacidad y protección de datos.</p>
+  <label>
+    <input type="checkbox" id="consentCheckbox"> Acepto los términos y condiciones
+  </label>
 </div>
 
 <!-- Este contenedor es necesario para mostrar los mensajes de éxito o error -->
@@ -85,5 +92,20 @@
   <div></div>
 </div>
 <div class="hero-spacer"></div>
+<!-- <script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const checkbox = document.getElementById('consentCheckbox');
+    const submitButton = document.getElementById('submitBtnCustom');
+
+    checkbox.addEventListener('change', function () {
+      if (checkbox.checked) {
+        submitButton.disabled = false; // Activa el botón
+      } else {
+        submitButton.disabled = true; // Desactiva el botón
+      }
+    });
+  });
+
+</script> -->
 <script src="app.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
