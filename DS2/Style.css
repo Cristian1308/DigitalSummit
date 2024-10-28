@@ -1074,13 +1074,32 @@ p {
         font-size: 0.8rem;
     }
 
-    
-    .heroT > h2 {
+    .heroSubP p {
+        font-size: 0.8em;
+    }
+
+    /* .heroT > h2 {
         font-size: 3.5rem;
+    } */
+
+    .heroSubP {
+        top: 26em; 
+        
+    }
+
+    .input-container-custom {
+        top: 28em;
+    }
+
+
+    .mountains {
+ 
+        top: 36em; 
     }
 
     .use {
-        width: 50%;
+        top: 35em; 
+        width: 70%;
     }
 
     .nav-link {
@@ -1139,6 +1158,13 @@ p {
     .ticket-container {
         top: 25%;
         left: 34%;
+    }
+
+
+
+    .use {
+        top: 35em; 
+        width: 80%;
     }
 
 
