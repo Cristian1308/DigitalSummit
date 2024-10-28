@@ -867,6 +867,10 @@ p {
     color: #d8ecf8; /* Color del texto */
 }
 
+.use a{
+    color: white;
+}
+
 /* Efecto al pasar el mouse sobre el checkbox */
 #consentCheckbox:hover {
     outline: 2px solid #007BFF; /* Resalta el checkbox al pasar el mouse */
