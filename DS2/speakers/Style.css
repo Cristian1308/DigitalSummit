@@ -83,6 +83,7 @@ h2 {
     }
 
 }   */
+
 .title2 {
     width: 100%;
     display: flex;
@@ -96,7 +97,22 @@ h2 {
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     text-align: center;
+    opacity: 0; /* Inicialmente invisible */
+    animation: titleAnimation 1s forwards; /* Animación al cargar */
 }
+
+/* Animación para el título */
+@keyframes titleAnimation {
+    0% {
+        opacity: 0; /* Comienza invisible */
+        transform: translateY(-10px); /* Se mueve hacia arriba */
+    }
+    100% {
+        opacity: 1; /* Totalmente visible */
+        transform: translateY(0); /* Vuelve a su posición original */
+    }
+}
+
 
 .container {
     height: 70%;
@@ -114,7 +130,8 @@ h2 {
     overflow: hidden; /* Asegura que el pseudo-elemento no se salga de la tarjeta */
     border-radius: 5%; /* Mantiene el borde redondeado */
     width: 100%; /* Asegura que la tarjeta ocupe el 100% de su contenedor */
-    /* max-width: 400px; */
+    opacity: 0; /* Inicialmente invisible */
+    animation: fadeInScale 0.8s forwards; /* Animación al cargar */
 }
 
 /* Fondo degradado animado */
@@ -126,19 +143,19 @@ h2 {
     right: 0;
     bottom: 0;
     border-radius: 5%; /* Mantiene el borde redondeado */
-    background: linear-gradient(270deg, #00FF8C, #00BEBE, #00a058, #009494);
+    background: linear-gradient(270deg, #00FF8C,  #00BEBE, #00a058, #009494);
     background-size: 400% 400%; /* Aumenta el tamaño del fondo para la animación */
-    animation: gradientAnimation 8s ease infinite; /* Animación que se repite infinitamente */
+    animation: gradientAnimation 4s ease infinite; /* Animación que se repite infinitamente */
     z-index: 1; /* Asegura que el fondo esté detrás de la imagen */
 }
 
 /* Imagen de la tarjeta */
 .card img {
     border-radius: 5%;
-    width: 100%; /* Cambiar a 90% para no cubrir el borde */
+    width: 100%; 
     height: auto; 
-    position: relative; /* Necesario para que la imagen esté encima del fondo */
-    z-index: 2; /* Asegura que la imagen esté encima del fondo */
+    position: relative; 
+    z-index: 2; 
 }
 
 /* Animación del fondo degradado */
@@ -151,6 +168,22 @@ h2 {
     }
     100% {
         background-position: 0% 50%; /* Vuelve a la posición inicial */
+    }
+}
+
+/* Animación de entrada (fade in + scale) */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0; /* Inicialmente invisible */
+        transform: scale(0.5); /* Comienza más pequeño */
+    }
+    50% {
+        opacity: 0.5; /* Medio visible */
+        transform: scale(1); /* Escala un poco más grande */
+    }
+    100% {
+        opacity: 1; /* Totalmente visible */
+        transform: scale(1); /* Tamaño normal */
     }
 }
 
