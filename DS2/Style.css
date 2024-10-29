@@ -871,36 +871,14 @@ p {
 }
 
 @media (max-width: 900px) {
-    .modal-content-unique {
-        width: 50vh;
-      }
 
-    .modal-buttons-unique button {
-        padding: 10px 20px;
-        margin: 5px;
-        font-size: 12px;
-      }
 }
 
 
 
 @media (max-width : 750px) {
 
-    .modal-unique {
-        width: 85%;
 
-      }
-
-    .modal-content-unique {
-        width: 50vh;
-        
-      }
-
-    .modal-buttons-unique button {
-        padding: 10px 20px;
-        margin: 5px;
-        font-size: 12px;
-      }
 
     .heroT > h2 {
         font-size: 5rem;
@@ -942,22 +920,6 @@ p {
 
 @media (max-width : 600px) {
     
-    .modal-unique {
-        padding-top: 0;
-        width: 70%;
-
-      }
-
-    .modal-content-unique {
-        width: 50vh;
-        
-      }
-
-    .modal-buttons-unique button {
-        padding: 10px 20px;
-        margin: 5px;
-        font-size: 12px;
-      }
 
     .nav-list {
         column-gap: 15px; 
@@ -1030,24 +992,6 @@ p {
 
 @media (max-width : 500px) {
 
-    .modal-unique {
-        padding-top: 0;
-        width: 70%;
-        height: 70%;
-
-      }
-
-    .modal-content-unique {
-        width: 40vh;
-        
-      }
-
-    .modal-buttons-unique button {
-        padding: 6px 15px;
-        margin: 4px;
-        font-size: 10px;
-      }
-      
     .nav-list {
         column-gap: 8px; 
 
