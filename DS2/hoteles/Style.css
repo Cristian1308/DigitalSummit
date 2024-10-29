@@ -248,11 +248,10 @@ main {
 
 @media (max-width : 500px) {
     .hotels-container {
-        border: 1px solid darkcyan;
         gap: 10px;
         /* overflow-x: hidden;
         overflow-y: auto;  */
-        overflow: scroll;
+        overflow: auto;
     }
 
     .hotel-info h2 {
