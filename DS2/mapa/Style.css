@@ -5,6 +5,7 @@
 }
 
 .title2 {
+    margin-bottom: 1%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -12,7 +13,7 @@
 }
 
 h2 {
-    font-size: 3em; 
+    font-size: 2em; 
     background: linear-gradient(90deg, #00FF8C, #00BEBE); 
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
