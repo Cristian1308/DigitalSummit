@@ -82,47 +82,6 @@ h2 a {
     animation: load 2s ease-in 2s forwards, up 1.4s ease-out 2s forwards;
 }
 
-/* .header > :nth-child(1) {
-    font-size: 1em;
-    position: absolute; 
-    left: 0; 
-    right: 29em; 
-    margin: 0.2em auto;
-    width: fit-content;
-}
-
-.header > :nth-child(2) {
-    position: 
-    absolute;
-    left: 0; 
-    right: 0; 
-    margin: 0 
-    auto;
-    width: fit-content;    
-} */
-/* .header > h2{
-    opacity: 0.5;
-    cursor: pointer;
-    transition: opacity 0.04s ease-in-out;
-}
-.header > h2:hover {
-    opacity: 1;
-    text-shadow: 0 2px 16px rgba(174,207,242, 0.6);
-    width: fit-content;
-} */
-
-/* .header > div.mid-spot {
-    width: 1.8em; 
-    height: 1.8em;
-    border-radius: 50%; 
-    background: black;
-    box-shadow: 0 0 1em 0 #00BEBE;
-    cursor: pointer;
-    transition: box-shadow 1s ease-in-out;
-} */
-/* .header > div.mid-spot:hover {
-    box-shadow: -0.3em 0.1em 0.2em 0 #d8bd10;
-} */
 
 .nav {
     padding: 0; /* Elimina el padding superior e inferior */
@@ -810,6 +769,63 @@ p {
 
 
 
+/* Estilos para el modal único */
+.modal-unique {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.603);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content-unique {
+    background-color: #e6e6e6;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .close-btn-unique {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .modal-buttons-unique button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .modal-buttons-unique button:first-child {
+    background: linear-gradient(90deg, #00BEBE  , #00e67e79);
+    color: #e6e6e6;
+    font-weight: bold;
+  }
+  
+  .modal-buttons-unique button:last-child {
+    background: linear-gradient(90deg, #00e67e79  , #00BEBE);
+    color: #e6e6e6;
+    font-weight: bold;
+  }
+  
+  .modal-buttons-unique button:hover {
+    opacity: 0.9;
+  }
 
 
 
@@ -854,9 +870,37 @@ p {
     
 }
 
+@media (max-width: 900px) {
+    .modal-content-unique {
+        width: 50vh;
+      }
+
+    .modal-buttons-unique button {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 12px;
+      }
+}
+
 
 
 @media (max-width : 750px) {
+
+    .modal-unique {
+        width: 85%;
+
+      }
+
+    .modal-content-unique {
+        width: 50vh;
+        
+      }
+
+    .modal-buttons-unique button {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 12px;
+      }
 
     .heroT > h2 {
         font-size: 5rem;
@@ -897,6 +941,24 @@ p {
 
 
 @media (max-width : 600px) {
+    
+    .modal-unique {
+        padding-top: 0;
+        width: 70%;
+
+      }
+
+    .modal-content-unique {
+        width: 50vh;
+        
+      }
+
+    .modal-buttons-unique button {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 12px;
+      }
+
     .nav-list {
         column-gap: 15px; 
 
@@ -966,8 +1028,26 @@ p {
 
 
 
-@media (max-width : 400px) {
+@media (max-width : 500px) {
 
+    .modal-unique {
+        padding-top: 0;
+        width: 70%;
+        height: 70%;
+
+      }
+
+    .modal-content-unique {
+        width: 40vh;
+        
+      }
+
+    .modal-buttons-unique button {
+        padding: 6px 15px;
+        margin: 4px;
+        font-size: 10px;
+      }
+      
     .nav-list {
         column-gap: 8px; 
 
@@ -1002,58 +1082,3 @@ p {
 
 
 }
-
-/* Estilos para el modal único */
-.modal-unique {
-    display: none; /* Oculto por defecto */
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content-unique {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 500px;
-    text-align: center;
-    position: relative;
-  }
-  
-  .close-btn-unique {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
-  .modal-buttons-unique button {
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .modal-buttons-unique button:first-child {
-    background-color: #4285f4;
-    color: #fff;
-  }
-  
-  .modal-buttons-unique button:last-child {
-    background-color: #34a853;
-    color: #fff;
-  }
-  
-  .modal-buttons-unique button:hover {
-    opacity: 0.9;
-  }
