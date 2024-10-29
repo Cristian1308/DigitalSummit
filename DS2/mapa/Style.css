@@ -51,7 +51,7 @@
 .map-button {
     text-decoration: none;
     color: #fff;
-    background-color: #4285F4;
+    background: linear-gradient(45deg, #00FF8C  , #00BEBE);
     padding: 10px 20px;
     margin: 0 10px;
     border-radius: 5px;
