@@ -416,6 +416,17 @@ p {
     margin-top: 20px;
     max-width: 100%;
     height: auto;
+    opacity: 0; /* Inicialmente oculto */
+    transform: scale(0.5); /* Comienza más pequeña */
+    animation: zoomIn 1.2s forwards; /* Aplica la animación */
+}
+
+/* Definición de la animación */
+@keyframes zoomIn {
+    to {
+        opacity: 1; /* Finaliza visible */
+        transform: scale(1); /* Escala a su tamaño original */
+    }
 }
 
 .mountains {
