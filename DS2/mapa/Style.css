@@ -63,7 +63,7 @@ h2 {
     .map-container {
         width: 95%;
         height: 45vh;
-        margin:auto ; /* Margen superior aumentado en pantallas móviles */
+        margin: auto ; /* Margen superior aumentado en pantallas móviles */
     }
 }
 
@@ -86,4 +86,13 @@ h2 {
 
 .map-button:hover {
     background-color: #3367D6;
+}
+
+
+@media (max-width: 450px) {
+
+    .map-container {
+        height: 70vh;
+    }
+
 }
