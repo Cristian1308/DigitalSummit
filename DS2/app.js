@@ -94,7 +94,7 @@ function realizarCompraUnique() {
 }
 
 // Función para generar el boleto en HTML y crear una URL temporal en formato JPG
-function generarBoleto(qrURL) {
+function generarBoleto(qrURL, idBoleto) {
   const qrImg = document.getElementById('qrCode');
   qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
 
@@ -102,10 +102,24 @@ function generarBoleto(qrURL) {
   qrImg.onload = function () {
     document.getElementById('ticketContainer').style.display = 'flex'; // Mostrar el contenedor del boleto
 
-    // Generar el boleto como imagen en formato JPG y convertirla en URL temporal
+    // Insertar el idBoleto en el centro del boleto
+    const idElement = document.createElement('div');
+    idElement.innerText = idBoleto;
+    idElement.style.position = 'absolute';
+    idElement.style.top = '50%';
+    idElement.style.left = '50%';
+    idElement.style.transform = 'translate(-50%, -50%)';
+    idElement.style.fontSize = '24px';
+    idElement.style.fontWeight = 'bold';
+    idElement.style.color = '#000'; // Puedes cambiar el color si es necesario
+
+    // Agregar el elemento al contenedor del boleto
     const ticketElement = document.getElementById('ticket');
+    ticketElement.appendChild(idElement);
+
+    // Generar el boleto como imagen en formato JPG y convertirla en URL temporal
     html2canvas(ticketElement, { useCORS: true }).then(function (canvas) {
-      boletoImageURL = canvas.toDataURL('image/jpeg', 1.0); // Convertir el boleto a una URL temporal en JPG
+      const boletoImageURL = canvas.toDataURL('image/jpeg', 1.0); // Convertir el boleto a una URL temporal en JPG
 
       // Copiar la URL de la imagen al portapapeles automáticamente (opcional)
       copiarURLAlPortapapeles(boletoImageURL);
