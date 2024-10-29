@@ -1,5 +1,4 @@
-
-.principal{
+.principal {
     display: flex;
     flex-direction: column;
 }
@@ -18,21 +17,45 @@ h2 {
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     text-align: center;
+    opacity: 0; /* Inicialmente invisible */
+    animation: titleAnimation 1s forwards; /* Animación al cargar */
 }
 
+/* Animación para el título */
+@keyframes titleAnimation {
+    0% {
+        opacity: 0; /* Comienza invisible */
+        transform: translateY(-20px); /* Se mueve hacia arriba */
+    }
+    100% {
+        opacity: 1; /* Totalmente visible */
+        transform: translateY(0); /* Vuelve a su posición original */
+    }
+}
 
 .map-container {
-    
     width: 90%;
     max-width: 1200px;
     height: 60vh;
-    margin: auto ; /* Margen superior aumentado */
+    margin: auto; /* Margen superior aumentado */
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0; /* Inicialmente invisible */
+    animation: mapAnimation 1s forwards 0.5s; /* Animación al cargar con un retraso */
 }
 
-
+/* Animación para el mapa */
+@keyframes mapAnimation {
+    0% {
+        opacity: 0; /* Comienza invisible */
+        transform: translateY(20px); /* Se mueve hacia abajo */
+    }
+    100% {
+        opacity: 1; /* Totalmente visible */
+        transform: translateY(0); /* Vuelve a su posición original */
+    }
+}
 
 /* Estilo de iframe para ocupar todo el contenedor */
 .map-container iframe {
@@ -47,7 +70,7 @@ h2 {
     .map-container {
         width: 80%;
         height: 70vh;
-        margin: auto ; /* Margen superior aumentado en pantallas grandes */
+        margin: auto; /* Margen superior aumentado en pantallas grandes */
     }
 }
 
@@ -56,7 +79,7 @@ h2 {
     .map-container {
         width: 85%;
         height: 50vh;
-        margin:  auto ; /* Margen superior aumentado en pantallas medianas */
+        margin: auto; /* Margen superior aumentado en pantallas medianas */
     }
 }
 
@@ -65,7 +88,7 @@ h2 {
     .map-container {
         width: 95%;
         height: 45vh;
-        margin: auto ; /* Margen superior aumentado en pantallas móviles */
+        margin: auto; /* Margen superior aumentado en pantallas móviles */
     }
 }
 
@@ -73,12 +96,26 @@ h2 {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    opacity: 0; /* Inicialmente invisible */
+    animation: buttonAnimation 1s forwards 1s; /* Animación al cargar con un retraso */
+}
+
+/* Animación para los botones */
+@keyframes buttonAnimation {
+    0% {
+        opacity: 0; /* Comienza invisible */
+        transform: translateY(20px); /* Se mueve hacia abajo */
+    }
+    100% {
+        opacity: 1; /* Totalmente visible */
+        transform: translateY(0); /* Vuelve a su posición original */
+    }
 }
 
 .map-button {
     text-decoration: none;
     color: #fff;
-    background: linear-gradient(45deg, #00FF8C  , #00BEBE);
+    background: linear-gradient(45deg, #00FF8C, #00BEBE);
     padding: 10px 20px;
     margin: 0 10px;
     border-radius: 5px;
@@ -90,11 +127,8 @@ h2 {
     background-color: #3367D6;
 }
 
-
 @media (max-width: 450px) {
-
     .map-container {
         height: 65vh;
     }
-
 }

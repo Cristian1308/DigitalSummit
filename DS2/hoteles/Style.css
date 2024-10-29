@@ -12,6 +12,20 @@
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     text-align: center;
+    opacity: 0; /* Inicialmente invisible */
+    animation: entrada 1s forwards; /* Animación al cargar */
+}
+
+/* Animación para el título */
+@keyframes entrada {
+    0% {
+        opacity: 0; /* Comienza invisible */
+        transform: translateY(-10px); /* Se mueve hacia arriba */
+    }
+    100% {
+        opacity: 1; /* Totalmente visible */
+        transform: translateY(0); /* Vuelve a su posición original */
+    }
 }
 
 
@@ -25,6 +39,8 @@
     height: 87%; /* Establece una altura fija para el contenedor */
     overflow-y: auto; /* Permite el desplazamiento vertical */
     overflow-x: hidden; /* Opcional: oculta el desplazamiento horizontal */
+    opacity: 0; /* Inicialmente invisible */
+    animation: entrada 1s forwards; /* Animación al cargar */
 }
 
 /* ESTILOS DE LA TARJETA (CARD) */
@@ -252,6 +268,11 @@
 
 
 @media (max-width : 600px) {
+
+    .title2 h2 {
+        font-size: 1.5em;  
+    }
+
     .hotels-container {
         gap: 10px;
     }
@@ -301,6 +322,9 @@
 
 @media (max-width : 400px) {
 
+    .title2 h2 {
+        font-size: 1.4em; 
+    }
 
     .hotels-container {
         border: 1px solid darkcyan;
