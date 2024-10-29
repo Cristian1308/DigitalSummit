@@ -126,7 +126,7 @@ h2 {
     right: 0;
     bottom: 0;
     border-radius: 5%; /* Mantiene el borde redondeado */
-    background: linear-gradient(270deg, #00FF8C, #00BEBE);
+    background: linear-gradient(270deg, #00FF8C, #00BEBE, #00a058, #009494);
     background-size: 400% 400%; /* Aumenta el tamaño del fondo para la animación */
     animation: gradientAnimation 8s ease infinite; /* Animación que se repite infinitamente */
     z-index: 1; /* Asegura que el fondo esté detrás de la imagen */
