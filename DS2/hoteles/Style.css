@@ -256,9 +256,8 @@ main {
         overflow: scroll;
     }
 
-    
     .hotel-info h2 {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
         margin-bottom: 2px;
     }
     
@@ -277,7 +276,7 @@ main {
     }
     
     .hotel-info p {
-        font-size: 0.5rem;
+        font-size: 0.44rem;
         margin-bottom: 8px;
     }
 
@@ -289,8 +288,35 @@ main {
     
     .hotel-prices .price-btn {
         padding: 5% 8px;
-        border-radius: 1vh;
         font-size: 0.6em;
+    }
+
+
+
+}
+
+
+
+
+
+@media (max-width : 400px) {
+    .hotels-container {
+        border: 1px solid darkcyan;
+        gap: 10px;
+        /* overflow-x: hidden;
+        overflow-y: auto;  */
+        overflow: scroll;
+    }
+
+    .hotel-info h2 {
+        font-size: 0.6rem;
+    }
+    
+
+    
+    .hotel-info p {
+        font-size: 0.4rem;
+        margin-bottom: 7px;
     }
 
 
