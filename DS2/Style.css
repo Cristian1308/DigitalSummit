@@ -79,7 +79,7 @@ h2 a {
     margin: 0 auto; */
     opacity: 0;
     translate: 0 -1em;
-    animation: load 2s ease-in 2s forwards, up 1.4s ease-out 2s forwards;
+    animation: load 1s ease-in 1s forwards, up 0.5s ease-out 1s forwards;
 }
 
 

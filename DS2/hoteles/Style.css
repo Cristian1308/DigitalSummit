@@ -1,4 +1,19 @@
 
+.title2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title2 h2 {
+    font-size: 2em; 
+    background: linear-gradient(90deg, #00FF8C, #00BEBE); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    text-align: center;
+}
+
 
 /* HOTELS CONTAINER */
 .hotels-container {
