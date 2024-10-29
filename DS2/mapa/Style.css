@@ -21,7 +21,7 @@ h2 {
 
 
 .map-container {
-    border: 1px solid darkblue;
+    
     width: 90%;
     max-width: 1200px;
     height: 60vh;
@@ -33,6 +33,7 @@ h2 {
 
 /* Estilo de iframe para ocupar todo el contenedor */
 .map-container iframe {
+    border-radius: 20px;
     width: 100%;
     height: 100%;
     border: 0;
