@@ -257,7 +257,7 @@ main {
     }
 
     .hotel-info h2 {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
         margin-bottom: 2px;
     }
     
@@ -276,7 +276,7 @@ main {
     }
     
     .hotel-info p {
-        font-size: 0.5rem;
+        font-size: 0.44rem;
         margin-bottom: 8px;
     }
 
@@ -309,37 +309,14 @@ main {
     }
 
     .hotel-info h2 {
-        font-size: 0.7rem;
-        margin-bottom: 1px;
-    }
-    
-    .hotel-info .stars {
-        margin-bottom: 1px;
-    }
-    
-    .hotel-info .location {
-        font-size: 0.4rem;
-        margin-bottom: 1px;
-    }
-    
-    .hotel-info .sustainability {
         font-size: 0.6rem;
-        margin-bottom: 4px;
     }
+    
+
     
     .hotel-info p {
         font-size: 0.4rem;
         margin-bottom: 7px;
-    }
-
-    
-    .hotel-prices .rating {
-        font-size: 0.5rem;
-    }
-    
-    
-    .hotel-prices .price-btn {
-        font-size: 0.5em;
     }
 
 
