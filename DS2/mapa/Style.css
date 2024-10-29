@@ -1,8 +1,31 @@
+
+.principal{
+    display: flex;
+    flex-direction: column;
+}
+
+.title2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 3em; 
+    background: linear-gradient(90deg, #00FF8C, #00BEBE); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    text-align: center;
+}
+
+
 .map-container {
+    border: 1px solid darkblue;
     width: 90%;
     max-width: 1200px;
     height: 60vh;
-    margin: 400px auto 0; /* Margen superior aumentado */
+    margin: auto ; /* Margen superior aumentado */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,7 +43,7 @@
     .map-container {
         width: 80%;
         height: 70vh;
-        margin: 500px auto 0; /* Margen superior aumentado en pantallas grandes */
+        margin: auto ; /* Margen superior aumentado en pantallas grandes */
     }
 }
 
@@ -29,7 +52,7 @@
     .map-container {
         width: 85%;
         height: 50vh;
-        margin: 450px auto 0; /* Margen superior aumentado en pantallas medianas */
+        margin:  auto ; /* Margen superior aumentado en pantallas medianas */
     }
 }
 
@@ -38,7 +61,7 @@
     .map-container {
         width: 95%;
         height: 45vh;
-        margin: 300px auto 0; /* Margen superior aumentado en pantallas móviles */
+        margin:auto ; /* Margen superior aumentado en pantallas móviles */
     }
 }
 
