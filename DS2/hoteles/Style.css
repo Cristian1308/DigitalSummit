@@ -1,5 +1,6 @@
-
-
+body{
+     overflow: auto;
+}
 
 
 /* CONTENEDOR PRINCIPAL */
@@ -9,12 +10,11 @@ main {
     flex-direction: column;
     width: 100%;
     max-width: 3000px;
-    /* margin: auto; */
 }
 
 /* HOTELS CONTAINER */
 .hotels-container {
-    width: 99%;
+    width: 98%;
     display: grid;
     grid-template-columns: 50% 50%;
     gap: 25px;
@@ -26,7 +26,6 @@ main {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 1vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
     padding: 2%;
     color: black;
 }
@@ -300,12 +299,16 @@ main {
 
 
 @media (max-width : 400px) {
+
+    body{
+        overflow: auto;
+    }
+
     .hotels-container {
         border: 1px solid darkcyan;
         gap: 10px;
         /* overflow-x: hidden;
         overflow-y: auto;  */
-        overflow: scroll;
     }
 
     .hotel-info h2 {
