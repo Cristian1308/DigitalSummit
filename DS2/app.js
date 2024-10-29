@@ -109,7 +109,7 @@ function generarBoleto(qrURL, idBoleto) {
     idElement.style.top = '50%';
     idElement.style.left = '50%';
     idElement.style.transform = 'translate(-50%, -50%)';
-    idElement.style.fontSize = '24px';
+    idElement.style.fontSize = '100%';
     idElement.style.fontWeight = 'bold';
     idElement.style.color = '#000'; // Puedes cambiar el color si es necesario
 
