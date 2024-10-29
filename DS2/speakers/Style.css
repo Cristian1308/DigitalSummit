@@ -1,11 +1,4 @@
-
-
-main {
-    height: 100%;
-    display: grid;
-    grid-template-rows: auto 1fr; /* Ajusta la altura de la fila del título */
-}
-
+/* 
 .title2 {
     width: 100%;
     display: flex;
@@ -26,15 +19,18 @@ h2 {
     display: grid; 
     align-items: center;
     justify-items: center; 
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Ajusta el tamaño mínimo */
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); 
     gap: 20px;
     padding: 20px;
 }
 
+
+
+
 .container div {
-    display: flex; /* Flex para centrar la imagen */
-    justify-content: center; /* Centra la imagen horizontalmente */
-    align-items: center; /* Centra la imagen verticalmente */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 .container div img {
@@ -55,7 +51,7 @@ h2 {
 
 }
 
-/* Media Queries */
+
 @media (max-width: 800px) {
 
     h2 {
@@ -86,5 +82,109 @@ h2 {
         width: 90%; 
     }
 
+}   */
+.title2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+h2 {
+    font-size: 3em; 
+    background: linear-gradient(90deg, #00FF8C, #00BEBE); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    text-align: center;
+}
+
+.container {
+    height: 70%;
+    display: grid; 
+    align-items: center;
+    justify-items: center; 
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); 
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    padding: 1%;
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    overflow: hidden; /* Asegura que el pseudo-elemento no se salga de la tarjeta */
+    border-radius: 5%; /* Mantiene el borde redondeado */
+    width: 100%; /* Asegura que la tarjeta ocupe el 100% de su contenedor */
+    /* max-width: 400px; */
+}
+
+/* Fondo degradado animado */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 5%; /* Mantiene el borde redondeado */
+    background: linear-gradient(270deg, #00FF8C, #00BEBE);
+    background-size: 400% 400%; /* Aumenta el tamaño del fondo para la animación */
+    animation: gradientAnimation 8s ease infinite; /* Animación que se repite infinitamente */
+    z-index: 1; /* Asegura que el fondo esté detrás de la imagen */
+}
+
+/* Imagen de la tarjeta */
+.card img {
+    border-radius: 5%;
+    width: 100%; /* Cambiar a 90% para no cubrir el borde */
+    height: auto; 
+    position: relative; /* Necesario para que la imagen esté encima del fondo */
+    z-index: 2; /* Asegura que la imagen esté encima del fondo */
+}
+
+/* Animación del fondo degradado */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%; /* Comienza en la posición inicial */
+    }
+    50% {
+        background-position: 100% 50%; /* Se mueve a la posición final */
+    }
+    100% {
+        background-position: 0% 50%; /* Vuelve a la posición inicial */
+    }
+}
+
+/* Media Queries */
+@media (max-width: 1400px) {
+    .container {
+        height: auto; /* Permitir que la altura se ajuste automáticamente */
+        overflow-x: hidden;
+        overflow-y: auto; 
+    }
+}
+
+@media (max-width: 800px) {
+    h2 {
+        font-size: 2em; 
+        margin-bottom: 1%;
+    }  
+}
+
+@media (max-width: 600px) {
+    h2 {
+        font-size: 1.5em; 
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: auto; /* Permitir que la altura se ajuste automáticamente */
+        width: 100%;
+    }
+
+    .container div img {
+        width: 90%; 
+    }
+}
