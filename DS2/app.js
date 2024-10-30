@@ -101,8 +101,13 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   // Crear y configurar el elemento de la imagen del QR
   const qrImg = document.createElement('img');
   qrImg.id = 'qrCode';
-  qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
-
+  qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrURL}`;
+  qrImg.style.position = 'absolute';
+  qrImg.style.bottom = '10%';
+  qrImg.style.left = '50%';
+  qrImg.style.transform = 'translate(-50%, 0)';
+  qrImg.style.width = '180px';  // Aumenta el tamaño del QR para mejorar la nitidez
+  qrImg.style.height = '180px';
 
   // Cambiar el fondo del boleto según el tipo de idBoleto
   switch (idBoleto) {
@@ -127,7 +132,7 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   nombreElement.style.top = '20%';
   nombreElement.style.left = '50%';
   nombreElement.style.transform = 'translate(-50%, -50%)';
-  nombreElement.style.fontSize = '1.2em';
+  nombreElement.style.fontSize = '1.5em';  // Tamaño más grande para mejorar la nitidez
   nombreElement.style.fontWeight = 'bold';
   nombreElement.style.color = '#FFFFFF';
 
@@ -140,7 +145,7 @@ function generarBoleto(qrURL, idBoleto, nombre) {
 
   // Generar el boleto como imagen en formato PNG y convertirla en URL temporal usando html2canvas
   qrImg.onload = function () {
-    html2canvas(ticketElement, { useCORS: true, scale: 4 })
+    html2canvas(ticketElement, { useCORS: true, scale: 5 }) // Incrementa la escala a 5
       .then(function (canvas) {
         // Utilizar toBlob para generar una imagen PNG de alta calidad en Safari
         if (canvas.toBlob) {
@@ -179,8 +184,7 @@ document.getElementById('downloadBtn').addEventListener('click', function () {
   } else {
     alert("Primero debes generar el boleto.");
   }
-}); 
-
+});
 
 // Función para restablecer el contenido y las variables del boleto
 function resetBoleto() {
