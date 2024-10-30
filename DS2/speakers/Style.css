@@ -151,7 +151,7 @@ h2 {
         flex-direction: column;
         width: 100%;
         padding: 0 10px;
-        max-height: 100vh; /* Ocupa todo el alto disponible */
+        max-height: 90vh; /* Ocupa todo el alto disponible */
         overflow-y: auto; /* Asegura que haya scroll en dispositivos muy pequeños */
     }
     
