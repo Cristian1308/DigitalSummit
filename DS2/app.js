@@ -1,7 +1,7 @@
 const validUsers = new Map(); // Almacenamos correos y datos del CSV
 const boletoURL = 'boleto.png'; // URL pública del boleto de fondo
 const eventDate = new Date('2024-12-02T00:00:00'); // Fecha del evento: 2 de diciembre, 2024
-let boletoImageURL = ""; // Variable para almacenar la URL del boleto
+let boletoImageURL = null; // Variable para almacenar la URL del boleto
 
 // Cargar lista de correos y datos desde el CSV
 window.onload = function () {
@@ -137,14 +137,11 @@ function generarBoleto(qrURL, idBoleto) {
 
     // Generar el boleto como imagen en formato JPG y convertirla en URL temporal
     html2canvas(ticketElement, { useCORS: true }).then(function (canvas) {
-      const boletoImageURL = canvas.toDataURL('image/jpeg', 1.0); // Convertir el boleto a una URL temporal en JPG
+      boletoImageURL = canvas.toDataURL('image/jpeg', 1.0); // Convertir el boleto a una URL temporal en JPG
 
       // Copiar la URL de la imagen al portapapeles automáticamente (opcional)
       copiarURLAlPortapapeles(boletoImageURL);
       alert("El boleto ha sido generado y ya lo puedes descargar");
-
-      // Asignar la URL para la descarga
-      window.boletoImageURL = boletoImageURL;
 
     }).catch(function (error) {
       console.error("Error al generar la imagen del boleto: ", error);
@@ -159,16 +156,15 @@ function generarBoleto(qrURL, idBoleto) {
 
 // Función para descargar el boleto como JPG
 document.getElementById('downloadBtn').addEventListener('click', function () {
-  if (window.boletoImageURL) {
+  if (boletoImageURL) {
     const link = document.createElement('a');
     link.download = 'boleto.jpg'; // Nombre del archivo
-    link.href = window.boletoImageURL; // Convertir el canvas a una URL de imagen en JPG
+    link.href = boletoImageURL; // Convertir el canvas a una URL de imagen en JPG
     link.click(); // Simular clic para descargar la imagen
   } else {
     alert("Primero debes generar el boleto.");
   }
 });
-
 
 // Función para cerrar el boleto
 document.getElementById('closeBtn').addEventListener('click', function () {
