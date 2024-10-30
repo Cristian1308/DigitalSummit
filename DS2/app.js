@@ -94,6 +94,8 @@ function realizarCompraUnique() {
 }
 
 // Función para generar el boleto en HTML y crear una URL temporal en formato JPG
+
+// Función para generar el boleto en HTML y crear una URL temporal en formato PNG
 function generarBoleto(qrURL, idBoleto) {
   const qrImg = document.getElementById('qrCode');
   qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
@@ -135,9 +137,9 @@ function generarBoleto(qrURL, idBoleto) {
     // Agregar el elemento al contenedor del boleto
     ticketElement.appendChild(idElement);
 
-    // Generar el boleto como imagen en formato JPG y convertirla en URL temporal
+    // Generar el boleto como imagen en formato PNG y convertirla en URL temporal
     html2canvas(ticketElement, { useCORS: true }).then(function (canvas) {
-      boletoImageURL = canvas.toDataURL('image/jpeg', 1.0); // Convertir el boleto a una URL temporal en JPG
+      boletoImageURL = canvas.toDataURL('image/png', 1.0); // Convertir el boleto a una URL temporal en PNG
 
       // Copiar la URL de la imagen al portapapeles automáticamente (opcional)
       copiarURLAlPortapapeles(boletoImageURL);
@@ -154,12 +156,12 @@ function generarBoleto(qrURL, idBoleto) {
   };
 }
 
-// Función para descargar el boleto como JPG
+// Función para descargar el boleto como PNG
 document.getElementById('downloadBtn').addEventListener('click', function () {
   if (boletoImageURL) {
     const link = document.createElement('a');
-    link.download = 'boleto.jpg'; // Nombre del archivo
-    link.href = boletoImageURL; // Convertir el canvas a una URL de imagen en JPG
+    link.download = 'boleto.png'; // Nombre del archivo
+    link.href = boletoImageURL; // Convertir el canvas a una URL de imagen en PNG
     link.click(); // Simular clic para descargar la imagen
   } else {
     alert("Primero debes generar el boleto.");
