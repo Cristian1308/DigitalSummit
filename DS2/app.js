@@ -32,7 +32,7 @@ function cargarListaCorreosDesdeURL(url) {
 //   if (validUsers.has(emailInput)) {
 //     const { qrLink, idBoleto, nombre } = validUsers.get(emailInput);
 //     generarBoleto(qrLink, idBoleto, nombre);
-//     document.getElementById('message').textContent = `¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto}`;
+//     document.getElementById('message').textContent = ¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto};
 //   } else {
 //     document.getElementById('message').textContent = 'Correo no encontrado.';
 //   }
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (validUsers.has(emailInput)) {
       const { qrLink, idBoleto, nombre } = validUsers.get(emailInput);
       generarBoleto(qrLink, idBoleto, nombre);
-      // document.getElementById('message').textContent = `¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto}`;
+      // document.getElementById('message').textContent = ¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto};
     } else {
       abrirModalUnique(); // Abre el modal si el correo no se encuentra
     }
@@ -98,18 +98,12 @@ function realizarCompraUnique() {
 function generarBoleto(qrURL, idBoleto, nombre) {
   // Limpiar el contenido previo del boleto
   const ticketElement = document.getElementById('ticket');
-  ticketElement.innerHTML = ''; // Limpiar contenido previo del boleto
+  ticketElement.innerHTML = '';
 
   // Crear y configurar el elemento de la imagen del QR
   const qrImg = document.createElement('img');
   qrImg.id = 'qrCode';
-  qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
-  qrImg.style.position = 'absolute';
-  qrImg.style.bottom = '10%'; 
-  qrImg.style.left = '50%';
-  qrImg.style.transform = 'translate(-50%, 0)';
-  qrImg.style.width = '150px';
-  qrImg.style.height = '150px';
+  qrImg.src = https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL};
 
   // Cambiar el fondo del boleto según el tipo de idBoleto
   switch (idBoleto) {
@@ -124,14 +118,14 @@ function generarBoleto(qrURL, idBoleto, nombre) {
       break;
     default:
       alert("Tipo de boleto no reconocido. Verifica el ID.");
-      return; // Salir si el tipo de boleto no es válido
+      return;
   }
 
-  // Insertar el nombre en el boleto, arriba del QR
+  // Insertar el nombre en el boleto
   const nombreElement = document.createElement('div');
   nombreElement.innerText = nombre;
   nombreElement.style.position = 'absolute';
-  nombreElement.style.top = '20%'; // Posición por encima del QR
+  nombreElement.style.top = '20%';
   nombreElement.style.left = '50%';
   nombreElement.style.transform = 'translate(-50%, -50%)';
   nombreElement.style.fontSize = '1.2em';
@@ -140,25 +134,27 @@ function generarBoleto(qrURL, idBoleto, nombre) {
 
   // Agregar el nombre y el QR al contenedor del boleto
   ticketElement.appendChild(nombreElement);
-  ticketElement.appendChild(qrImg); // Agregar el QR
+  ticketElement.appendChild(qrImg);
 
   // Mostrar el contenedor del boleto
   document.getElementById('ticketContainer').style.display = 'flex';
 
   // Generar el boleto como imagen en formato PNG y convertirla en URL temporal
   qrImg.onload = function () {
-    html2canvas(ticketElement, { useCORS: true, scale: 2 }).then(function (canvas) {
-      boletoImageURL = canvas.toDataURL('image/png', 1.0); // Convertir el boleto a una URL temporal en PNG de alta calidad
+    htmlToImage.toPng(ticketElement, { quality: 1, cacheBust: true })
+      .then(function (dataUrl) {
+        boletoImageURL = dataUrl;  // URL de la imagen en PNG de alta calidad
 
-      // Copiar la URL de la imagen al portapapeles automáticamente (opcional)
-      copiarURLAlPortapapeles(boletoImageURL);
-      alert("El boleto ha sido generado y ya lo puedes descargar");
+        // Copiar la URL de la imagen al portapapeles automáticamente (opcional)
+        copiarURLAlPortapapeles(boletoImageURL);
+        alert("El boleto ha sido generado y ya lo puedes descargar");
 
-      // Restablecer las variables después de la generación
-      resetBoleto();
-    }).catch(function (error) {
-      console.error("Error al generar la imagen del boleto: ", error);
-    });
+        // Restablecer las variables después de la generación
+        resetBoleto();
+      })
+      .catch(function (error) {
+        console.error("Error al generar la imagen del boleto: ", error);
+      });
   };
 
   // Manejo de error en la carga del QR
@@ -171,9 +167,9 @@ function generarBoleto(qrURL, idBoleto, nombre) {
 document.getElementById('downloadBtn').addEventListener('click', function () {
   if (boletoImageURL) {
     const link = document.createElement('a');
-    link.download = 'boleto.png'; // Nombre del archivo en formato PNG
-    link.href = boletoImageURL;    // Convertir el canvas a una URL de imagen en PNG de alta calidad
-    link.click();                  // Simular clic para descargar la imagen
+    link.download = 'boleto.png';
+    link.href = boletoImageURL;
+    link.click();
   } else {
     alert("Primero debes generar el boleto.");
   }
@@ -207,7 +203,7 @@ document.getElementById('sendBtn').addEventListener('click', function () {
   const numeroTelefono = document.getElementById('phoneInput').value;
   if (numeroTelefono) {
     const mensaje = encodeURIComponent('Aquí tienes tu entrada para el Digital Summit 2024.');
-    const url = `https://wa.me/${numeroTelefono}?text=${mensaje} ${boletoImageURL}`;
+    const url = https://wa.me/${numeroTelefono}?text=${mensaje} ${boletoImageURL};
 
     // Abrir el enlace de WhatsApp en una nueva pestaña
     window.open(url, '_blank');
@@ -231,7 +227,7 @@ function iniciarCuentaRegresiva() {
     const segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
 
     // Actualizar el texto del contador
-    countdownElement.textContent = `Faltan ${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos para el evento.`;
+    countdownElement.textContent = Faltan ${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos para el evento.;
 
     // Si el tiempo ha terminado, detener el contador
     if (tiempoRestante < 0) {
