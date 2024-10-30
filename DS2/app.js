@@ -93,21 +93,17 @@ function realizarCompraUnique() {
   window.location.href = "https://compras.tuempresa.com"; // URL de la página de compra
 }
 
-// Variable para almacenar la URL del boleto generado
-let boletoImageURL = null;
+let boletoGenerado = false;
 
-// Deshabilitar el botón de descarga inicialmente
-document.getElementById('downloadBtn').disabled = true;
-
+// Función para generar el boleto
 function generarBoleto(qrURL, idBoleto, nombre) {
-  // Limpiar el contenido previo del boleto
   const ticketElement = document.getElementById('ticket');
-  ticketElement.innerHTML = '';
+  ticketElement.innerHTML = ''; // Limpiar contenido previo
 
-  // Crear y configurar el elemento de la imagen del QR
+  // Crear y configurar la imagen del QR
   const qrImg = document.createElement('img');
-  qrImg.id = 'qrCode';
   qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
+
 
   // Cambiar el fondo del boleto según el tipo de idBoleto
   switch (idBoleto) {
@@ -143,23 +139,10 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   // Mostrar el contenedor del boleto
   document.getElementById('ticketContainer').style.display = 'flex';
 
-  // Generar el boleto como imagen en formato PNG y convertirla en URL temporal con alta resolución
+  // Habilitar el botón de descarga de PDF después de generar el boleto
   qrImg.onload = function () {
-    domtoimage.toPng(ticketElement, {
-      quality: 1,      // Establece la calidad máxima
-      width: ticketElement.offsetWidth * 4, // Multiplica por 4 para mejorar la resolución
-      height: ticketElement.offsetHeight * 4,
-      style: {
-        transform: 'scale(4)',     // Escalar a 4x para mejor nitidez
-        transformOrigin: 'top left' // Asegura que la escala se aplique correctamente
-      }
-    }).then(function (dataUrl) {
-      boletoImageURL = dataUrl;  // URL de la imagen en PNG de alta calidad
-      document.getElementById('downloadBtn').disabled = false;  // Habilitar el botón de descarga
-      alert("El boleto ha sido generado y ya lo puedes descargar");
-    }).catch(function (error) {
-      console.error("Error al generar la imagen del boleto: ", error);
-    });
+    boletoGenerado = true; // Marcar que el boleto ha sido generado
+    document.getElementById('downloadBtn').disabled = false; // Habilitar el botón de descarga
   };
 
   // Manejo de error en la carga del QR
@@ -168,26 +151,31 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   };
 }
 
-// Función para descargar el boleto como PNG
+// Función para descargar el boleto como PDF
 document.getElementById('downloadBtn').addEventListener('click', function () {
-  if (boletoImageURL) {
-    const link = document.createElement('a');
-    link.download = 'boleto.png';
-    link.href = boletoImageURL;
-    link.click();
+  if (boletoGenerado) {
+    const ticketElement = document.getElementById('ticket');
+    const options = {
+      margin:       1,
+      filename:     'boleto.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 10, useCORS: true },
+      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    // Generar y descargar el PDF
+    html2pdf().set(options).from(ticketElement).save();
   } else {
     alert("Primero debes generar el boleto.");
   }
 });
-
-
 
 // Función para restablecer el contenido y las variables del boleto
 function resetBoleto() {
   // Limpiar contenido del boleto y ocultar el contenedor
   document.getElementById('ticketContainer').style.display = 'none';
   document.getElementById('ticket').innerHTML = ''; // Borra cualquier texto o elemento agregado
-
+  
   // Restablecer la URL de imagen temporal
   boletoImageURL = null;
 }
