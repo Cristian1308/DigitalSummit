@@ -136,7 +136,7 @@ function generarBoleto(qrURL, idBoleto, nombre) {
     ticketElement.appendChild(idElement);
 
     // Generar el boleto como imagen en formato JPG y convertirla en URL temporal
-    html2canvas(ticketElement, { useCORS: true }).then(function (canvas) {
+    html2canvas(ticketElement, { useCORS: true, scale: 2 }).then(function (canvas) {
       boletoImageURL = canvas.toDataURL('image/jpeg', 1.0); // Convertir el boleto a una URL temporal en JPG
 
       // Copiar la URL de la imagen al portapapeles automáticamente (opcional)
