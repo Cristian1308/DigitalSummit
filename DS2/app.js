@@ -94,51 +94,59 @@ function realizarCompraUnique() {
 }
 
 // Función para generar el boleto en HTML y crear una URL temporal en formato PNG
-function generarBoleto(qrURL, idBoleto, nombre, ) {
-  const qrImg = document.getElementById('qrCode');
+// Función para generar el boleto en HTML y crear una URL temporal en formato PNG
+function generarBoleto(qrURL, idBoleto, nombre) {
+  // Limpiar el contenido previo del boleto
+  const ticketElement = document.getElementById('ticket');
+  ticketElement.innerHTML = ''; // Limpiar contenido previo del boleto
+
+  // Crear y configurar el elemento de la imagen del QR
+  const qrImg = document.createElement('img');
+  qrImg.id = 'qrCode';
   qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
+  qrImg.style.position = 'absolute';
+  qrImg.style.bottom = '10%'; // Posición del QR en la parte inferior del boleto
+  qrImg.style.left = '50%';
+  qrImg.style.transform = 'translate(-50%, 0)';
+  qrImg.style.width = '150px';
+  qrImg.style.height = '150px';
 
-  // Esperar hasta que el QR se haya cargado antes de mostrar el boleto
+  // Cambiar el fondo del boleto según el tipo de idBoleto
+  switch (idBoleto) {
+    case 'p':
+      ticketElement.style.backgroundImage = "url('preferencial.png')";
+      break;
+    case 'g':
+      ticketElement.style.backgroundImage = "url('general.png')";
+      break;
+    case 'd':
+      ticketElement.style.backgroundImage = "url('diamond.png')";
+      break;
+    default:
+      alert("Tipo de boleto no reconocido. Verifica el ID.");
+      return; // Salir si el tipo de boleto no es válido
+  }
+
+  // Insertar el nombre en el boleto, arriba del QR
+  const nombreElement = document.createElement('div');
+  nombreElement.innerText = nombre;
+  nombreElement.style.position = 'absolute';
+  nombreElement.style.top = '20%'; // Posición por encima del QR
+  nombreElement.style.left = '50%';
+  nombreElement.style.transform = 'translate(-50%, -50%)';
+  nombreElement.style.fontSize = '1.2em';
+  nombreElement.style.fontWeight = 'bold';
+  nombreElement.style.color = '#FFFFFF';
+
+  // Agregar el nombre y el QR al contenedor del boleto
+  ticketElement.appendChild(nombreElement);
+  ticketElement.appendChild(qrImg); // Agregar el QR
+
+  // Mostrar el contenedor del boleto
+  document.getElementById('ticketContainer').style.display = 'flex';
+
+  // Generar el boleto como imagen en formato PNG y convertirla en URL temporal
   qrImg.onload = function () {
-    document.getElementById('ticketContainer').style.display = 'flex'; // Mostrar el contenedor del boleto
-
-    // Obtener el elemento contenedor del boleto
-    const ticketElement = document.getElementById('ticket');
-
-    // Cambiar el fondo del boleto según el tipo de idBoleto
-    switch (idBoleto) {
-      case 'p':
-        ticketElement.style.backgroundImage = "url('preferencial.png')";
-        break;
-      case 'g':
-        ticketElement.style.backgroundImage = "url('general.png')";
-        break;
-      case 'd':
-        ticketElement.style.backgroundImage = "url('diamond.png')";
-        break;
-      default:
-        alert("Tipo de boleto no reconocido. Verifica el ID.");
-        return; // Salir si el tipo de boleto no es válido
-    }
-
-    // Insertar el nombre en el boleto, arriba del QR
-    const nombreElement = document.createElement('div');
-    nombreElement.innerText = nombre;
-    nombreElement.style.position = 'absolute';
-    nombreElement.style.top = '20%'; // Posición por encima del QR
-    nombreElement.style.left = '50%';
-    nombreElement.style.transform = 'translate(-50%, -50%)';
-    nombreElement.style.fontSize = '1.2em';
-    nombreElement.style.fontWeight = 'bold';
-    nombreElement.style.color = '#FFFFFF';
-
-    // Agregar el nombre al contenedor del boleto
-    ticketElement.appendChild(nombreElement);
-
-    // Almacenar el idBoleto como atributo de datos (oculto)
-    ticketElement.setAttribute('data-id', idBoleto);
-
-    // Generar el boleto como imagen en formato PNG y convertirla en URL temporal
     html2canvas(ticketElement, { useCORS: true, scale: 2 }).then(function (canvas) {
       boletoImageURL = canvas.toDataURL('image/png', 1.0); // Convertir el boleto a una URL temporal en PNG de alta calidad
 
@@ -146,6 +154,8 @@ function generarBoleto(qrURL, idBoleto, nombre, ) {
       copiarURLAlPortapapeles(boletoImageURL);
       alert("El boleto ha sido generado y ya lo puedes descargar");
 
+      // Restablecer las variables después de la generación
+      resetBoleto();
     }).catch(function (error) {
       console.error("Error al generar la imagen del boleto: ", error);
     });
@@ -168,6 +178,16 @@ document.getElementById('downloadBtn').addEventListener('click', function () {
     alert("Primero debes generar el boleto.");
   }
 });
+
+// Función para restablecer el contenido y las variables del boleto
+function resetBoleto() {
+  // Limpiar contenido del boleto y ocultar el contenedor
+  document.getElementById('ticketContainer').style.display = 'none';
+  document.getElementById('ticket').innerHTML = ''; // Borra cualquier texto o elemento agregado
+  
+  // Restablecer la URL de imagen temporal
+  boletoImageURL = null;
+}
 
 // Función para cerrar el boleto
 document.getElementById('closeBtn').addEventListener('click', function () {

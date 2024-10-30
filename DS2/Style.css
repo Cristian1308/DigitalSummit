@@ -646,7 +646,7 @@ p {
 
 #submitBtnCustom:hover {
     background-color: #666;
-    box-shadow: 0 0 10px #00FF8C; /* Sombra verde */
+    box-shadow: 0 0 10px #00FF8C; /*    Sombra verde */
 }
 
 
@@ -790,10 +790,6 @@ p {
 }
 
 
-
-
-
-
 /* Estilos para el modal único */
 .modal-unique {
     display: none; /* Oculto por defecto */
@@ -853,16 +849,6 @@ p {
   .modal-buttons-unique button:hover {
     opacity: 0.9;
   }
-
-
-
-
-
-
-
-
-
-
 
 
 @media (max-width : 1400px) {
