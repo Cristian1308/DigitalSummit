@@ -1,7 +1,7 @@
 const validUsers = new Map(); // Almacenamos correos y datos del CSV
 const boletoURL = 'boleto.png'; // URL pública del boleto de fondo
 const eventDate = new Date('2024-12-02T00:00:00'); // Fecha del evento: 2 de diciembre, 2024
-
+let boletoImageURL = null; // Variable para almacenar la URL del boleto
 
 // Cargar lista de correos y datos desde el CSV
 window.onload = function () {
@@ -93,87 +93,90 @@ function realizarCompraUnique() {
   window.location.href = "https://compras.tuempresa.com"; // URL de la página de compra
 }
 
-let boletoGenerado = false; // Variable para verificar si el boleto ha sido generado
-
-// Función para generar el boleto
+// Función para generar el boleto en HTML y crear una URL temporal en formato PNG
+// Función para generar el boleto en HTML y crear una URL temporal en formato PNG
 function generarBoleto(qrURL, idBoleto, nombre) {
-    const ticketElement = document.getElementById('ticket');
-    ticketElement.innerHTML = ''; // Limpiar contenido previo
+  // Limpiar el contenido previo del boleto
+  const ticketElement = document.getElementById('ticket');
+  ticketElement.innerHTML = '';
 
-    // Crear y configurar la imagen del QR
-    const qrImg = document.createElement('img');
-    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
+  // Crear y configurar el elemento de la imagen del QR
+  const qrImg = document.createElement('img');
+  qrImg.id = 'qrCode';
+  qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
 
-    // Cambiar el fondo del boleto según el tipo de idBoleto
-    switch (idBoleto) {
-        case 'p':
-            ticketElement.style.backgroundImage = "url('preferencial.png')";
-            break;
-        case 'g':
-            ticketElement.style.backgroundImage = "url('general.png')";
-            break;
-        case 'd':
-            ticketElement.style.backgroundImage = "url('diamond.png')";
-            break;
-        default:
-            alert("Tipo de boleto no reconocido. Verifica el ID.");
-            return;
-    }
 
-    // Insertar el nombre en el boleto
-    const nombreElement = document.createElement('div');
-    nombreElement.innerText = nombre;
-    nombreElement.style.position = 'absolute';
-    nombreElement.style.top = '20%';
-    nombreElement.style.left = '50%';
-    nombreElement.style.transform = 'translate(-50%, -50%)';
-    nombreElement.style.fontSize = '1.2em';
-    nombreElement.style.fontWeight = 'bold';
-    nombreElement.style.color = '#FFFFFF';
+  // Cambiar el fondo del boleto según el tipo de idBoleto
+  switch (idBoleto) {
+    case 'p':
+      ticketElement.style.backgroundImage = "url('preferencial.png')";
+      break;
+    case 'g':
+      ticketElement.style.backgroundImage = "url('general.png')";
+      break;
+    case 'd':
+      ticketElement.style.backgroundImage = "url('diamond.png')";
+      break;
+    default:
+      alert("Tipo de boleto no reconocido. Verifica el ID.");
+      return;
+  }
 
-    // Agregar el nombre y el QR al contenedor del boleto
-    ticketElement.appendChild(nombreElement);
-    ticketElement.appendChild(qrImg);
+  // Insertar el nombre en el boleto
+  const nombreElement = document.createElement('div');
+  nombreElement.innerText = nombre;
+  nombreElement.style.position = 'absolute';
+  nombreElement.style.top = '20%';
+  nombreElement.style.left = '50%';
+  nombreElement.style.transform = 'translate(-50%, -50%)';
+  nombreElement.style.fontSize = '1.2em';
+  nombreElement.style.fontWeight = 'bold';
+  nombreElement.style.color = '#FFFFFF';
 
-    // Mostrar el contenedor del boleto
-    document.getElementById('ticketContainer').style.display = 'flex';
+  // Agregar el nombre y el QR al contenedor del boleto
+  ticketElement.appendChild(nombreElement);
+  ticketElement.appendChild(qrImg);
 
-    // Habilitar el botón de descarga de imagen después de generar el boleto
-    qrImg.onload = function () {
-        boletoGenerado = true; // Marcar que el boleto ha sido generado
-        document.getElementById('downloadBtn').disabled = false; // Habilitar el botón de descarga
-    };
+  // Mostrar el contenedor del boleto
+  document.getElementById('ticketContainer').style.display = 'flex';
 
-    // Manejo de error en la carga del QR
-    qrImg.onerror = function () {
-        alert("Error al cargar el código QR. Verifica la URL del QR.");
-    };
+  // Generar el boleto como imagen en formato PNG y convertirla en URL temporal usando html2canvas
+  qrImg.onload = function () {
+    html2canvas(ticketElement, { useCORS: true, scale: 4 })
+      .then(function (canvas) {
+        boletoImageURL = canvas.toDataURL('image/png', 1.0); // Convertir el boleto a una URL temporal en PNG de alta calidad
+
+        // Copiar la URL de la imagen al portapapeles automáticamente (opcional)
+        copiarURLAlPortapapeles(boletoImageURL);
+        alert("El boleto ha sido generado y ya lo puedes descargar");
+
+        // Restablecer las variables después de la generación
+        resetBoleto();
+      })
+      .catch(function (error) {
+        console.error("Error al generar la imagen del boleto: ", error);
+      });
+  };
+
+  // Manejo de error en la carga del QR
+  qrImg.onerror = function () {
+    alert("Error al cargar el código QR. Verifica la URL del QR.");
+  };
 }
 
-// Función para descargar el boleto como imagen
+// Función para descargar el boleto como PNG
 document.getElementById('downloadBtn').addEventListener('click', function () {
-    if (boletoGenerado) {
-        const ticketElement = document.getElementById('ticket');
-
-        // Capturar el contenido del boleto
-        html2canvas(ticketElement, {
-            scale: 2 // Aumentar la escala para mejorar la calidad
-        }).then(canvas => {
-            const imgData = canvas.toDataURL('image/png');
-            const pdf = new jsPDF('p', 'pt', 'a4'); // Ajustar el tamaño del PDF
-            pdf.addImage(imgData, 'PNG', 0, 0, 595, 842); // Ajustar el tamaño de la imagen en el PDF
-            const pdfData = pdf.output('blob');
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(pdfData);
-            a.download = 'boleto.pdf';
-            a.click();
-        }).catch((error) => {
-            console.error('Error al capturar el boleto:', error);
-        });
-    } else {
-        alert("Primero debes generar el boleto.");
-    }
+  if (boletoImageURL) {
+    const link = document.createElement('a');
+    link.download = 'boleto.png';
+    link.href = boletoImageURL;
+    link.click();
+  } else {
+    alert("Primero debes generar el boleto.");
+  }
 });
+
+
 // Función para restablecer el contenido y las variables del boleto
 function resetBoleto() {
   // Limpiar contenido del boleto y ocultar el contenedor
@@ -215,7 +218,7 @@ document.getElementById('sendBtn').addEventListener('click', function () {
 function iniciarCuentaRegresiva() {
   const countdownElement = document.getElementById('countdown');
 
-  function actualizarCuenta() {
+  function actualizarCuenta() {	
     const ahora = new Date();
     const tiempoRestante = eventDate - ahora; // Tiempo restante en milisegundos
 
