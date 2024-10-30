@@ -754,16 +754,44 @@ p {
 
     /* Botones de acciones */
     .ticket-actions {
-        display: flex;
+        /* display: flex;
         justify-content: space-between;
-        width: 100%;
+        width: 100%; */
+        display: flex;
+    justify-content: space-around; /* Espaciado entre los botones */
+    width: 100%;
+    padding: 10px;
     }
 
-    #downloadBtn{
-        margin: 5% 5% 0 5%; /* Margen superior, derecho, inferior, izquierdo */  
+    /* #downloadBtn{
+        margin: 5% 5% 0 5%; 
         width: 100%;
         background: linear-gradient(to right, #00FF8C, #00BEBE);
         color: white;
+    } */
+
+    #downloadBtn {
+        background: linear-gradient(to right, #00FF8C, #00BEBE);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    /* Botón Cancelar */
+    #cancelBtn {
+        background-color: #FF0000;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    /* Efecto hover para ambos botones */
+    #downloadBtn:hover, #cancelBtn:hover {
+        opacity: 0.8;
     }
 
 

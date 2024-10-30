@@ -170,7 +170,7 @@ document.getElementById('downloadBtn').addEventListener('click', function () {
 });
 
 // Función para cerrar el boleto
-document.getElementById('closeBtn').addEventListener('click', function () {
+document.getElementById('cancelBtn').addEventListener('click', function () {
   document.getElementById('ticketContainer').style.display = 'none'; // Ocultar el boleto
 });
 
