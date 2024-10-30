@@ -1,88 +1,4 @@
-/* 
-.title2 {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-h2 {
-    font-size: 3em; 
-    background: linear-gradient(90deg, #00FF8C, #00BEBE); 
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; 
-    text-align: center;
-}
-
-.container {
-    height: 70%;
-    display: grid; 
-    align-items: center;
-    justify-items: center; 
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); 
-    gap: 20px;
-    padding: 20px;
-}
-
-
-
-
-.container div {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
-
-.container div img {
-    border-radius: 5%;
-    width: 100%; 
-    height: auto; 
-    box-shadow: 0 4px 8px rgba(26, 26, 26, 1); 
-}
-
-
-@media (max-width: 1400px) {
-
-    .container {
-        height: 90%;
-        overflow-x: hidden;
-        overflow-y: auto; 
-    }
-
-}
-
-
-@media (max-width: 800px) {
-
-    h2 {
-        font-size: 2em; 
-        margin-bottom: 1%;
-    }  
-
-}
-
-@media (max-width: 600px) {
-
-
-    h2 {
-        font-size: 1.5em; 
-    }
-}
-
-@media (max-width : 500px) {
-
-    .container {
-        display: flex;
-        flex-direction: column;
-        height: 93%;
-        width: 100%;
-    }
-
-    .container div img {
-        width: 90%; 
-    }
-
-}   */
 
 .title2 {
     width: 100%;
@@ -186,38 +102,53 @@ h2 {
         transform: scale(1); /* Tamaño normal */
     }
 }
-
 /* Media Queries */
+@media (max-height: 800px) {
+    .container {
+        height: auto; /* Ajuste automático de altura en pantallas de menor altura */
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ajuste del tamaño mínimo de las tarjetas */
+        padding-bottom: 20px; /* Espacio extra al final */
+    }
+}
+
 @media (max-width: 1400px) {
     .container {
         height: auto; /* Permitir que la altura se ajuste automáticamente */
-        overflow-x: hidden;
-        overflow-y: auto; 
+        overflow-y: auto;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ajuste de columnas y tamaño de tarjetas */
+        padding: 20px;
     }
 }
 
 @media (max-width: 800px) {
+    .container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Tamaño más pequeño en pantallas medianas */
+    }
+    
     h2 {
-        font-size: 2em; 
+        font-size: 1.8em; /* Tamaño de fuente más reducido */
         margin-bottom: 1%;
-    }  
+    }
 }
 
 @media (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+    
     h2 {
-        font-size: 1.5em; 
+        font-size: 1.5em; /* Reducción adicional de tamaño de fuente */
     }
 }
 
 @media (max-width: 500px) {
     .container {
-        display: flex;
-        flex-direction: column;
-        height: auto; /* Permitir que la altura se ajuste automáticamente */
+        flex-direction: column; /* Flex para dispositivos muy pequeños */
         width: 100%;
+        padding: 0 10px;
     }
-
-    .container div img {
-        width: 100%; 
+    
+    .card img {
+        width: 100%; /* Imagenes ajustadas al 100% del ancho del contenedor */
     }
 }
