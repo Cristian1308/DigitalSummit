@@ -605,8 +605,6 @@ p {
     animation: input-load 2s ease-out forwards, input-up 1.4s ease-out forwards;
     color: #d8ecf8;
     text-shadow: 0 2px 16px rgba(174,207,242,.24);
-
-    
 }
 
 #submitBtnCustom:disabled {
@@ -622,10 +620,10 @@ p {
     font-family: 'Montserrat', Arial, sans-serif;
     padding: 0.5em;
     font-size: 1em;
-    border-radius:1vh;
+    border-radius: 1vh;
     border: 1px solid #00FF8C;
     background-color: rgba(186, 215, 247, 0.1);
-    /* color: #d8ecf8; */
+    color: white; /* Color blanco para el texto */
     text-shadow: 0 2px 16px rgba(174, 207, 242, .24);
     transition: background-color 0.3s, border-color 0.3s;
     margin-right: 0.5em;
