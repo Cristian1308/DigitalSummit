@@ -123,14 +123,14 @@ function generarBoleto(qrURL, idBoleto, nombre) {
 
   // Insertar el nombre en el boleto
   const nombreElement = document.createElement('div');
-  // nombreElement.innerText = nombre;
-  // nombreElement.style.position = 'absolute';
-  // nombreElement.style.top = '20%';
-  // nombreElement.style.left = '50%';
-  // nombreElement.style.transform = 'translate(-50%, -50%)';
-  // nombreElement.style.fontSize = '1.2em';
-  // nombreElement.style.fontWeight = 'bold';
-  // nombreElement.style.color = '#FFFFFF';
+  nombreElement.innerText = nombre;
+  nombreElement.style.position = 'absolute';
+  nombreElement.style.top = '20%';
+  nombreElement.style.left = '50%';
+  nombreElement.style.transform = 'translate(-50%, -50%)';
+  nombreElement.style.fontSize = '1.2em';
+  nombreElement.style.fontWeight = 'bold';
+  nombreElement.style.color = '#FFFFFF';
 
   // Agregar el nombre y el QR al contenedor del boleto
   ticketElement.appendChild(nombreElement);
