@@ -694,7 +694,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(139, 0, 0, 0.5); /* Fondo semitransparente */
+    background-color: rgb(0, 0, 0); /* Fondo semitransparente */
     z-index: 999;                      /* Justo debajo del ticket-container */
 }
 
@@ -704,10 +704,6 @@ p {
     align-items: center;
     flex-direction: column;
     padding-bottom: 15px;
-    border: 2px solid #ffffff;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -715,16 +711,7 @@ p {
     z-index: 1000;
 }
 
-    .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(139, 0, 0, 0.5);
-        z-index: 999;
-    }
+
 
     /* Estilos del boleto */    
     .ticket {
@@ -734,7 +721,7 @@ p {
         background-size: contain;         /* Ajusta la imagen completa dentro del contenedor sin recortes */
         background-position: center;      /* Centra la imagen dentro del contenedor */
         position: relative;
-        border: 2px solid #d3d3d3;
+        /* border: 2px solid #d3d3d3; */
         border-radius: 8px;
         display: flex;
         justify-content: center;
@@ -742,49 +729,49 @@ p {
     }
 
     /* QR Code centrado dentro del boleto */
-    .ticket .qr-code {
+    .ticket img {
+        margin-top: 27%;
+        border-radius: 10%;
         width: 115px;
         height: 115px;
         background-color: #fff;
         position: absolute;
-        top: 38.5%;
+        top: 10%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
     /* Botones de acciones */
     .ticket-actions {
-        /* display: flex;
-        justify-content: space-between;
-        width: 100%; */
-        display: flex;
+
+    margin-top: 1%;    
+    display: flex;
     justify-content: space-around; /* Espaciado entre los botones */
-    width: 100%;
+    width: 35vh;
     padding: 10px;
+    background-color: rgb(19, 19, 19);
+    border-radius: 16px;
     }
 
-    /* #downloadBtn{
-        margin: 5% 5% 0 5%; 
-        width: 100%;
-        background: linear-gradient(to right, #00FF8C, #00BEBE);
-        color: white;
-    } */
 
     #downloadBtn {
-        background: linear-gradient(to right, #00FF8C, #00BEBE);
-        color: white;
+        border: 4px solid #000000;
+        /* background: linear-gradient(to right, #00FF8C, #00BEBE); */
+        color: #000000;
+        font-weight: bold;
         padding: 10px 20px;
-        border: none;
+        /* border: none; */
         border-radius: 5px;
         cursor: pointer;
     }
     
     /* Botón Cancelar */
     #cancelBtn {
-        background-color: #FF0000;
-        color: white;
+        border: 4px solid #000000;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
         padding: 10px 20px;
-        border: none;
+        /* border: none; */
         border-radius: 5px;
         cursor: pointer;
     }
@@ -937,24 +924,13 @@ p {
         width: 80%;
     }
 
-    .ticket-container {
-        padding-bottom: 15px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1000;
-    }
     
-    .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(7, 6, 6, 0.5);
-        z-index: 999;
+    .ticket-container {
+        top: 40%;
+        left: 40%;
     }
+
+
     
 }
 
@@ -1020,12 +996,11 @@ p {
 
     }
 
+
     .ticket-container {
-        top: 30%;
-        left: 32%;
+        top: 35%;
+        left: 35%;
     }
-
-
 
 }
 
@@ -1051,11 +1026,11 @@ p {
         width: 50%;
     }
 
-
+/* 
     .ticket-container {
         top: 25%;
         left: 34%;
-    }
+    } */
 
 
 
@@ -1064,6 +1039,15 @@ p {
         width: 80%;
     }
 
+    .ticket-container {
+        top: 30%;
+        left: 35%;
+    }
 
 
+    .ticket img {
+        margin-top: 24%;
+        width: 105px;
+        height: 105px;
+    }
 }
