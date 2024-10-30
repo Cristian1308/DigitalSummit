@@ -686,7 +686,18 @@ p {
 }
 
 
-/* Estilos generales del contenedor y boleto */
+/* Overlay para oscurecer el fondo cuando el modal está activo */
+.overlay {
+    display: none;                     /* Oculto inicialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(139, 0, 0, 0.5); /* Fondo semitransparente */
+    z-index: 999;                      /* Justo debajo del ticket-container */
+}
+
 .ticket-container {
     display: none;
     justify-content: center;
@@ -704,71 +715,56 @@ p {
     z-index: 1000;
 }
 
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(139, 0, 0, 0.5);
-    z-index: 999;
-}
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(139, 0, 0, 0.5);
+        z-index: 999;
+    }
 
-/* Estilos del boleto ajustados a 844x1660 */
-.ticket {
-    width: 21em;  /* Ajuste de ancho para pantallas normales */
-    height: 41em; /* Ajuste de alto para pantallas normales */
-    background: url('DS/ENTRADA/PRUEBA-03.png') no-repeat center;
-    background-size: cover;
-    position: relative;
-    border: 2px solid #d3d3d3;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* QR Code centrado dentro del boleto */
-.ticket .qr-code {
-    width: 120px;
-    height: 120px;
-    background-color: #fff;
-    position: absolute;
-    top: 28%;  /* Ajuste la posición vertical para el nuevo diseño */
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Botones de acciones */
-.ticket-actions {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-#downloadBtn {
-    margin: 5% 5% 0 5%;  /* Margen superior, derecho, inferior, izquierdo */
-    width: 100%;
-    background: linear-gradient(to right, #00FF8C, #00BEBE);
-    color: white;
-}
-/* Media Query para dispositivos móviles */
-
-/* Media Query para dispositivos móviles */
-@media (max-width: 600px) {
+    /* Estilos del boleto */    
     .ticket {
-        width: 17em;  /* Ajuste proporcional para pantallas móviles */
-        height: 34em;
+        width: 17.81em;                   /* Ancho del boleto en pantallas normales */
+        height: 30em;                     /* Alto del boleto en pantallas normales */
+        background: url('DS/ENTRADA/PRUEBA-03.png') no-repeat center;
+        background-size: contain;         /* Ajusta la imagen completa dentro del contenedor sin recortes */
+        background-position: center;      /* Centra la imagen dentro del contenedor */
+        position: relative;
+        border: 2px solid #d3d3d3;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
+    /* QR Code centrado dentro del boleto */
     .ticket .qr-code {
-        width: 100px;
-        height: 100px;
-        top: 26%;
+        width: 115px;
+        height: 115px;
+        background-color: #fff;
+        position: absolute;
+        top: 26.5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
-}
 
+    /* Botones de acciones */
+    .ticket-actions {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    #downloadBtn{
+        margin: 5% 5% 0 5%; /* Margen superior, derecho, inferior, izquierdo */  
+        width: 100%;
+        background: linear-gradient(to right, #00FF8C, #00BEBE);
+        color: white;
+    }
 
 /* Estilos del botón de cerrar */
 .close-btn {
@@ -782,12 +778,12 @@ p {
     font-size: 50px; /* Tamaño del icono "X" */
     font-weight: bold;
     cursor: pointer;
-    color: #000; /* Color de la "X" */  
+    color: #FF0000; /* Color de la "X" */  
     z-index: 1001; /* Asegurarse de que el botón esté por encima del contenido del modal */
 }
 
 .close-btn:hover {
-    color: #00ff6e; /* Cambia a rojo al pasar el mouse */
+    color: #FF0000; /* Cambia a rojo al pasar el mouse */
 }
 
 
