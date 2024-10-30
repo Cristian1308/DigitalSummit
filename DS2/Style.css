@@ -731,7 +731,7 @@ p {
     /* QR Code centrado dentro del boleto */
     .ticket img {
         border-radius: 15%;
-        width: 19vh;
+        width: 44%;
         background-color: #fff;
         position: absolute;
         top: 25%;
@@ -896,10 +896,10 @@ p {
 
 
     /* QR Code centrado dentro del boleto */
-    .ticket img {
+    /* .ticket img {
         width: 20vh;
     }
-    
+     */
 }
 
 @media (max-width: 900px) {
@@ -1010,9 +1010,9 @@ p {
         width: 30vh;
     }
 
-    .ticket img {
+    /* .ticket img {
         width: 19vh;
-    }
+    } */
     
 
 }
@@ -1058,9 +1058,9 @@ p {
     }
 
 
-    .ticket img {
+    /* .ticket img {
         width: 16vh;
-    }
+    } */
 
     .ticket-actions {
         width: 30vh;
@@ -1105,12 +1105,12 @@ p {
     }
 
 
-    .ticket img {
-        width: 16vh;
-    }
+    /* .ticket img {
+        width: 13vh;
+    } */
 
     .ticket-actions {
-        width: 30vh;
+        width: 20vh;
     }
 
 
