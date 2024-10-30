@@ -744,13 +744,13 @@ p {
     /* Botones de acciones */
     .ticket-actions {
 
-    margin-top: 1%;    
-    display: flex;
-    justify-content: space-around; /* Espaciado entre los botones */
-    width: 35vh;
-    padding: 10px;
-    background-color: rgb(19, 19, 19);
-    border-radius: 16px;
+        margin-top: 1%;    
+        display: flex;
+        justify-content: space-around; /* Espaciado entre los botones */
+        width: 35vh;
+        padding: 10px;
+        background-color: rgb(19, 19, 19);
+        border-radius: 16px;
     }
 
 
@@ -1050,4 +1050,38 @@ p {
         width: 105px;
         height: 105px;
     }
+
+    .ticket-actions {
+        margin-top: 1%;    
+        display: flex;
+        justify-content: space-around; /* Espaciado entre los botones */
+        width: 30vh;
+        padding: 10px;
+        background-color: rgb(19, 19, 19);
+        border-radius: 16px;
+    }
+
+
+    #downloadBtn {
+        border: 4px solid #000000;
+        /* background: linear-gradient(to right, #00FF8C, #00BEBE); */
+        color: #000000;
+        font-weight: bold;
+        padding: 10px 20px;
+        /* border: none; */
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    /* Botón Cancelar */
+    #cancelBtn {
+        border: 4px solid #000000;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        padding: 10px 20px;
+        /* border: none; */
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
 }
