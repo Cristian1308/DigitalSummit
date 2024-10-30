@@ -22,7 +22,10 @@ body {
     --_factor: min(600px, 100vh);
     --_size: min(var(--_factor), 100vw);
     max-width: 100%; 
-    overflow: hidden;
+    overflow: hidden;               /* Desactiva el desplazamiento */
+    position: fixed;                /* Mantiene la posición fija */
+    width: 100vw;
+    height: 100vh;
 }
 
 body.gold .header h2 ,
