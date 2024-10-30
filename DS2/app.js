@@ -102,6 +102,25 @@ function generarBoleto(qrURL, idBoleto) {
   qrImg.onload = function () {
     document.getElementById('ticketContainer').style.display = 'flex'; // Mostrar el contenedor del boleto
 
+    // Obtener el elemento contenedor del boleto
+    const ticketElement = document.getElementById('ticket');
+
+    // Cambiar el fondo del boleto según el tipo de idBoleto
+    switch (idBoleto) {
+      case 'p':
+        ticketElement.style.backgroundImage = "url('preferencial.png')";
+        break;
+      case 'g':
+        ticketElement.style.backgroundImage = "url('general.png')";
+        break;
+      case 'd':
+        ticketElement.style.backgroundImage = "url('diamond.png')";
+        break;
+      default:
+        alert("Tipo de boleto no reconocido. Verifica el ID.");
+        return; // Salir si el tipo de boleto no es válido
+    }
+
     // Insertar el idBoleto en el centro del boleto
     const idElement = document.createElement('div');
     idElement.innerText = idBoleto;
@@ -114,7 +133,6 @@ function generarBoleto(qrURL, idBoleto) {
     idElement.style.color = '#000'; // Puedes cambiar el color si es necesario
 
     // Agregar el elemento al contenedor del boleto
-    const ticketElement = document.getElementById('ticket');
     ticketElement.appendChild(idElement);
 
     // Generar el boleto como imagen en formato JPG y convertirla en URL temporal
@@ -124,6 +142,9 @@ function generarBoleto(qrURL, idBoleto) {
       // Copiar la URL de la imagen al portapapeles automáticamente (opcional)
       copiarURLAlPortapapeles(boletoImageURL);
       alert("El boleto ha sido generado y ya lo puedes descargar");
+
+      // Asignar la URL para la descarga
+      window.boletoImageURL = boletoImageURL;
 
     }).catch(function (error) {
       console.error("Error al generar la imagen del boleto: ", error);
@@ -138,10 +159,10 @@ function generarBoleto(qrURL, idBoleto) {
 
 // Función para descargar el boleto como JPG
 document.getElementById('downloadBtn').addEventListener('click', function () {
-  if (boletoImageURL) {
+  if (window.boletoImageURL) {
     const link = document.createElement('a');
     link.download = 'boleto.jpg'; // Nombre del archivo
-    link.href = boletoImageURL; // Convertir el canvas a una URL de imagen en JPG
+    link.href = window.boletoImageURL; // Convertir el canvas a una URL de imagen en JPG
     link.click(); // Simular clic para descargar la imagen
   } else {
     alert("Primero debes generar el boleto.");
