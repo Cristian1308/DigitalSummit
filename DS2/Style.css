@@ -746,7 +746,7 @@ p {
         margin-top: 1%;    
         display: flex;
         justify-content: space-around; /* Espaciado entre los botones */
-        width: 18%;
+        width: 35vh;
         padding: 10px;
         background-color: rgb(19, 19, 19);
         border-radius: 16px;
@@ -898,7 +898,6 @@ p {
     }
 
 
-
 }
 
 @media (max-width: 900px) {
@@ -994,11 +993,6 @@ p {
 
     }
 
-
-
-    /* .ticket-actions {
-        width: 30vh;
-    } */
 
     
 
