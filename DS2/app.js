@@ -1,7 +1,7 @@
 const validUsers = new Map(); // Almacenamos correos y datos del CSV
 const boletoURL = 'boleto.png'; // URL pública del boleto de fondo
 const eventDate = new Date('2024-12-02T00:00:00'); // Fecha del evento: 2 de diciembre, 2024
-let boletoImageURL = null; // Variable para almacenar la URL del boleto
+
 
 // Cargar lista de correos y datos desde el CSV
 window.onload = function () {
@@ -93,6 +93,12 @@ function realizarCompraUnique() {
   window.location.href = "https://compras.tuempresa.com"; // URL de la página de compra
 }
 
+// Variable para almacenar la URL del boleto generado
+let boletoImageURL = null;
+
+// Deshabilitar el botón de descarga inicialmente
+document.getElementById('downloadBtn').disabled = true;
+
 function generarBoleto(qrURL, idBoleto, nombre) {
   // Limpiar el contenido previo del boleto
   const ticketElement = document.getElementById('ticket');
@@ -143,15 +149,25 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   // Mostrar el contenedor del boleto
   document.getElementById('ticketContainer').style.display = 'flex';
 
-  // Generar el boleto como imagen en formato PNG y convertirla en URL temporal
-  htmlToImage.toPng(ticketElement, { quality: 1, cacheBust: true })
-    .then(function (dataUrl) {
-      boletoImageURL = dataUrl;  // URL de la imagen en PNG de alta calidad
+  // Generar el boleto como imagen en formato PNG y convertirla en URL temporal con alta resolución
+  qrImg.onload = function () {
+    html2canvas(ticketElement, {
+      scale: 4, // Aumenta la escala para mejor resolución
+      useCORS: true,
+      allowTaint: true
+    }).then(function (canvas) {
+      boletoImageURL = canvas.toDataURL('image/png', 1.0); // Convertir a una URL PNG de alta calidad
+      document.getElementById('downloadBtn').disabled = false; // Habilitar el botón de descarga
       alert("El boleto ha sido generado y ya lo puedes descargar");
-    })
-    .catch(function (error) {
+    }).catch(function (error) {
       console.error("Error al generar la imagen del boleto: ", error);
     });
+  };
+
+  // Manejo de error en la carga del QR
+  qrImg.onerror = function () {
+    alert("Error al cargar el código QR. Verifica la URL del QR.");
+  };
 }
 
 // Función para descargar el boleto como PNG
@@ -165,6 +181,8 @@ document.getElementById('downloadBtn').addEventListener('click', function () {
     alert("Primero debes generar el boleto.");
   }
 });
+
+
 
 // Función para restablecer el contenido y las variables del boleto
 function resetBoleto() {
