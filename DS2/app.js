@@ -93,8 +93,6 @@ function realizarCompraUnique() {
   window.location.href = "https://compras.tuempresa.com"; // URL de la página de compra
 }
 
-// Función para generar el boleto en HTML y crear una URL temporal en formato PNG
-// Función para generar el boleto en HTML y crear una URL temporal en formato PNG
 function generarBoleto(qrURL, idBoleto, nombre) {
   // Limpiar el contenido previo del boleto
   const ticketElement = document.getElementById('ticket');
@@ -144,14 +142,21 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   qrImg.onload = function () {
     html2canvas(ticketElement, { useCORS: true, scale: 4 })
       .then(function (canvas) {
-        boletoImageURL = canvas.toDataURL('image/png', 1.0); // Convertir el boleto a una URL temporal en PNG de alta calidad
-
-        // Copiar la URL de la imagen al portapapeles automáticamente (opcional)
-        copiarURLAlPortapapeles(boletoImageURL);
-        alert("El boleto ha sido generado y ya lo puedes descargar");
-
-        // Restablecer las variables después de la generación
-        resetBoleto();
+        // Utilizar toBlob para generar una imagen PNG de alta calidad en Safari
+        if (canvas.toBlob) {
+          canvas.toBlob(function (blob) {
+            boletoImageURL = URL.createObjectURL(blob);
+            copiarURLAlPortapapeles(boletoImageURL);
+            alert("El boleto ha sido generado y ya lo puedes descargar");
+            resetBoleto();
+          }, 'image/png', 1.0);
+        } else {
+          // Fallback si toBlob no está disponible
+          boletoImageURL = canvas.toDataURL('image/png', 1.0);
+          copiarURLAlPortapapeles(boletoImageURL);
+          alert("El boleto ha sido generado y ya lo puedes descargar");
+          resetBoleto();
+        }
       })
       .catch(function (error) {
         console.error("Error al generar la imagen del boleto: ", error);
@@ -174,7 +179,7 @@ document.getElementById('downloadBtn').addEventListener('click', function () {
   } else {
     alert("Primero debes generar el boleto.");
   }
-});
+}); 
 
 
 // Función para restablecer el contenido y las variables del boleto
