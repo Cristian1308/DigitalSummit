@@ -103,7 +103,7 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   // Crear y configurar la imagen del QR
   const qrImg = document.createElement('img');
   qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
-
+ 
 
   // Cambiar el fondo del boleto según el tipo de idBoleto
   switch (idBoleto) {
@@ -159,7 +159,7 @@ document.getElementById('downloadBtn').addEventListener('click', function () {
       margin:       1,
       filename:     'boleto.pdf',
       image:        { type: 'jpeg', quality: 0.98 },
-      html2canvas:  { scale: 10, useCORS: true },
+      html2canvas:  { scale: 4, useCORS: true },
       jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
 
