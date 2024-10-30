@@ -32,7 +32,7 @@ function cargarListaCorreosDesdeURL(url) {
 //   if (validUsers.has(emailInput)) {
 //     const { qrLink, idBoleto, nombre } = validUsers.get(emailInput);
 //     generarBoleto(qrLink, idBoleto, nombre);
-//     document.getElementById('message').textContent = ¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto};
+//     document.getElementById('message').textContent = `¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto}`;
 //   } else {
 //     document.getElementById('message').textContent = 'Correo no encontrado.';
 //   }
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (validUsers.has(emailInput)) {
       const { qrLink, idBoleto, nombre } = validUsers.get(emailInput);
       generarBoleto(qrLink, idBoleto, nombre);
-      // document.getElementById('message').textContent = ¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto};
+      // document.getElementById('message').textContent = `¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto}`;
     } else {
       abrirModalUnique(); // Abre el modal si el correo no se encuentra
     }
@@ -103,7 +103,7 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   // Crear y configurar el elemento de la imagen del QR
   const qrImg = document.createElement('img');
   qrImg.id = 'qrCode';
-  qrImg.src = https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL};
+  qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
 
   // Cambiar el fondo del boleto según el tipo de idBoleto
   switch (idBoleto) {
@@ -203,7 +203,7 @@ document.getElementById('sendBtn').addEventListener('click', function () {
   const numeroTelefono = document.getElementById('phoneInput').value;
   if (numeroTelefono) {
     const mensaje = encodeURIComponent('Aquí tienes tu entrada para el Digital Summit 2024.');
-    const url = https://wa.me/${numeroTelefono}?text=${mensaje} ${boletoImageURL};
+    const url = `https://wa.me/${numeroTelefono}?text=${mensaje} ${boletoImageURL}`;
 
     // Abrir el enlace de WhatsApp en una nueva pestaña
     window.open(url, '_blank');
@@ -227,7 +227,7 @@ function iniciarCuentaRegresiva() {
     const segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
 
     // Actualizar el texto del contador
-    countdownElement.textContent = Faltan ${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos para el evento.;
+    countdownElement.textContent = `Faltan ${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos para el evento.`;
 
     // Si el tiempo ha terminado, detener el contador
     if (tiempoRestante < 0) {
