@@ -121,7 +121,7 @@ function generarBoleto(qrURL, idBoleto, nombre) {
       return;
   }
 
-  // Insertar el nombre en el boleto
+  // Insertar el nombre en el boleto.
   const nombreElement = document.createElement('div');
   nombreElement.innerText = nombre;
   nombreElement.style.position = 'absolute';
