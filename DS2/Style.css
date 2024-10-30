@@ -353,7 +353,7 @@ p {
 }
 
 .use p {
-    font-size: 0.8em;
+    font-size: 0.5em;
     position: relative; width: fit-content; margin: auto;
     color: #d8ecf8;
     text-shadow: 0 2px 16px rgba(174,207,242,.24);
@@ -662,10 +662,12 @@ p {
 
 /* Estilos para el texto */
 .use label {
+    font-size: 0.8rem;
     color: #d8ecf8; /* Color del texto */
 }
 
 .use a{
+    
     color: white;
 }
 
