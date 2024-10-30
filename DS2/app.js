@@ -93,83 +93,87 @@ function realizarCompraUnique() {
   window.location.href = "https://compras.tuempresa.com"; // URL de la página de compra
 }
 
-let boletoGenerado = false;
+let boletoGenerado = false; // Variable para verificar si el boleto ha sido generado
 
 // Función para generar el boleto
 function generarBoleto(qrURL, idBoleto, nombre) {
-  const ticketElement = document.getElementById('ticket');
-  ticketElement.innerHTML = ''; // Limpiar contenido previo
-
-  // Crear y configurar la imagen del QR
-  const qrImg = document.createElement('img');
-  qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
- 
-
-  // Cambiar el fondo del boleto según el tipo de idBoleto
-  switch (idBoleto) {
-    case 'p':
-      ticketElement.style.backgroundImage = "url('preferencial.png')";
-      break;
-    case 'g':
-      ticketElement.style.backgroundImage = "url('general.png')";
-      break;
-    case 'd':
-      ticketElement.style.backgroundImage = "url('diamond.png')";
-      break;
-    default:
-      alert("Tipo de boleto no reconocido. Verifica el ID.");
-      return;
-  }
-
-  // Insertar el nombre en el boleto
-  const nombreElement = document.createElement('div');
-  nombreElement.innerText = nombre;
-  nombreElement.style.position = 'absolute';
-  nombreElement.style.top = '20%';
-  nombreElement.style.left = '50%';
-  nombreElement.style.transform = 'translate(-50%, -50%)';
-  nombreElement.style.fontSize = '1.2em';
-  nombreElement.style.fontWeight = 'bold';
-  nombreElement.style.color = '#FFFFFF';
-
-  // Agregar el nombre y el QR al contenedor del boleto
-  ticketElement.appendChild(nombreElement);
-  ticketElement.appendChild(qrImg);
-
-  // Mostrar el contenedor del boleto
-  document.getElementById('ticketContainer').style.display = 'flex';
-
-  // Habilitar el botón de descarga de PDF después de generar el boleto
-  qrImg.onload = function () {
-    boletoGenerado = true; // Marcar que el boleto ha sido generado
-    document.getElementById('downloadBtn').disabled = false; // Habilitar el botón de descarga
-  };
-
-  // Manejo de error en la carga del QR
-  qrImg.onerror = function () {
-    alert("Error al cargar el código QR. Verifica la URL del QR.");
-  };
-}
-
-// Función para descargar el boleto como PDF
-document.getElementById('downloadBtn').addEventListener('click', function () {
-  if (boletoGenerado) {
     const ticketElement = document.getElementById('ticket');
-    const options = {
-      margin:       0.5, // Reducir margen para maximizar el espacio en el PDF
-      filename:     'boleto.pdf',
-      image:        { type: 'jpeg', quality: 1.0 }, // Calidad máxima
-      html2canvas:  { scale: 5, useCORS: true },    // Escala máxima recomendada
-      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    ticketElement.innerHTML = ''; // Limpiar contenido previo
+
+    // Crear y configurar la imagen del QR
+    const qrImg = document.createElement('img');
+    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
+
+    // Cambiar el fondo del boleto según el tipo de idBoleto
+    switch (idBoleto) {
+        case 'p':
+            ticketElement.style.backgroundImage = "url('preferencial.png')";
+            break;
+        case 'g':
+            ticketElement.style.backgroundImage = "url('general.png')";
+            break;
+        case 'd':
+            ticketElement.style.backgroundImage = "url('diamond.png')";
+            break;
+        default:
+            alert("Tipo de boleto no reconocido. Verifica el ID.");
+            return;
+    }
+
+    // Insertar el nombre en el boleto
+    const nombreElement = document.createElement('div');
+    nombreElement.innerText = nombre;
+    nombreElement.style.position = 'absolute';
+    nombreElement.style.top = '20%';
+    nombreElement.style.left = '50%';
+    nombreElement.style.transform = 'translate(-50%, -50%)';
+    nombreElement.style.fontSize = '1.2em';
+    nombreElement.style.fontWeight = 'bold';
+    nombreElement.style.color = '#FFFFFF';
+
+    // Agregar el nombre y el QR al contenedor del boleto
+    ticketElement.appendChild(nombreElement);
+    ticketElement.appendChild(qrImg);
+
+    // Mostrar el contenedor del boleto
+    document.getElementById('ticketContainer').style.display = 'flex';
+
+    // Habilitar el botón de descarga de imagen después de generar el boleto
+    qrImg.onload = function () {
+        boletoGenerado = true; // Marcar que el boleto ha sido generado
+        document.getElementById('downloadBtn').disabled = false; // Habilitar el botón de descarga
     };
 
-    // Generar y descargar el PDF
-    html2pdf().set(options).from(ticketElement).save();
-  } else {
-    alert("Primero debes generar el boleto.");
-  }
-});
+    // Manejo de error en la carga del QR
+    qrImg.onerror = function () {
+        alert("Error al cargar el código QR. Verifica la URL del QR.");
+    };
+}
 
+// Función para descargar el boleto como imagen
+document.getElementById('downloadBtn').addEventListener('click', function () {
+    if (boletoGenerado) {
+        const ticketElement = document.getElementById('ticket');
+
+        // Capturar el contenido del boleto
+        html2canvas(ticketElement, {
+            scale: 2 // Aumentar la escala para mejorar la calidad
+        }).then(canvas => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('p', 'pt', 'a4'); // Ajustar el tamaño del PDF
+            pdf.addImage(imgData, 'PNG', 0, 0, 595, 842); // Ajustar el tamaño de la imagen en el PDF
+            const pdfData = pdf.output('blob');
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(pdfData);
+            a.download = 'boleto.pdf';
+            a.click();
+        }).catch((error) => {
+            console.error('Error al capturar el boleto:', error);
+        });
+    } else {
+        alert("Primero debes generar el boleto.");
+    }
+});
 // Función para restablecer el contenido y las variables del boleto
 function resetBoleto() {
   // Limpiar contenido del boleto y ocultar el contenedor
