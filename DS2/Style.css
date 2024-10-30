@@ -728,8 +728,8 @@ p {
 
     /* Estilos del boleto */    
     .ticket {
-        width: 17.81em;                   /* Ancho del boleto en pantallas normales */
-        height: 30em;                     /* Alto del boleto en pantallas normales */
+        width: 22.81em;                   /* Ancho del boleto en pantallas normales */
+        height: 36em;                     /* Alto del boleto en pantallas normales */
         background: url('DS/ENTRADA/PRUEBA-03.png') no-repeat center;
         background-size: contain;         /* Ajusta la imagen completa dentro del contenedor sin recortes */
         background-position: center;      /* Centra la imagen dentro del contenedor */
