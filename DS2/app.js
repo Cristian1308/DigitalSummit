@@ -93,8 +93,6 @@ function realizarCompraUnique() {
   window.location.href = "https://compras.tuempresa.com"; // URL de la página de compra
 }
 
-// Función para generar el boleto en HTML y crear una URL temporal en formato PNG
-// Función para generar el boleto en HTML y crear una URL temporal en formato PNG
 function generarBoleto(qrURL, idBoleto, nombre) {
   // Limpiar el contenido previo del boleto
   const ticketElement = document.getElementById('ticket');
@@ -104,6 +102,12 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   const qrImg = document.createElement('img');
   qrImg.id = 'qrCode';
   qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
+  qrImg.style.position = 'absolute';
+  qrImg.style.bottom = '10%';
+  qrImg.style.left = '50%';
+  qrImg.style.transform = 'translate(-50%, 0)';
+  qrImg.style.width = '150px';
+  qrImg.style.height = '150px';
 
   // Cambiar el fondo del boleto según el tipo de idBoleto
   switch (idBoleto) {
@@ -121,7 +125,7 @@ function generarBoleto(qrURL, idBoleto, nombre) {
       return;
   }
 
-  // Insertar el nombre en el boleto.
+  // Insertar el nombre en el boleto
   const nombreElement = document.createElement('div');
   nombreElement.innerText = nombre;
   nombreElement.style.position = 'absolute';
@@ -140,27 +144,14 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   document.getElementById('ticketContainer').style.display = 'flex';
 
   // Generar el boleto como imagen en formato PNG y convertirla en URL temporal
-  qrImg.onload = function () {
-    htmlToImage.toPng(ticketElement, { quality: 1, cacheBust: true })
-      .then(function (dataUrl) {
-        boletoImageURL = dataUrl;  // URL de la imagen en PNG de alta calidad
-
-        // Copiar la URL de la imagen al portapapeles automáticamente (opcional)
-        copiarURLAlPortapapeles(boletoImageURL);
-        alert("El boleto ha sido generado y ya lo puedes descargar");
-
-        // Restablecer las variables después de la generación
-        resetBoleto();
-      })
-      .catch(function (error) {
-        console.error("Error al generar la imagen del boleto: ", error);
-      });
-  };
-
-  // Manejo de error en la carga del QR
-  qrImg.onerror = function () {
-    alert("Error al cargar el código QR. Verifica la URL del QR.");
-  };
+  htmlToImage.toPng(ticketElement, { quality: 1, cacheBust: true })
+    .then(function (dataUrl) {
+      boletoImageURL = dataUrl;  // URL de la imagen en PNG de alta calidad
+      alert("El boleto ha sido generado y ya lo puedes descargar");
+    })
+    .catch(function (error) {
+      console.error("Error al generar la imagen del boleto: ", error);
+    });
 }
 
 // Función para descargar el boleto como PNG
