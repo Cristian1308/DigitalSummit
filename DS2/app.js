@@ -104,12 +104,12 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   const qrImg = document.createElement('img');
   qrImg.id = 'qrCode';
   qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
-  // qrImg.style.position = 'absolute';
-  // qrImg.style.bottom = '10%'; 
-  // qrImg.style.left = '50%';
-  // qrImg.style.transform = 'translate(-50%, 0)';
-  // qrImg.style.width = '150px';
-  // qrImg.style.height = '150px';
+  qrImg.style.position = 'absolute';
+  qrImg.style.bottom = '10%'; 
+  qrImg.style.left = '50%';
+  qrImg.style.transform = 'translate(-50%, 0)';
+  qrImg.style.width = '150px';
+  qrImg.style.height = '150px';
 
   // Cambiar el fondo del boleto según el tipo de idBoleto
   switch (idBoleto) {
