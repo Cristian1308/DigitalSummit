@@ -108,12 +108,6 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   const qrImg = document.createElement('img');
   qrImg.id = 'qrCode';
   qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrURL}`;
-  qrImg.style.position = 'absolute';
-  qrImg.style.bottom = '10%';
-  qrImg.style.left = '50%';
-  qrImg.style.transform = 'translate(-50%, 0)';
-  qrImg.style.width = '150px';
-  qrImg.style.height = '150px';
 
   // Cambiar el fondo del boleto según el tipo de idBoleto
   switch (idBoleto) {
@@ -151,13 +145,17 @@ function generarBoleto(qrURL, idBoleto, nombre) {
 
   // Generar el boleto como imagen en formato PNG y convertirla en URL temporal con alta resolución
   qrImg.onload = function () {
-    html2canvas(ticketElement, {
-      scale: 4, // Aumenta la escala para mejor resolución
-      useCORS: true,
-      allowTaint: true
-    }).then(function (canvas) {
-      boletoImageURL = canvas.toDataURL('image/png', 1.0); // Convertir a una URL PNG de alta calidad
-      document.getElementById('downloadBtn').disabled = false; // Habilitar el botón de descarga
+    domtoimage.toPng(ticketElement, {
+      quality: 1,      // Establece la calidad máxima
+      width: ticketElement.offsetWidth * 4, // Multiplica por 4 para mejorar la resolución
+      height: ticketElement.offsetHeight * 4,
+      style: {
+        transform: 'scale(4)',     // Escalar a 4x para mejor nitidez
+        transformOrigin: 'top left' // Asegura que la escala se aplique correctamente
+      }
+    }).then(function (dataUrl) {
+      boletoImageURL = dataUrl;  // URL de la imagen en PNG de alta calidad
+      document.getElementById('downloadBtn').disabled = false;  // Habilitar el botón de descarga
       alert("El boleto ha sido generado y ya lo puedes descargar");
     }).catch(function (error) {
       console.error("Error al generar la imagen del boleto: ", error);
@@ -189,7 +187,7 @@ function resetBoleto() {
   // Limpiar contenido del boleto y ocultar el contenedor
   document.getElementById('ticketContainer').style.display = 'none';
   document.getElementById('ticket').innerHTML = ''; // Borra cualquier texto o elemento agregado
-  
+
   // Restablecer la URL de imagen temporal
   boletoImageURL = null;
 }
