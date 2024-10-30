@@ -156,10 +156,10 @@ document.getElementById('downloadBtn').addEventListener('click', function () {
   if (boletoGenerado) {
     const ticketElement = document.getElementById('ticket');
     const options = {
-      margin:       1,
+      margin:       0.5, // Reducir margen para maximizar el espacio en el PDF
       filename:     'boleto.pdf',
-      image:        { type: 'jpeg', quality: 0.98 },
-      html2canvas:  { scale: 4, useCORS: true },
+      image:        { type: 'jpeg', quality: 1.0 }, // Calidad máxima
+      html2canvas:  { scale: 5, useCORS: true },    // Escala máxima recomendada
       jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
 
