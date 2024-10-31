@@ -37,7 +37,7 @@
     display: grid;
     grid-template-columns: 49% 49%;
     gap: 15px;
-    height: 73%; /* Establece una altura fija para el contenedor */
+    height: 65%; /* Establece una altura fija para el contenedor */
     overflow-y: auto; /* Permite el desplazamiento vertical */
     overflow-x: hidden; /* Opcional: oculta el desplazamiento horizontal */
     opacity: 0; /* Inicialmente invisible */
@@ -148,7 +148,7 @@
     padding: 12px 24px; /* Espaciado interno */
     border-radius: 5px; /* Bordes redondeados */
     font-weight: bold;
-    font-size: 1.1em; /* Tamaño de fuente */
+    font-size: 0.8em; /* Tamaño de fuente */
     transition: transform 0.3s, background-color 0.3s; /* Transiciones suaves para efectos */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
 }
@@ -160,7 +160,6 @@
 
 
 @media (max-width : 1500px) {
-
 
     /* ESTILOS DE LA TARJETA (CARD) */
     .hotel-card {

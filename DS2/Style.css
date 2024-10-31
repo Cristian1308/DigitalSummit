@@ -870,10 +870,14 @@ p {
   }
 
 
-@media (max-width : 1500px) {
+@media (max-width : 1700px) {
 
     .heroT > h2 {
         font-size: 6rem;
+    }
+
+    .title img {
+        margin-top: 20px;
     }
 
     .use {
@@ -891,13 +895,13 @@ p {
     }
 
     .use{
-        top: 26em; 
+        top: 25em; 
         
     }
 
     .mountains {
  
-        top: 31em; 
+        top: 30em; 
     }
 
 
