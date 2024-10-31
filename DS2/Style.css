@@ -870,7 +870,7 @@ p {
   }
 
 
-@media (max-width : 1600px) {
+@media (max-width : 1500px) {
 
     .heroT > h2 {
         font-size: 6rem;
@@ -887,7 +887,7 @@ p {
     }
 
     .input-container-custom {
-        top: 23em;
+        top: 22em;
     }
 
     .use{
@@ -897,7 +897,7 @@ p {
 
     .mountains {
  
-        top: 36em; 
+        top: 31em; 
     }
 
 
