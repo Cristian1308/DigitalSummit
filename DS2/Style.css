@@ -736,7 +736,7 @@ p {
     /* QR Code centrado dentro del boleto */
     .ticket img {
         border-radius: 15%;
-        width: 38%;
+        width: 40%;
         background-color: #fff;
         position: absolute;
         top: 26.5%;
