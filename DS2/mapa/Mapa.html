@@ -36,10 +36,25 @@
         <a href="https://maps.app.goo.gl/1dyvwcjVuog85EYR9" target="_blank"
             class="map-button">Abrir con Google Maps</a>
         <a href="waze://?ll=7.092700,-73.109949&navigate=yes" target="_blank"
-            class="map-button">Abrir con Waze</a>
+            class="map-button" id="wazeButton">Abrir con Waze</a>
     </div>
 
 </div>
+
+<script>
+    function hideWazeButtonOnDesktop() {
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const wazeButton = document.getElementById('wazeButton');
+        
+        // Oculta el botón de Waze si no es un dispositivo móvil
+        if (!isMobile) {
+            wazeButton.style.display = 'none';
+        }
+    }
+
+    // Ejecutar la función al cargar la página
+    hideWazeButtonOnDesktop();
+</script>
 
 
 <!-- Campo de correo y botón de enviar -->

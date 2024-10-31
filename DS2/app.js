@@ -177,7 +177,6 @@ document.getElementById('downloadBtn').addEventListener('click', function () {
     link.href = boletoImageURL;
     link.click();
   } else {
-    alert("Primero debes generar el boleto.");
   }
 });
 
