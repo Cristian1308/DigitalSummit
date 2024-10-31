@@ -736,11 +736,11 @@ p {
     /* QR Code centrado dentro del boleto */
     .ticket img {
         border-radius: 15%;
-        width: 44%;
+        width: 38%;
         background-color: #fff;
         position: absolute;
-        top: 25%;
-        left: 28%;
+        top: 26.5%;
+        left: 31%;
         /* transform: translate(-50%, -50%); */
     }
 
