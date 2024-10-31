@@ -85,12 +85,12 @@ function cerrarModalUnique() {
 // Funciones para los botones del modal único
 function hablarConSoporteUnique() {
   cerrarModalUnique();
-  window.location.href = "https://soporte.tuempresa.com"; // URL del soporte
+  window.location.href = "https://api.whatsapp.com/send?phone=573176484451&text=Necesito%20Ayuda%20sobre%20Digital%20Summit"; // URL del soporte
 }
 
 function realizarCompraUnique() {
   cerrarModalUnique();
-  window.location.href = "https://compras.tuempresa.com"; // URL de la página de compra
+  window.location.href = "https://pay.hotmart.com/W95072609C?off=cfdr92fq&checkoutMode=10"; // URL de la página de compra
 }
 
 function generarBoleto(qrURL, idBoleto, nombre) {
