@@ -876,6 +876,10 @@ p {
         font-size: 6rem;
     }
 
+    .title img {
+        margin-top: 20px;
+    }
+
     .use {
         width: 3    0%;
     }
@@ -891,13 +895,13 @@ p {
     }
 
     .use{
-        top: 26em; 
+        top: 25em; 
         
     }
 
     .mountains {
  
-        top: 31em; 
+        top: 30em; 
     }
 
 
