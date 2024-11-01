@@ -15,31 +15,104 @@
 
 </div>
 
-<canvas id="particleCanvas"></canvas>
+<div class="container-p">
+    <!-- CONTENEDOR MAPA -->
+    <div class="map">
 
-<div class="principal">
-    <div class="title2"><h2>UBICACIÓN</h2></div>
+            <div class="title2"><h2>CÓMO LLEGAR</h2></div>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8888.501857141504!2d-73.11442972614194!3d7.082162422735071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f991cc23c09%3A0xebd807ddb7749538!2sG12%20Centro%20De%20Convenciones%20Bucaramanga!5e0!3m2!1ses!2sco!4v1730133578010!5m2!1ses!2sco"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
 
-
-
-    <div class="map-container">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8888.501857141504!2d-73.11442972614194!3d7.082162422735071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f991cc23c09%3A0xebd807ddb7749538!2sG12%20Centro%20De%20Convenciones%20Bucaramanga!5e0!3m2!1ses!2sco!4v1730133578010!5m2!1ses!2sco"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="button-container">
+                <a href="https://maps.app.goo.gl/1dyvwcjVuog85EYR9" target="_blank"
+                    class="map-button">Abrir con Google Maps</a>
+                <a href="waze://?ll=7.092700,-73.109949&navigate=yes" target="_blank"
+                    class="map-button" id="wazeButton">Abrir con Waze</a>
+            </div>  
     </div>
 
 
+    <div class="hoteles">
+        <h1>HOTELES RECOMENDADOS</h1>
+        <div class="hotels-container">
+            <div class="hotel-card">
+                <div class="hotel-image">
+                  <img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/244281298.jpg?k=605bb4c02d1666619b2f37d519f7eca84497dde5413e47d37e098be324a19585&o=&hp=1" alt="Hotel Image 3">
+                </div>
+                <div class="hotel-info">
+                  <h1>Holiday Inn Bucaramanga Cacique</h1>
+                  <div class="stars">★★★★★</div>
+                  <div class="location">Bucaramanga • a 3 km del centro</div>
+                  <p>
+                    El Holiday Inn Bucaramanga Cacique, ofrece una experiencia de lujo, con piscina en la terraza, restaurantes
+                    gourmet y una vista impresionante de la ciudad y montañas.
+                  </p>
+                </div>
+                <div class="hotel-prices">
+                  <div class="rating">Excepcional <span>9.5</span></div>
+                  <div class="location-rating">Ubicación 9.4</div>
+                  <a href="https://www.booking.com/hotel/co/holiday-inn-bucaramanga.es.html?aid=2311236&label=es-co-booking-desktop-vjGZbEFOhRc3a9njxeT3IwS652829002024%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp9199134%3Ali%3Adec%3Adm&sid=ed94d557bdbc78277687333671447822&dest_id=627674;dest_type=hotel;dist=0;group_adults=2;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;sr_order=popularity;srepoch=1730155806;srpvid=9135a08c89cb048a;type=total;ucfs=1&" class="price-btn">Mostrar precios</a>
+                </div>
+              </div>
+            
+    
+              <div class="hotel-card">
+                <div class="hotel-image">
+                  <img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/339837734.jpg?k=83254e9de6c7a92e7eeb603a693f1d71107a4abc0872614c20b7a645639b42da&o=&hp=1" alt="Hotel Image 3">
+                </div>
+                <div class="hotel-info">
+                  <h1>Hotel Bari Bucaramanga
+                  </h1>
+                  <div class="stars">★★★★☆</div>
+                  <div class="location">Bucaramanga • a 3 km del centro</div>
+                  <p>
+                    El Hotel Bari Bucaramanga alberga un restaurante y se encuentra a 40 minutos en coche del aeropuerto internacional de Palonegro.
+                  </p>
+                </div>
+                <div class="hotel-prices">
+                  <div class="rating">Excepcional <span>9.5</span></div>
+                  <div class="location-rating">Ubicación 9.4</div>
+                  <a href="https://www.booking.com/hotel/co/tryp-bucaramanga.es.html?aid=2311236&label=es-co-booking-desktop-vjGZbEFOhRc3a9njxeT3IwS652829002024%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp9199134%3Ali%3Adec%3Adm&sid=ed94d557bdbc78277687333671447822&dest_id=867595;dest_type=hotel;dist=0;group_adults=2;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;sr_order=popularity;srepoch=1730155959;srpvid=4e3ba0d81f9b0698;type=total;ucfs=1&" class="price-btn">Mostrar precios</a>
+                </div>
+              </div>
+            
+    
+              <div class="hotel-card">
+                <div class="hotel-image">
+                  <img src="https://cf2.bstatic.com/xdata/images/hotel/max1024x768/125332548.jpg?k=9cedc271f0fe68f9f4a4a3944e345eecacac776233623dc3727cd19e32f2b0af&o=&hp=1" alt="Hotel Image 3">
+                </div>
+                <div class="hotel-info">
+                  <h1>Hotel Dann Carlton Bucaramanga</h1>
+                  <div class="stars">★★★★★</div>
+                  <div class="location">Bucaramanga • a 0.9 km del centro</div>
+                  <p>
+                    El Hotel Dann Carlton, de 5 estrellas, está en el exclusivo barrio de Bucaramanga, en el centro de Santander.
+                  </p>
+                </div>
+                <div class="hotel-prices">
+                  <div class="rating">Fabuloso <span>8.9</span></div>
+                  <div class="location-rating">Ubicación 9.5</div>
+                  <a href="https://www.booking.com/hotel/co/dann-carlton-bucaramanga.es.html?aid=2311236&label=es-co-booking-desktop-vjGZbEFOhRc3a9njxeT3IwS652829002024%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp9199134%3Ali%3Adec%3Adm&sid=ed94d557bdbc78277687333671447822&dest_id=-578702;dest_type=city;dist=0;group_adults=2;group_children=0;hapos=2;hpos=2;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;sr_order=popularity;srepoch=1730229708;srpvid=5f368820ff410718;type=total;ucfs=1&" class="price-btn">Mostrar precios</a>
+                </div>
+              </div>
+            </div>
+            <div class="ver-mas-container">
+                <a href="https://www.booking.com/searchresults.es.html?ss=Bucaramanga%2C+Santander%2C+Colombia&efdco=1&label=es-co-booking-desktop-vjGZbEFOhRc3a9njxeT3IwS652829002024%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp9199134%3Ali%3Adec%3Adm&aid=2311236&lang=es&sb=1&src_elem=sb&src=index&dest_id=-578702&dest_type=city&ac_position=0&ac_click_type=b&ac_langcode=es&ac_suggestion_list_length=5&search_selected=true&search_pageview_id=d596a15b8b2c00f2&ac_meta=GhBkNTk2YTE1YjhiMmMwMGYyIAAoATICZXM6BmJ1Y2FyYUAASgBQAA%3D%3D&group_adults=2&no_rooms=1&group_children=0" class="ver-mas-button">Ver más hoteles</a>
+            </div>
+    </div>
 
-    <div class="button-container">
-        <a href="https://maps.app.goo.gl/1dyvwcjVuog85EYR9" target="_blank"
-            class="map-button">Abrir con Google Maps</a>
-        <a href="waze://?ll=7.092700,-73.109949&navigate=yes" target="_blank"
-            class="map-button" id="wazeButton">Abrir con Waze</a>
+    <div class="transporte">
+        <h1>HOTELES RECOMENDADOS</h1>
+        <div class="apps"></div>
     </div>
 
 </div>
+
 
 <script>
     function hideWazeButtonOnDesktop() {

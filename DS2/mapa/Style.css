@@ -1,7 +1,31 @@
-.principal {
+.container-p{
+    border: 1px solid darkcyan;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+
+.map {
+    border: 1px solid rgb(0, 139, 30);
+    display: flex;
+    flex-direction: column;
+
+}
+
+.hoteles {
+    border: 1px solid rgb(255, 0, 149);
     display: flex;
     flex-direction: column;
 }
+.transporte {
+    border: 1px solid rgb(0, 110, 255);
+    display: flex;
+    flex-direction: column;
+}
+
 
 .title2 {
     margin-bottom: 1%;
@@ -36,13 +60,13 @@ h2 {
 .map-container {
     width: 90%;
     max-width: 1200px;
-    height: 60vh;
-    margin: auto; /* Margen superior aumentado */
+    height: 50vh;
+    margin: auto; 
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0; /* Inicialmente invisible */
-    animation: mapAnimation 1s forwards 0.5s; /* Animación al cargar con un retraso */
+    opacity: 0; 
+    animation: mapAnimation 1s forwards 0.5s; 
 }
 
 /* Animación para el mapa */
@@ -63,33 +87,6 @@ h2 {
     width: 100%;
     height: 100%;
     border: 0;
-}
-
-/* Ajustes para pantallas grandes */
-@media (min-width: 1024px) {
-    .map-container {
-        width: 80%;
-        height: 70vh;
-        margin: auto; /* Margen superior aumentado en pantallas grandes */
-    }
-}
-
-/* Ajustes para pantallas medianas */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .map-container {
-        width: 85%;
-        height: 50vh;
-        margin: auto; /* Margen superior aumentado en pantallas medianas */
-    }
-}
-
-/* Ajustes para pantallas pequeñas (móviles) */
-@media (max-width: 767px) {
-    .map-container {
-        width: 95%;
-        height: 45vh;
-        margin: auto; /* Margen superior aumentado en pantallas móviles */
-    }
 }
 
 .button-container {
@@ -126,6 +123,183 @@ h2 {
 .map-button:hover {
     background-color: #3367D6;
 }
+
+
+
+
+.hotels-container {
+    margin: 0 2% 0 2%;
+    border: 1px solid rgb(170, 10, 202);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); 
+    gap: 2%;
+}
+
+/* ESTILOS DE LA TARJETA (CARD) */
+.hotel-card {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 1vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2%;
+    color: black;
+}
+
+.hotel-image img {
+    width: 16vh;
+    height: 16vh;
+    object-fit: cover;
+    border-radius: 1vh;
+}
+
+.hotel-info {
+    padding-left: 2%;
+    flex: 1;
+}
+
+.hotel-info h1 {
+    font-size: 0.8rem;
+    color: #0071c2;
+    margin-bottom: 5px;
+}
+
+.hotel-info .stars {
+    color: #FFD700;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.hotel-info .location {
+    color: #0071c2;
+    font-size: 0.7rem;
+    margin-bottom: 5px;
+}
+
+.hotel-info .sustainability {
+    color: #6b6b6b;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.hotel-info p {
+    font-size: 0.7rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.hotel-prices {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.hotel-prices .rating {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.hotel-prices .rating span {
+    background-color: #0071c2;
+    color: white;
+    padding: 1% 10px;
+    border-radius: 5px;
+}
+
+.hotel-prices .location-rating {
+    color: #0071c2;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+}
+
+.hotel-prices .price-btn {
+    background-color: #0071c2;
+    color: white;
+    padding: 8% 20px;
+    text-decoration: none;
+    border-radius: 1vh;
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.hotel-prices .price-btn:hover {
+    background-color: #005b99;
+}
+
+
+.ver-mas-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Espacio superior para separar del contenido anterior */
+}
+
+.ver-mas-button {
+    text-decoration: none;
+    color: rgb(19, 19, 19);
+    background: linear-gradient(45deg, #00FF8C, #00BEBE); /* Degradado de fondo */
+    padding: 12px 24px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    font-weight: bold;
+    font-size: 0.6em; /* Tamaño de fuente */
+    transition: transform 0.3s, background-color 0.3s; /* Transiciones suaves para efectos */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+.ver-mas-button:hover {
+    background-color: #3367D6; /* Color de fondo al pasar el cursor */
+    transform: translateY(-3px); /* Efecto de elevación al hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Ajustes para pantallas grandes */
+/* @media (min-width: 1024px) {
+    .map-container {
+        width: 80%;
+        height: 70vh;
+        margin: auto; 
+    }
+} */
+
+/* Ajustes para pantallas medianas */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .map-container {
+        width: 85%;
+        height: 50vh;
+        margin: auto; /* Margen superior aumentado en pantallas medianas */
+    }
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
+    .map-container {
+        width: 95%;
+        height: 45vh;
+        margin: auto; /* Margen superior aumentado en pantallas móviles */
+    }
+}
+
 
 @media (max-width: 450px) {
     .map-container {
