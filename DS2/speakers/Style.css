@@ -31,12 +31,12 @@ h2 {
 
 
 .container {
-    margin: 2vh;
-    height: 70%;
+    margin: 5vh;
+    height: 100%;
     display: grid; 
     align-items: center;
     justify-items: center; 
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); 
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); 
     gap: 20px;
     padding: 20px;
 
