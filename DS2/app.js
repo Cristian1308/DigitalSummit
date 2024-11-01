@@ -3,6 +3,8 @@ const boletoURL = 'boleto.png'; // URL pública del boleto de fondo
 const eventDate = new Date('2024-12-02T00:00:00'); // Fecha del evento: 2 de diciembre, 2024
 let boletoImageURL = null; // Variable para almacenar la URL del boleto
 
+
+
 // Cargar lista de correos y datos desde el CSV
 window.onload = function () {
   cargarListaCorreosDesdeURL('https://script.google.com/macros/s/AKfycbwfZ9_mgpZnEsDX_07U4U0c3Gp752UIkrXdyr3OkYBnBotsWCmBZ5uMZbWLwB5GsUw6-A/exec'); // Reemplaza con el enlace de tu Apps Script
@@ -65,12 +67,16 @@ document.addEventListener('DOMContentLoaded', function () {
     if (validUsers.has(emailInput)) {
       const { qrLink, idBoleto, nombre } = validUsers.get(emailInput);
       generarBoleto(qrLink, idBoleto, nombre);
+      
       // document.getElementById('message').textContent = `¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto}`;
     } else {
       abrirModalUnique(); // Abre el modal si el correo no se encuentra
     }
   });
 });
+
+
+
 
 // Función para abrir el modal único
 function abrirModalUnique() {
