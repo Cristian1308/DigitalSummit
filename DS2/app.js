@@ -38,7 +38,7 @@ function cargarListaCorreosDesdeURL(url) {
 //   } else {
 //     document.getElementById('message').textContent = 'Correo no encontrado.';
 //   }
-// });
+// }); 
 
 document.addEventListener('DOMContentLoaded', function () {
   const checkbox = document.getElementById('consentCheckbox');
@@ -67,16 +67,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (validUsers.has(emailInput)) {
       const { qrLink, idBoleto, nombre } = validUsers.get(emailInput);
       generarBoleto(qrLink, idBoleto, nombre);
-      
       // document.getElementById('message').textContent = `¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto}`;
     } else {
       abrirModalUnique(); // Abre el modal si el correo no se encuentra
     }
   });
 });
-
-
-
 
 // Función para abrir el modal único
 function abrirModalUnique() {
