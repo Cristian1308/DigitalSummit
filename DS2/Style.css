@@ -75,14 +75,9 @@ h2 a {
     width: 100%;
     color: #00BEBE;
     padding: 2em; 
-    /* position: absolute; */
-    /* top: 0; 
-    left: 0; 
-    right: 0; 
-    margin: 0 auto; */
     opacity: 0;
     translate: 0 -1em;
-    animation: load 1s ease-in 1s forwards, up 0.5s ease-out 1s forwards;
+    animation: load 0s ease-in 0s forwards, up 0s ease-out 0s forwards;
 }
 
 
