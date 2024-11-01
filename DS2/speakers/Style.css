@@ -32,13 +32,11 @@ h2 {
 
 .container {
     margin: 5vh;
-    height: 100%;
     display: grid; 
-    align-items: center;
-    justify-items: center; 
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); 
     gap: 20px;
     padding: 20px;
+    overflow: auto;
 
 }
 
