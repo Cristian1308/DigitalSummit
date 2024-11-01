@@ -4,9 +4,8 @@
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
-    height: 100%;
+    height: 100vh;
 }
-
 
 .map {
     border: 1px solid rgb(0, 139, 30);
@@ -241,7 +240,7 @@ h2 {
     padding: 12px 24px; /* Espaciado interno */
     border-radius: 5px; /* Bordes redondeados */
     font-weight: bold;
-    font-size: 0.6em; /* Tamaño de fuente */
+    font-size: 0.8em; /* Tamaño de fuente */
     transition: transform 0.3s, background-color 0.3s; /* Transiciones suaves para efectos */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
 }
@@ -255,7 +254,13 @@ h2 {
 
 
 
+.apps {
+    display: flex;
+}
 
+.card-app {
+
+}
 
 
 
