@@ -191,7 +191,7 @@ h2 {
     align-items: flex-end;
 }
 
-.hotel-prices .rating {
+/* .hotel-prices .rating {
     font-size: 0.8rem;
     font-weight: bold;
     margin-bottom: 5px;
@@ -208,7 +208,7 @@ h2 {
     color: #0071c2;
     margin-bottom: 10px;
     font-size: 0.8rem;
-}
+} */
 
 .hotel-prices .price-btn {
     background-color: #0071c2;
