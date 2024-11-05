@@ -120,7 +120,76 @@
         </div>
         </div>
     </div>
+
+
+
+
+    <div class="faq-section">
+      <h2>Preguntas Frecuentes</h2>
+
+      <div class="faq" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+                ¿Cuándo debería llegar?
+              <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            Te sugerimos llegar el domingo 1 de diciembre para que tengas tiempo de descansar y estar listo para disfrutar de los tres días del evento.
+          </div>
+      </div>
+
+      <div class="faq" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+                ¿Cuándo debería irme?
+              <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            El jueves 5 de diciembre  ya puedes salir, sin embargo, puedes quedarte hasta el fin de semana para que disfrutes de todo lo que la ciudad tiene por ofrecer.
+          </div>
+      </div>
+
+      <div class="faq" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            ¿En qué horarios será el evento?
+              <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            Durante los 3 días el evento irá de 8:00 am a 6:00 pm.
+          </div>
+      </div>
+
+      <div class="faq" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            ¿Habrá oportunidades de networking?
+              <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            Sí, el evento incluirá múltiples sesiones de networking para que puedas conectar con otros líderes y emprendedores digitales.
+          </div>
+      </div>
+
+      <div class="faq" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+                ¿Cómo puedo llegar al lugar del evento desde el lugar donde me hospedo?
+              <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+              Puedes usar plataformas de transporte como Uber, Didi e Indriver, dependiendo del la distancia, te puede costar entre $3 a $5 USD
+          </div>
+      </div>
+
+      <div class="faq" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+                ¿Pueden asistir menores de edad?
+              <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+              Los menores de edad pueden ingresar a partir de los 13 años con su ticket. 
+          </div>
+      </div>
+
+  </div>
 </div>
+
 
 
 <script>
@@ -136,6 +205,11 @@
 
     // Ejecutar la función al cargar la página
     hideWazeButtonOnDesktop();
+
+
+    function toggleFAQ(element) {
+            element.classList.toggle("active");
+        }
 </script>
 
 

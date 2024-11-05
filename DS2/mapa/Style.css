@@ -345,6 +345,73 @@ h2 {
 
 
 
+.faq-section {
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-section h2 {
+    text-align: center;
+    color: #007acc;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para cada pregunta */
+.faq {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.faq:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    font-weight: bold;
+    color: #333;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilos para la respuesta oculta */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    color: #666;
+    transition: max-height 0.3s ease;
+    font-size: 16px;
+}
+
+/* Clase activa para expandir la respuesta */
+.faq.active .faq-answer {
+    max-height: 100px;
+    margin-top: 10px;
+}
+
+/* Icono de flecha */
+.faq-icon {
+    font-size: 18px;
+    transition: transform 0.3s;
+}
+
+/* Rotación del icono en estado activo */
+.faq.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+
+
+
+
+
 /* Ajustes para pantallas medianas */
 @media (min-width: 768px) and (max-width: 1023px) {
     .map-container {
