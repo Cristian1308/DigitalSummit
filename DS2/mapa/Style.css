@@ -254,7 +254,7 @@ h2 {
     border-top: 1px solid #2b2b2b;
     background-color: #1b1b1b;
     text-align: center;
-    padding: 20px 15% 3% 15%; /* Arriba, derecha, abajo, izquierda */
+    padding: 20px 20% 3% 20%; /* Arriba, derecha, abajo, izquierda */
     font-family: Arial, sans-serif;
     /* background: linear-gradient(135deg, #f0f8ff, #e6f7ff); */
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
