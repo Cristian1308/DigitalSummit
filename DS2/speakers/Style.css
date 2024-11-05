@@ -10,7 +10,7 @@
 h2 {
     font-size: 2em; 
     font-family: 'Montserrat', Arial, sans-serif;
-    background: linear-gradient(90deg, #00FF8C, #00BEBE); 
+    background-color: #BDFF00; 
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     text-align: center;
@@ -60,7 +60,7 @@ h2 {
     right: 0;
     bottom: 0;
     border-radius: 5%; /* Mantiene el borde redondeado */
-    background: linear-gradient(270deg, #00FF8C,  #00BEBE, #00a058, #009494);
+    background: linear-gradient(270deg, #BDFF00,  #9dd600);
     background-size: 400% 400%; /* Aumenta el tamaño del fondo para la animación */
     animation: gradientAnimation 4s ease infinite; /* Animación que se repite infinitamente */
     z-index: 1; /* Asegura que el fondo esté detrás de la imagen */

@@ -35,7 +35,7 @@
 
 h2 {
     font-size: 1.5em; 
-    background: linear-gradient(90deg, #00FF8C, #00BEBE); 
+    background: #BDFF00; 
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     text-align: center;
@@ -110,7 +110,7 @@ h2 {
 .map-button {
     text-decoration: none;
     color: rgb(19, 19, 19);
-    background: linear-gradient(45deg, #00FF8C, #00BEBE);
+    background: #BDFF00;
     padding: 10px 20px;
     margin: 0 10px;
     border-radius: 5px;
