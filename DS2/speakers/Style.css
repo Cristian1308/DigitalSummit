@@ -9,6 +9,7 @@
 
 h2 {
     font-size: 2em; 
+    font-family: 'Montserrat', Arial, sans-serif;
     background: linear-gradient(90deg, #00FF8C, #00BEBE); 
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
