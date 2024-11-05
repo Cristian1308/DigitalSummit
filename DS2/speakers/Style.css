@@ -153,11 +153,20 @@ h2 {
     .container {
         margin: 3vh 2vh 0vh 1vh;   
         grid-template-columns: 1fr;
-        max-height: 80vh;
+        max-height: 84vh;
     }
     
     .card img {
         width: 100%;
     }
+}
+
+
+@media (max-width: 500px) {
+
+    .container {
+        max-height: 80vh;
+    }
+
 }
 
