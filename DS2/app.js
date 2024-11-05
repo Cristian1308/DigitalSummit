@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (validUsers.has(emailInput)) {
       const { qrLink, idBoleto, nombre } = validUsers.get(emailInput);
       generarBoleto(qrLink, idBoleto, nombre);
+      enviarDatos(idBoleto, nombre, emailInput);
       // document.getElementById('message').textContent = `¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto}`;
     } else {
       abrirModalUnique(); // Abre el modal si el correo no se encuentra
@@ -141,7 +142,6 @@ function realizarCompraUnique() {
 
     // Mostrar el contenedor del boleto
     document.getElementById('ticketContainer').style.display = 'flex';
-
     // Generar el boleto como imagen en formato PNG y convertirla en URL temporal usando html2canvas
     qrImg.onload = function () {
       html2canvas(ticketElement, { useCORS: true, scale: 5 }) // Incrementa la escala a 5
@@ -247,4 +247,32 @@ function iniciarCuentaRegresiva() {
 
   // Actualizar el contador cada segundo
   const interval = setInterval(actualizarCuenta, 1000);
+}
+
+  // Enviar los datos
+
+
+function enviarDatos(idBoleto, nombre, email) {
+  // Generar la URL con los parámetros
+  const url = `https://script.google.com/macros/s/AKfycbwDJcUeSws3wg-B2tdA0Y6JJPt5MSB4ixHueo1JKewXaSm8iPyKqbtqaMrxlj6KDmaQ/exec?idBoleto=${encodeURIComponent(idBoleto)}&nombre=${encodeURIComponent(nombre)}&email=${encodeURIComponent(email)}`;
+
+  // Mostrar la URL generada en la consola para depuración
+  console.log("URL de la solicitud:", url);
+
+  // Realizar la solicitud GET al endpoint
+  fetch(url, {
+    method: 'GET'
+  })
+  .then(response => response.json())
+  .then(result => {
+    // Verificar si el servidor respondió con éxito
+    if (result.status === 'success') {
+      console.log("Datos enviados correctamente:", result);
+    } else {
+      console.error("Error en la respuesta del servidor:", result);
+    }
+  })
+  .catch(error => {
+    console.error("Error en la solicitud:", error);
+  });
 }
