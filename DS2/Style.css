@@ -12,7 +12,7 @@ html::-webkit-scrollbar { display: none; }
 html { -ms-overflow-style: none; scrollbar-width: none; }
 
 body {
-    background-color: rgb(19, 19, 19);
+    background-color: rgb(0, 0, 0);
     margin: 0;
     font-family: 'Montserrat', Arial, sans-serif;
     background-repeat: no-repeat;
@@ -99,7 +99,7 @@ h2 a {
 
 .nav-link {
     text-decoration: none;
-    color: rgba(225, 225, 225, 0.7);
+    color: rgb(255, 255, 255);
     font-size: 1.2rem;
     font-weight: 500;
     transition: color 0.3s; /* Mejora la transición solo para el color */
@@ -222,7 +222,8 @@ button.contact-btn:hover .glow::after, button.contact-btn:hover .glow::before {
     top: 3em;
     width: 30em; 
     height: max(60em, 100vh);
-    background-image: conic-gradient(from 0deg at 50% -5%, transparent 45%, rgba(124, 145, 182, .3) 49%, rgba(124, 145, 182, .5) 50%, rgba(124, 145, 182, .3) 51%, transparent 55%);
+    background-image: conic-gradient(from 0deg at 50% -5%, transparent 45%, #24242442 49%, rgba(50, 50, 50, 0.75
+    ) 50%, rgba(34, 34, 34, 0.3) 51%, transparent 55%);
     transform-origin: 50% 0;
     filter: blur(15px) opacity(0.5);
     z-index: -1;
@@ -453,7 +454,7 @@ p {
 .mountains > div {
     box-shadow: 
     -1em -0.2em 0.4em -1.1em #c2ccff,
-    inset 0em 0em 0em 2px #00FF8C,
+    inset 0em 0em 0em 2px #BDFF00,
     inset 0.2em 0.3em 0.2em -0.2em #c2ccff,
     inset 10.2em 10.3em 2em -10em #d4e6ff2f;
     background: #121521;
@@ -587,7 +588,6 @@ p {
 }
 
 .input-container-custom {
-    
     font-size: 1em;
     position: absolute; 
     top: 26em; /* Ajusta este valor según la posición deseada */
@@ -616,7 +616,7 @@ p {
     padding: 0.5em;
     font-size: 1em;
     border-radius: 1vh;
-    border: 1px solid #00FF8C;
+    border: 1px solid #BDFF00;
     background-color: rgba(186, 215, 247, 0.1);
     color: white; /* Color blanco para el texto */
     text-shadow: 0 2px 16px rgba(174, 207, 242, .24);
@@ -634,8 +634,8 @@ p {
     cursor: pointer;
     font-size: 1em;
     background-color: transparent; /* Fondo transparente */
-    color: #00FF8C;
-    border: 2px solid #00FF8C; /* Borde verde */
+    color: #BDFF00;
+    border: 2px solid #BDFF00; /* Borde verde */
     font-weight: bold; /* Texto en negrita para mayor legibilidad */
     transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
