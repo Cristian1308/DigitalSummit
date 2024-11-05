@@ -306,8 +306,57 @@ h2 {
 }
 
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
     .map-container {
         height: 65vh;
     }
+
+        
+    .hotels-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    } 
+
+
+    .hotel-image img {
+        width: 12vh;
+        height: 12vh;
+    }
+
+    .hotel-info h1 {
+        font-size: 0.5rem;
+    }
+
+    .hotel-info .stars {
+        font-size: 0.8rem;
+    }
+
+    .hotel-info .location {
+        font-size: 0.5rem;
+    }
+
+    .hotel-info .sustainability {
+        font-size: 0.5rem;
+    }
+
+    .hotel-info p {
+        font-size: 0.5rem;
+    }
+
+    .hotel-prices .rating {
+        font-size: 0.5rem;
+    }
+
+
+    .hotel-prices .location-rating {
+        font-size: 0.5rem;
+    }
+
+    .hotel-prices .price-btn {
+        font-size: 0.6rem;
+    }
+
+    .hotel-prices .price-btn:hover {
+        background-color: #005b99;
+    }
+
 }
