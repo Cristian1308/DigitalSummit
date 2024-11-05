@@ -249,6 +249,7 @@ h2 {
     transform: translateY(-3px); /* Efecto de elevación al hover */
 }
 .transporte {
+    margin-top: 2%;
     text-align: center;
     padding: 20px 15% 20px 15%; /* Arriba, derecha, abajo, izquierda */
     font-family: Arial, sans-serif;
@@ -261,6 +262,7 @@ h2 {
 
 /* Contenedor de cards */
 .apps {
+    margin-top: 2%;
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -269,6 +271,7 @@ h2 {
 /* Estilos para cada card */
 .card-app {
     background-color: #fff;
+
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
@@ -293,7 +296,7 @@ h2 {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at center, rgba(0, 204, 102, 0.2), transparent);
+    /* background: radial-gradient(circle at center, #2d4239, transparent); */
     transition: transform 0.5s;
     transform: scale(0.5);
 }
@@ -492,6 +495,10 @@ h2 {
 
     .hotel-prices .price-btn:hover {
         background-color: #005b99;
+    }
+
+    .card-app img {
+        max-width: 90%;
     }
 
 }
