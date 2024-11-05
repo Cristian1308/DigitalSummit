@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // document.getElementById('message').textContent = `¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto}`;
     } else {
       abrirModalUnique(); // Abre el modal si el correo no se encuentra
-      enviarDatos(emailInput);
+      enviarDatos2(emailInput);
     }
   });
 });
@@ -256,6 +256,31 @@ function iniciarCuentaRegresiva() {
 function enviarDatos(idBoleto, nombre, email) {
   // Generar la URL con los parámetros
   const url = `https://script.google.com/macros/s/AKfycbwDJcUeSws3wg-B2tdA0Y6JJPt5MSB4ixHueo1JKewXaSm8iPyKqbtqaMrxlj6KDmaQ/exec?idBoleto=${encodeURIComponent(idBoleto)}&nombre=${encodeURIComponent(nombre)}&email=${encodeURIComponent(email)}`;
+
+  // Mostrar la URL generada en la consola para depuración
+  console.log("URL de la solicitud:", url);
+
+  // Realizar la solicitud GET al endpoint
+  fetch(url, {
+    method: 'GET'
+  })
+  .then(response => response.json())
+  .then(result => {
+    // Verificar si el servidor respondió con éxito
+    if (result.status === 'success') {
+      console.log("Datos enviados correctamente:", result);
+    } else {
+      console.error("Error en la respuesta del servidor:", result);
+    }
+  })
+  .catch(error => {
+    console.error("Error en la solicitud:", error);
+  });
+}
+
+function enviarDatos2(emailInput) {
+  // Generar la URL con los parámetros
+  const url = `https://script.google.com/macros/s/AKfycbwDJcUeSws3wg-B2tdA0Y6JJPt5MSB4ixHueo1JKewXaSm8iPyKqbtqaMrxlj6KDmaQ/exec?email=${encodeURIComponent(emailInput)}`;
 
   // Mostrar la URL generada en la consola para depuración
   console.log("URL de la solicitud:", url);
