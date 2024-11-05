@@ -440,6 +440,11 @@ h2 {
 
 
 @media (max-width: 500px) {
+
+    .container-p{
+        height: 85vh;
+    }
+
     .map-container {
         height: 40vh;
     }
