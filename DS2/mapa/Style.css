@@ -505,3 +505,22 @@ h2 {
     }
 
 }
+
+
+
+
+@media (max-width: 400px) {
+    .apps {
+        margin-top: 2%;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+
+    .card-app img {
+        max-width: 100%;
+    }
+
+
+}
