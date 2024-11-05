@@ -412,7 +412,7 @@ p {
 .title img {
     margin-left: 25px;
     margin-top: 20px;
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
     opacity: 0; /* Inicialmente oculto */
     transform: scale(0.5); /* Comienza más pequeña */
