@@ -902,9 +902,6 @@ p {
 
 }
 
-@media (max-width: 900px) {
-
-}
 
 
 
@@ -995,6 +992,12 @@ p {
 
     }
 
+    
+    .modal-buttons-unique button {
+        font-size: 13px;
+    }
+    
+
 
     
 
@@ -1030,7 +1033,10 @@ p {
 
 
 
-
+    .modal-buttons-unique button {
+        font-size: 8px;
+    }
+    
 
     
 }
@@ -1061,6 +1067,10 @@ p {
     .use {
         top: 35em; 
         width: 80%;
+    }
+
+    .modal-buttons-unique button {
+        font-size: 5px;
     }
 
 
