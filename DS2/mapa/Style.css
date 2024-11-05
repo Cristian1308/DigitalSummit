@@ -4,7 +4,7 @@
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
-    height: 100vh;
+    height: 90vh;
 }
 
 .map {
@@ -15,6 +15,7 @@
 }
 
 .hoteles {
+    margin-top: 2%;
     border: 1px solid rgb(255, 0, 149);
     display: flex;
     flex-direction: column;
@@ -249,43 +250,100 @@ h2 {
     background-color: #3367D6; /* Color de fondo al pasar el cursor */
     transform: translateY(-3px); /* Efecto de elevación al hover */
 }
-
-
-
-
-
-.apps {
-    display: flex;
+.transporte {
+    text-align: center;
+    padding: 20px 15% 20px 15%; /* Arriba, derecha, abajo, izquierda */
+    font-family: Arial, sans-serif;
+    /* background: linear-gradient(135deg, #f0f8ff, #e6f7ff); */
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.card-app {
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Ajustes para pantallas grandes */
-/* @media (min-width: 1024px) {
-    .map-container {
-        width: 80%;
-        height: 70vh;
-        margin: auto; 
-    }
+/* .transporte h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #007acc;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-in-out;
 } */
+
+/* Contenedor de cards */
+.apps {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+/* Estilos para cada card */
+.card-app {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s, box-shadow 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-app:hover {
+    cursor: pointer;
+    transform: translateY(-10px); 
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-app::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(0, 204, 102, 0.2), transparent);
+    transition: transform 0.5s;
+    transform: scale(0.5);
+}
+
+.card-app:hover::before {
+    transform: scale(1);
+}
+
+/* Estilo y animación para las imágenes */
+.card-app img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 10px;
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+/* Keyframes para animaciones */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
 
 /* Ajustes para pantallas medianas */
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -303,12 +361,31 @@ h2 {
         height: 45vh;
         margin: auto; /* Margen superior aumentado en pantallas móviles */
     }
+
+    .transporte {
+        padding: 20px 1% 20px 1%; 
+
+    }
+
+    .card-app img {
+        max-width: 80%;
+    }
+
+
 }
 
 
 @media (max-width: 500px) {
     .map-container {
-        height: 65vh;
+        height: 40vh;
+    }
+
+    .hoteles {
+        margin-top: 10%;
+    }
+
+    .transporte{
+        margin-top: 10%;
     }
 
         
