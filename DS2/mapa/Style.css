@@ -248,6 +248,8 @@ h2 {
     background-color: #3367D6; /* Color de fondo al pasar el cursor */
     transform: translateY(-3px); /* Efecto de elevación al hover */
 }
+
+
 .transporte {
     border-top: 1px solid #2b2b2b;
     background-color: #1b1b1b;
@@ -255,10 +257,8 @@ h2 {
     padding: 20px 15% 3% 15%; /* Arriba, derecha, abajo, izquierda */
     font-family: Arial, sans-serif;
     /* background: linear-gradient(135deg, #f0f8ff, #e6f7ff); */
-    border-radius: 12px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
-
 
 
 /* Contenedor de cards */
@@ -272,7 +272,6 @@ h2 {
 /* Estilos para cada card */
 .card-app {
     background-color: #fff;
-
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
