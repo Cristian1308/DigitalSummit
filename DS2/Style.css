@@ -1034,7 +1034,8 @@ p {
 
 
     .modal-buttons-unique button {
-        font-size: 8px;
+        padding: 7px 9px;
+        font-size: 10px;
     }
     
 
@@ -1070,7 +1071,8 @@ p {
     }
 
     .modal-buttons-unique button {
-        font-size: 5px;
+        padding: 6px 7px;
+        font-size: 7px;
     }
 
 
