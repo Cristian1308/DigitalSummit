@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // document.getElementById('message').textContent = `¡Bienvenido, ${nombre}! Tu boleto ID: ${idBoleto}`;
     } else {
       abrirModalUnique(); // Abre el modal si el correo no se encuentra
+      enviarDatos(emailInput);
     }
   });
 });
