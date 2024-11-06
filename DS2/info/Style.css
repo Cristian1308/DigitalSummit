@@ -6,6 +6,169 @@
     height: 88vh;
 }
 
+.recomendaciones {
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.recomendaciones h2 {
+    color: #e7e7e7;
+    text-align: center;
+}
+
+.recomendacion {
+    padding: 8px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.recomendacion h3 {
+    color: #918c8c;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+.recomendacion p {
+    font-size: 0.7em;
+    color: #d8d8d8;
+    line-height: 1.6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.parqueadero {
+    position: relative;
+    text-align: center;
+    background-color: #1a1a1adc;
+    /* background: linear-gradient(to bottom, #25252557, #bbff00); */
+    color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: movimientoFondo 60s linear infinite;
+    background-size: 400% 400%;
+}
+
+/* Títulos y textos */
+.parqueadero h2 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.parqueadero p {
+    font-size: 0.8em;
+    margin-bottom: 30px;
+    font-weight: 400;
+    color: #f8f8f8;
+}
+
+/* Información de horarios */
+.informacion {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Horarios a la izquierda */
+.horarios {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.horarios h3 {
+    color: #0099ff;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+.horarios ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.horarios li {
+    font-size: 0.8em;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+/* Información a la derecha - solo imagen grande */
+.imagen-grande {
+    width: 35%; /* Ajusta el ancho para ocupar el espacio de la derecha */   
+    background-image: url('imagen-del-parqueadero.jpg'); /* Aquí reemplaza con la ruta de la imagen */
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.imagen-grande img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .hoteles {
@@ -381,6 +544,37 @@ h2 {
         height: 50vh;
         margin: auto; /* Margen superior aumentado en pantallas medianas */
     }
+
+    .recomendaciones {
+        padding: 15px;
+    }
+
+    .recomendacion h3 {
+        font-size: 1.1em;
+    }
+
+    .recomendacion p {
+        font-size: 0.5em;
+    }
+
+    .informacion {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .horarios {
+        width: 100%;
+    }
+
+    .animaciones {
+        width: 100%;
+        height: 250px;
+        justify-content: space-evenly;
+    }
+
+    .carro, .moto {
+        width: 120px;
+    }
 }
 
 /* Ajustes para pantallas pequeñas (móviles) */
@@ -400,6 +594,18 @@ h2 {
         max-width: 80%;
     }
 
+    .recomendaciones {
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .recomendacion h3 {
+        font-size: 1em;
+    }
+
+    .recomendacion p {
+        font-size: 0.9em;
+    }
 
 }
 
