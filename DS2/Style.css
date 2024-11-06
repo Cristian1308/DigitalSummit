@@ -1045,6 +1045,12 @@ p {
         font-size: 2.5rem;
     }
 
+    
+    .heroSubP {
+        width: 72%;
+        top: 19em; 
+    }
+
 
     .use {
         top: 30em; 
