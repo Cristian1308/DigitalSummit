@@ -355,7 +355,7 @@ p {
 }
 
 .use p {
-    font-size: 0.5em;
+    font-size: 0.8em;
     position: relative; width: fit-content; margin: auto;
     color: #d8ecf8;
     text-shadow: 0 2px 16px rgba(174,207,242,.24);
@@ -874,19 +874,18 @@ p {
         font-size: 6rem;
     }
 
-    .title img {
-        margin-top: 1px;
-    }
 
     .use {
-        width: 3    0%;
+        width: 30%;
     }
 
 
     .heroSubP {
-        top: 15em; 
+        width: 50%;
+        top: 17em; 
         
     }
+
 
     .input-container-custom {
         top: 22em;
@@ -906,15 +905,43 @@ p {
 }
 
 
+@media (max-width : 1085px) {
+
+    .heroSubP {
+        width: 50%;
+        top: 17em; 
+        
+    }
+
+    .heroSubP p{
+        font-size: 1.2rem;
+    }
 
 
-@media (max-width : 750px) {
+    .use {
+        width: 40%;
+    }
+}
 
 
+
+
+@media (max-width : 890px) {
 
     .heroT > h2 {
         font-size: 5rem;
     }
+
+    .heroSubP {
+        width: 70%;
+        top: 17em;   
+    }
+
+
+    .heroSubP p{
+        font-size: 1.2rem;
+    }
+
 
     .use {
         width: 50%;
@@ -934,7 +961,7 @@ p {
 }
 
 
-@media (max-width : 600px) {
+@media (max-width : 690px) {
     
 
     .nav-list {
@@ -946,44 +973,38 @@ p {
         font-size: 0.8rem;
     }
 
-    .heroSubP p {
-        font-size: 0.8em;
-    }
-
-    /* .heroT > h2 {
-        font-size: 3.5rem;
-    } */
-
     .heroSubP {
-        top: 26em; 
+        width: 70%;
+        top: 18em; 
         
     }
 
+    .heroSubP p {
+        font-size: 1em;
+    }
+
     .input-container-custom {
-        top: 28em;
+        top: 25em;
     }
 
 
     .mountains {
  
-        top: 36em; 
+        top: 22em; 
     }
 
     .use {
-        top: 35em; 
+        top: 29em; 
         width: 70%;
     }
 
-    .nav-link {
-        font-size: 0.8rem;
-    }
 
     .title {   
         width: 80%;
     }
 
     .mountains {
-        top: 50em; 
+        top: 40em; 
         width: 100%; 
         height: 10em;
 
@@ -1021,20 +1042,11 @@ p {
         font-size: 2.5rem;
     }
 
-    .use {
-        width: 50%;
-    }
-
-
-
 
     .use {
-        top: 35em; 
+        top: 30em; 
         width: 80%;
     }
-
-
-
 
     .modal-buttons-unique button {
         padding: 7px 9px;
@@ -1051,7 +1063,7 @@ p {
 @media (max-width : 400px) {
 
     .nav-list {
-        column-gap: 48px; 
+        column-gap: 15px; 
 
     }
 
@@ -1065,13 +1077,10 @@ p {
     }
 
     .use {
-        width: 50%;
+        top: 30em; 
+        width: 60%;
     }
 
-    .use {
-        top: 35em; 
-        width: 80%;
-    }
 
     .modal-buttons-unique button {
         padding: 6px 7px;
