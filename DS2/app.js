@@ -99,80 +99,85 @@ function realizarCompraUnique() {
 
 // Funcios para generar boleto
 
-  function generarBoleto(qrURL, idBoleto, nombre) {
-    // Limpiar el contenido previo del boleto
-    const ticketElement = document.getElementById('ticket');
-    ticketElement.innerHTML = '';
+function generarBoleto(qrURL, idBoleto, nombre) {
+  // Limpiar el contenido previo del boleto
+  const ticketElement = document.getElementById('ticket');
+  ticketElement.innerHTML = '';
 
-    // Crear y configurar el elemento de la imagen del QR
-    const qrImg = document.createElement('img');
-    qrImg.id = 'qrCode';
-    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrURL}`;
+  // Crear y configurar el elemento de la imagen del QR
+  const qrImg = document.createElement('img');
+  qrImg.id = 'qrCode';
+  qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrURL}`;
 
-
-    // Cambiar el fondo del boleto según el tipo de idBoleto
-    switch (idBoleto) {
+  // Cambiar el fondo del boleto según el tipo de idBoleto
+  switch (idBoleto) {
       case 'p':
-        ticketElement.style.backgroundImage = "url('preferencial.png')";
-        break;
+          ticketElement.style.backgroundImage = "url('preferencial.png')";
+          break;
       case 'g':
-        ticketElement.style.backgroundImage = "url('general.png')";
-        break;
+          ticketElement.style.backgroundImage = "url('general.png')";
+          break;
       case 'd':
-        ticketElement.style.backgroundImage = "url('diamond.png')";
-        break;
+          ticketElement.style.backgroundImage = "url('diamond.png')";
+          break;
       default:
-        alert("Tipo de boleto no reconocido. Verifica el ID.");
-        return;
-    }
+          alert("Tipo de boleto no reconocido. Verifica el ID.");
+          return;
+  }
 
-    // Insertar el nombre en el boleto
-    const nombreElement = document.createElement('div');
-    nombreElement.innerText = nombre;
-    nombreElement.style.position = 'absolute';
-    nombreElement.style.top = '20%';
-    nombreElement.style.left = '50%';
-    nombreElement.style.transform = 'translate(-50%, -50%)';
-    nombreElement.style.fontSize = '1.5em';  // Tamaño más grande para mejorar la nitidez
-    nombreElement.style.fontWeight = 'bold';
-    nombreElement.style.color = '#FFFFFF';
+  // Insertar el nombre en el boleto
+  const nombreElement = document.createElement('div');
+  nombreElement.innerText = nombre;
+  nombreElement.style.position = 'absolute';
+  nombreElement.style.top = '20%';
+  nombreElement.style.left = '50%';
+  nombreElement.style.transform = 'translate(-50%, -50%)';
+  nombreElement.style.fontSize = '1.5em';
+  nombreElement.style.fontWeight = 'bold';
+  nombreElement.style.color = '#FFFFFF';
 
-    // Agregar el nombre y el QR al contenedor del boleto
-    ticketElement.appendChild(nombreElement);
-    ticketElement.appendChild(qrImg);
+  // Agregar el nombre y el QR al contenedor del boleto
+  ticketElement.appendChild(nombreElement);
+  ticketElement.appendChild(qrImg);
 
-    // Mostrar el contenedor del boleto
-    document.getElementById('ticketContainer').style.display = 'flex';
-    // Generar el boleto como imagen en formato PNG y convertirla en URL temporal usando html2canvas
-    qrImg.onload = function () {
-      html2canvas(ticketElement, { useCORS: true, scale: 5 }) // Incrementa la escala a 5
-        .then(function (canvas) {
+  // Mostrar el contenedor del boleto
+  document.getElementById('ticketContainer').style.display = 'flex';
+
+  // Generar el boleto como imagen en formato PNG y convertirla en URL temporal usando html2canvas
+  qrImg.onload = function () {
+      html2canvas(ticketElement, {
+          useCORS: true,
+          scale: 6, // Ajuste adicional para una resolución aún mayor
+          width: ticketElement.offsetWidth,
+          height: ticketElement.offsetHeight
+      })
+      .then(function (canvas) {
           // Utilizar toBlob para generar una imagen PNG de alta calidad en Safari
           if (canvas.toBlob) {
-            canvas.toBlob(function (blob) {
-              boletoImageURL = URL.createObjectURL(blob);
+              canvas.toBlob(function (blob) {
+                  boletoImageURL = URL.createObjectURL(blob);
+                  copiarURLAlPortapapeles(boletoImageURL);
+                  alert("El boleto ha sido generado y ya lo puedes descargar");
+                  resetBoleto();
+              }, 'image/png', 1.0);
+          } else {
+              // Fallback si toBlob no está disponible
+              boletoImageURL = canvas.toDataURL('image/png', 1.0);
               copiarURLAlPortapapeles(boletoImageURL);
               alert("El boleto ha sido generado y ya lo puedes descargar");
               resetBoleto();
-            }, 'image/png', 1.0);
-          } else {
-            // Fallback si toBlob no está disponible
-            boletoImageURL = canvas.toDataURL('image/png', 1.0);
-            copiarURLAlPortapapeles(boletoImageURL);
-            alert("El boleto ha sido generado y ya lo puedes descargar");
-            resetBoleto();
           }
-        })
-        .catch(function (error) {
+      })
+      .catch(function (error) {
           console.error("Error al generar la imagen del boleto: ", error);
-        });
-    };
+      });
+  };
 
-    // Manejo de error en la carga del QR
-    qrImg.onerror = function () {
+  // Manejo de error en la carga del QR
+  qrImg.onerror = function () {
       alert("Error al cargar el código QR. Verifica la URL del QR.");
-    };
-  }
+  };
+}
 
 // Función para descargar el boleto como PNG
 document.getElementById('downloadBtn').addEventListener('click', function () {
