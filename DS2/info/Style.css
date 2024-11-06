@@ -62,7 +62,7 @@
 
 
 .parqueadero {
-    position: relative;
+    /* position: relative; */
     text-align: center;
     background-color: #1a1a1adc;
     /* background: linear-gradient(to bottom, #25252557, #bbff00); */
@@ -71,9 +71,7 @@
     padding: 20px;
     margin: 30px auto;
     width: 90%;
-    max-width: 800px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    animation: movimientoFondo 60s linear infinite;
     background-size: 400% 400%;
 }
 
