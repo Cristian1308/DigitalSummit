@@ -1034,7 +1034,10 @@ p {
 
 @media (max-width : 500px) {
 
+    .nav-list {
+        column-gap: 17px; 
 
+    }
 
     .nav-link {
         font-size: 1rem;
@@ -1072,7 +1075,7 @@ p {
 @media (max-width : 400px) {
 
     .nav-list {
-        column-gap: 10px; 
+        column-gap: 19px; 
 
     }
 
