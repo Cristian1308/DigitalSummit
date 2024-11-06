@@ -557,7 +557,7 @@ h2 {
         font-size: 0.5em;
     }
 
-    .informacion {
+    /* .informacion {
         flex-direction: column;
         align-items: center;
     }
@@ -574,7 +574,7 @@ h2 {
 
     .carro, .moto {
         width: 120px;
-    }
+    } */
 }
 
 /* Ajustes para pantallas pequeñas (móviles) */
