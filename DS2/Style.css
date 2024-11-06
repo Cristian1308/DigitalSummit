@@ -365,6 +365,30 @@ p {
     -webkit-text-fill-color: transparent;
 }
 
+/* Estilos para el texto */
+.use label {
+    font-size: 0.8rem;
+    color: #d8ecf8; /* Color del texto */
+}
+
+.use a{
+    
+    color: white;
+}
+
+
+#consentCheckbox {
+    width: 15px; /* Ancho del checkbox */
+    height: 15px; /* Altura del checkbox */
+    margin-right: 10px; /* Espacio entre el checkbox y el texto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el checkbox */
+}
+
+/* Efecto al pasar el mouse sobre el checkbox */
+#consentCheckbox:hover {
+    outline: 2px solid #007BFF; /* Resalta el checkbox al pasar el mouse */
+}
+
 
 @keyframes load3 {  
     0% { opacity: 0;}    
@@ -652,28 +676,9 @@ p {
 
 
 /* Estilos para el checkbox */
-#consentCheckbox {
-    width: 15px; /* Ancho del checkbox */
-    height: 15px; /* Altura del checkbox */
-    margin-right: 10px; /* Espacio entre el checkbox y el texto */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el checkbox */
-}
 
-/* Estilos para el texto */
-.use label {
-    font-size: 0.8rem;
-    color: #d8ecf8; /* Color del texto */
-}
 
-.use a{
-    
-    color: white;
-}
 
-/* Efecto al pasar el mouse sobre el checkbox */
-#consentCheckbox:hover {
-    outline: 2px solid #007BFF; /* Resalta el checkbox al pasar el mouse */
-}
 
 
 
@@ -876,6 +881,7 @@ p {
 
 
     .use {
+        top: 26em; 
         width: 30%;
     }
 
@@ -891,10 +897,7 @@ p {
         top: 22em;
     }
 
-    .use{
-        top: 26em; 
-        
-    }
+
 
     .mountains {
  
@@ -1063,24 +1066,49 @@ p {
 @media (max-width : 400px) {
 
     .nav-list {
-        column-gap: 15px; 
+        column-gap: 16px; 
 
     }
 
     .nav-link {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
+    .title img {
+        margin-top: 50px;
+    }
 
+    .heroSubP {
+        width: 72%;
+        top: 18em; 
+    }
+
+/* 
     .heroT > h2 {
         font-size: 2.5rem;
-    }
+    } */
 
     .use {
-        top: 30em; 
-        width: 60%;
+        top: 28em; 
+        width: 70%;
     }
 
+
+    
+    .use p {
+        font-size: 0.8em;
+    }
+
+    /* Estilos para el texto */
+    .use label {
+        font-size: 0.6rem;
+        color: #d8ecf8; /* Color del texto */
+    }
+
+    #consentCheckbox {
+        width: 12px; /* Ancho del checkbox */
+        margin-right: 8px; /* Espacio entre el checkbox y el texto */
+    }
 
     .modal-buttons-unique button {
         padding: 6px 7px;
