@@ -52,27 +52,28 @@ h2 {
 }
 
 /* Fondo degradado animado */
-.card::before {
+/* .card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 5%; /* Mantiene el borde redondeado */
+    border-radius: 5%; 
     background: linear-gradient(270deg, #BDFF00,  #9dd600);
-    background-size: 400% 400%; /* Aumenta el tamaño del fondo para la animación */
-    animation: gradientAnimation 4s ease infinite; /* Animación que se repite infinitamente */
-    z-index: 1; /* Asegura que el fondo esté detrás de la imagen */
-}
+    background-size: 400% 400%; 
+    animation: gradientAnimation 4s ease infinite; 
+    z-index: 1; 
+} */
 
 /* Imagen de la tarjeta */
 .card img {
     border-radius: 5%;
     width: 100%; 
     height: auto; 
-    position: relative; 
-    z-index: 2; 
+    /* position: relative; 
+    z-index: 2;  */
+    border: 2px solid #BDFF00;
 }
 
 /* Animación del fondo degradado */

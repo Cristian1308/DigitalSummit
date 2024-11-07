@@ -61,84 +61,6 @@
 
 
 
-.parqueadero {
-    text-align: center;
-    background-color: #1a1a1adc;
-    color: #fff;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 30px auto;
-    width: 50%;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    background-size: 400% 400%;
-}
-
-/* Títulos y textos */
-.parqueadero h2 {
-    font-size: 1.3em;
-    margin-bottom: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
-.parqueadero p {
-    font-size: 0.8em;
-    margin-bottom: 30px;
-    font-weight: 400;
-    color: #f8f8f8;
-}
-
-/* Información de horarios */
-.informacion {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-/* Horarios */
-.horarios {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    width: 60%;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.horarios h3 {
-    color: #0099ff;
-    font-size: 1em;
-    text-transform: uppercase;
-}
-
-.horarios ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.horarios li {
-    font-size: 0.8em;
-    color: #555;
-    margin-bottom: 12px;
-}
-
-/* Imagen grande */
-.imagen-grande {
-    width: 35%;
-    background-image: url('imagen-del-parqueadero.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.imagen-grande img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-}
 
 
 
@@ -175,10 +97,10 @@
     display: flex;
     flex-direction: column;
 }
-.transporte {
+/* .transporte {
     display: flex;
     flex-direction: column;
-}
+} */
 
 
 .title2 {
@@ -554,18 +476,7 @@ h2 {
         font-size: 0.5em;
     }
 
-    .parqueadero {
-        width: 70%;
-    }
 
-    /* .informacion {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .horarios, .imagen-grande {
-        width: 100%;
-    } */
 }
 
 /* Ajustes para pantallas pequeñas (móviles) */
@@ -598,9 +509,7 @@ h2 {
         font-size: 0.9em;
     }
 
-    .parqueadero {
-        width: 100%;
-    }
+
 
 }
 
@@ -688,21 +597,3 @@ h2 {
 
 }
 
-
-
-
-/* @media (max-width: 400px) {
-    .apps {
-        margin-top: 2%;
-        display: grid;
-        gap: 20px;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    }
-
-
-    .card-app img {
-        max-width: 100%;
-    }
-
-
-} */
