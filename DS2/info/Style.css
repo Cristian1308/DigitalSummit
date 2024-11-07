@@ -35,72 +35,12 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .hoteles {
-    margin-top: 2%;
     background-color: #1a1a1adc;
     padding: 2% 0 2% 0;
     display: flex;
     flex-direction: column;
 }
-/* .transporte {
-    display: flex;
-    flex-direction: column;
-} */
 
 
 .title2 {
@@ -240,24 +180,7 @@ h2 {
     align-items: flex-end;
 }
 
-/* .hotel-prices .rating {
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
 
-.hotel-prices .rating span {
-    background-color: #0071c2;
-    color: white;
-    padding: 1% 10px;
-    border-radius: 5px;
-}
-
-.hotel-prices .location-rating {
-    color: #0071c2;
-    margin-bottom: 10px;
-    font-size: 0.8rem;
-} */
 
 .hotel-prices .price-btn {
     background-color: #0071c2;
@@ -276,9 +199,10 @@ h2 {
 
 
 .ver-mas-container {
+    margin-top: 2%; 
     display: flex;
     justify-content: center;
-    margin-top: 20px; /* Espacio superior para separar del contenido anterior */
+   
 }
 
 .ver-mas-button {
@@ -464,6 +388,11 @@ h2 {
         margin: auto; /* Margen superior aumentado en pantallas medianas */
     }
 
+    .ver-mas-container {
+        margin-top: 5%;
+       
+    }
+
     .recomendaciones {
         padding: 15px;
     }
@@ -485,6 +414,11 @@ h2 {
         width: 95%;
         height: 45vh;
         margin: auto; /* Margen superior aumentado en pantallas móviles */
+    }
+
+    .ver-mas-container {
+        margin-top: 5%;
+       
     }
 
     .transporte {
@@ -520,14 +454,14 @@ h2 {
         height: 85vh;
     }
 
-    .map-container {
-        height: 40vh;
+    .hoteles {
+        padding-top: 5%;
+        padding-bottom: 5%;
     }
 
-    .hoteles {
-        padding-top: 10%;
-        margin-top: 10%;
-        padding-bottom: 10%;
+    .ver-mas-container {
+        margin-top: 7%;
+       
     }
 
     .transporte{

@@ -238,7 +238,7 @@ h2 {
 
 .video-section {
     width: 100%;
-    max-width: 1200px;
+    max-width: 2200px;
     margin: 20px auto;
     padding: 20px;
     text-align: center;
@@ -341,7 +341,6 @@ h2 {
 
     .button-container {
        margin: 3%;
-       
     }
 
     .map-button {
