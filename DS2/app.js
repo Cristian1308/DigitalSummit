@@ -97,100 +97,79 @@ function realizarCompraUnique() {
 }
 
 function generarBoleto(qrURL, idBoleto, nombre) {
-    const ticketElement = document.getElementById('ticket');
-    ticketElement.innerHTML = ''; // Limpiar el contenido previo
+  const ticketElement = document.getElementById('ticket');
+  ticketElement.innerHTML = ''; // Limpiar el contenido previo
 
-    // Crear el elemento del QR
-    const qrImg = document.createElement('img');
-    qrImg.id = 'qrCode';
-    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${qrURL}`; // Mayor tamaño del QR
+  // Crear y configurar el elemento de la imagen del QR
+  const qrImg = document.createElement('img');
+  qrImg.id = 'qrCode';
+  qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${qrURL}`; // Tamaño del QR aumentado
 
-    // Cambiar el fondo del boleto según el tipo
-    switch (idBoleto) {
-        case 'p':
-            ticketElement.style.backgroundImage = "url('preferencial.png')";
-            break;
-        case 'g':
-            ticketElement.style.backgroundImage = "url('general.png')";
-            break;
-        case 'd':
-            ticketElement.style.backgroundImage = "url('diamond.png')";
-            break;
-        default:
-            alert("Tipo de boleto no reconocido. Verifica el ID.");
-            return;
-    }
+  // Cambiar el fondo del boleto según el tipo de idBoleto
+  switch (idBoleto) {
+      case 'p':
+          ticketElement.style.backgroundImage = "url('preferencial.png')";
+          break;
+      case 'g':
+          ticketElement.style.backgroundImage = "url('general.png')";
+          break;
+      case 'd':
+          ticketElement.style.backgroundImage = "url('diamond.png')";
+          break;
+      default:
+          alert("Tipo de boleto no reconocido. Verifica el ID.");
+          return;
+  }
 
-    // Insertar el nombre en el boleto
-    const nombreElement = document.createElement('div');
-    nombreElement.innerText = nombre;
-    nombreElement.style.position = 'absolute';
-    nombreElement.style.top = '20%';
-    nombreElement.style.left = '50%';
-    nombreElement.style.transform = 'translate(-50%, -50%)';
-    nombreElement.style.fontSize = '1.5em';
-    nombreElement.style.fontWeight = 'bold';
-    nombreElement.style.color = '#FFFFFF';
+  // Insertar el nombre en el boleto
+  const nombreElement = document.createElement('div');
+  nombreElement.innerText = nombre;
+  nombreElement.style.position = 'absolute';
+  nombreElement.style.top = '20%';
+  nombreElement.style.left = '50%';
+  nombreElement.style.transform = 'translate(-50%, -50%)';
+  nombreElement.style.fontSize = '1.5em';
+  nombreElement.style.fontWeight = 'bold';
+  nombreElement.style.color = '#FFFFFF';
 
-    // Agregar el nombre y el QR al contenedor del boleto
-    ticketElement.appendChild(nombreElement);
-    ticketElement.appendChild(qrImg);
+  // Agregar el nombre y el QR al contenedor del boleto
+  ticketElement.appendChild(nombreElement);
+  ticketElement.appendChild(qrImg);
 
-    // Mostrar el contenedor del boleto
-    document.getElementById('ticketContainer').style.display = 'flex';
+  // Mostrar el contenedor del boleto
+  document.getElementById('ticketContainer').style.display = 'flex';
 
-    // Generar la imagen en alta resolución con html2canvas
-    qrImg.onload = function () {
-        const originalWidth = ticketElement.offsetWidth;
-        const originalHeight = ticketElement.offsetHeight;
+  qrImg.onload = function () {
+      // Generar la imagen del boleto en alta calidad
+      htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 }) // Calidad máxima y doble de resolución
+          .then(function (dataUrl) {
+              boletoImageURL = dataUrl; // Guardar la URL generada para descarga
+          })
+          .catch(function (error) {
+              console.error("Error al generar la imagen del boleto:", error);
+          });
+  };
 
-        // Duplicar temporalmente el tamaño del contenedor para mejor calidad
-        ticketElement.style.width = originalWidth * 2 + 'px';
-        ticketElement.style.height = originalHeight * 2 + 'px';
-        ticketElement.style.transform = 'scale(2)';
-        ticketElement.style.transformOrigin = 'top left';
-
-        html2canvas(ticketElement, {
-            scale: 3, // Escala alta para mejorar resolución
-            useCORS: true // Permitir imágenes externas
-        })
-        .then(function (canvas) {
-            // Restaurar el tamaño original del contenedor
-            ticketElement.style.width = originalWidth + 'px';
-            ticketElement.style.height = originalHeight + 'px';
-            ticketElement.style.transform = 'scale(1)';
-
-            if (canvas.toBlob) {
-                canvas.toBlob(function (blob) {
-                    boletoImageURL = URL.createObjectURL(blob);
-                    alert("El boleto ha sido generado y está listo para descargar.");
-                }, 'image/png', 1.0); // Calidad máxima
-            } else {
-                boletoImageURL = canvas.toDataURL('image/png', 1.0); // Calidad máxima
-                alert("El boleto ha sido generado y está listo para descargar.");
-            }
-        })
-        .catch(function (error) {
-            console.error("Error al generar la imagen del boleto: ", error);
-        });
-    };
-
-    qrImg.onerror = function () {
-        alert("Error al cargar el código QR. Verifica la URL del QR.");
-    };
+  // Manejo de error en la carga del QR
+  qrImg.onerror = function () {
+      alert("Error al cargar el código QR. Verifica la URL del QR.");
+  };
 }
 
 // Función para descargar el boleto como PNG
 document.getElementById('downloadBtn').addEventListener('click', function () {
-    if (boletoImageURL) {
-        const link = document.createElement('a');
-        link.download = 'boleto.png';
-        link.href = boletoImageURL;
-        link.click();
-    } else {
-        alert("No se ha generado el boleto aún. Por favor, genera el boleto antes de intentar descargarlo.");
-    }
+  if (boletoImageURL) {
+      const link = document.createElement('a');
+      link.download = 'boleto.png';
+      link.href = boletoImageURL;
+      link.click();
+  } else {
+      alert("No se ha generado el boleto aún. Por favor, genera el boleto antes de intentar descargarlo.");
+  }
 });
+
+
+
 
 
 // Función para restablecer el contenido y las variables del boleto
