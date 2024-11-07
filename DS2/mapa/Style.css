@@ -12,21 +12,11 @@
 
 }
 
-.hoteles {
-    margin-top: 2%;
-    background-color: #1a1a1adc;
-    padding: 2% 0 2% 0;
-    display: flex;
-    flex-direction: column;
-}
-.transporte {
-    display: flex;
-    flex-direction: column;
-}
+
 
 
 .title2 {
-    margin-bottom: 1%;
+    margin-bottom: 2%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -90,7 +80,7 @@ h2 {
 .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin: 2%;
     opacity: 0; /* Inicialmente invisible */
     animation: buttonAnimation 1s forwards 1s; /* Animación al cargar con un retraso */
 }
@@ -119,7 +109,7 @@ h2 {
 }
 
 .map-button:hover {
-    background-color: #3367D6;
+    background-color: #88b900;
 }
 
 
@@ -127,6 +117,8 @@ h2 {
 
 
 .transporte {
+    margin-top: 2%; /* Arriba, derecha, abajo, izquierda */
+    background-color: #1a1a1adc;
     border-top: 1px solid #2b2b2b;
     text-align: center;
     padding: 20px 20% 3% 20%; /* Arriba, derecha, abajo, izquierda */
@@ -214,10 +206,9 @@ h2 {
 
 
 .image-map-section {
-    background-color: #1a1a1adc;
     width: 100%;
     max-width: 2200px;
-    margin: 20px auto;
+    margin: auto;
     padding: 20px;
     text-align: center;
     display: flex;
@@ -340,7 +331,7 @@ h2 {
     .apps {
         margin-top: 2%;
         display: grid;
-        gap: 20px;
+        gap: 10px;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
 
@@ -348,8 +339,36 @@ h2 {
         max-width: 100%;
     }
 
+    .button-container {
+       margin: 3%;
+       
+    }
+
+    .map-button {
+        padding: 8px 10px;
+    }
+
 
 }
+
+
+
+
+
+
+@media (max-width: 400px) {
+
+    .apps {
+        margin-top: 2%;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(97px, 1fr));
+    }
+
+
+
+}
+
 
 
 

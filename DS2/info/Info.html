@@ -210,25 +210,7 @@
 
 
 
-<script>
-    function hideWazeButtonOnDesktop() {
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        const wazeButton = document.getElementById('wazeButton');
-        
-        // Oculta el botón de Waze si no es un dispositivo móvil
-        if (!isMobile) {
-            wazeButton.style.display = 'none';
-        }
-    }
 
-    // Ejecutar la función al cargar la página
-    hideWazeButtonOnDesktop();
-
-
-    function toggleFAQ(element) {
-            element.classList.toggle("active");
-        }
-</script>
 
 
 <!-- Campo de correo y botón de enviar -->
