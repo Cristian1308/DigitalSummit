@@ -829,11 +829,15 @@ p {
     background-color: #e6e6e6;
     padding: 20px;
     border-radius: 8px;
-    width: 80%;
+    width: 90%;
     max-width: 500px;
     text-align: center;
     position: relative;
     z-index: 1000;
+  }
+
+  .modal-content-unique p{
+    font-size: 0.8rem;
   }
   
   .close-btn-unique {
@@ -1061,6 +1065,11 @@ p {
     .modal-buttons-unique button {
         padding: 7px 9px;
         font-size: 10px;
+    }
+
+    
+    .modal-content-unique p{
+        font-size: 0.6rem;
     }
     
 

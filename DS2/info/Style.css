@@ -7,7 +7,7 @@
 }
 
 .recomendaciones {
-    margin: 20px 0;
+    margin: 2px 0;
     padding: 10px;
     border-radius: 5px;
 }
@@ -23,9 +23,10 @@
 }
 
 .recomendacion h3 {
+    margin-top: 4px;
     color: #918c8c;
     font-size: 1em;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 .recomendacion p {
