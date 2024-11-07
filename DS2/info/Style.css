@@ -685,16 +685,6 @@ h2 {
         max-width: 100%;
     }
 
-    .informacion {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .horarios, .imagen-grande {
-        width: 100%;
-    } 
-
-
 
 }
 
