@@ -68,7 +68,7 @@
     border-radius: 15px;
     padding: 20px;
     margin: 30px auto;
-    width: 90%;
+    width: 50%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     background-size: 400% 400%;
 }
@@ -554,14 +554,18 @@ h2 {
         font-size: 0.5em;
     }
 
-    .informacion {
+    .parqueadero {
+        width: 70%;
+    }
+
+    /* .informacion {
         flex-direction: column;
         align-items: center;
     }
 
     .horarios, .imagen-grande {
         width: 100%;
-    }
+    } */
 }
 
 /* Ajustes para pantallas pequeñas (móviles) */
@@ -592,6 +596,10 @@ h2 {
 
     .recomendacion p {
         font-size: 0.9em;
+    }
+
+    .parqueadero {
+        width: 100%;
     }
 
 }
@@ -677,21 +685,14 @@ h2 {
         max-width: 100%;
     }
 
-    .parqueadero h2 {
-        font-size: 1.1em;
+    .informacion {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .parqueadero p {
-        font-size: 0.9em;
-    }
-
-    .horarios h3 {
-        font-size: 0.9em;
-    }
-
-    .horarios li {
-        font-size: 0.8em;
-    }
+    .horarios, .imagen-grande {
+        width: 100%;
+    } 
 
 
 
