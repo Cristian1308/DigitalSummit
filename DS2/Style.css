@@ -106,8 +106,8 @@ h2 a {
 }
 
 .nav-link:hover {
-    color: rgba(225, 225, 225, 1);
-    text-shadow: 0 2px 8px rgba(174, 207, 242, 0.6); /* Añade un efecto de sombra al pasar el mouse */
+    color: rgb(255, 255, 255);
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.822); /* Añade un efecto de sombra al pasar el mouse */
 }
 
 
