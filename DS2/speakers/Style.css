@@ -187,7 +187,7 @@ h2 {
     grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
     gap: 20px;
     padding: 20px;
-    max-height: 80vh; /* Altura máxima para permitir scroll en pantallas grandes */
+    max-height: 100vh; /* Altura máxima para permitir scroll en pantallas grandes */
     overflow-y: auto; /* Scroll vertical cuando el contenido excede la altura */
 }
 
@@ -241,7 +241,7 @@ h2 {
 @media (max-width: 768px) {
     .container {
         grid-template-columns: 1fr;
-        max-height: 70vh; /* Altura para móviles */
+        max-height: 80vh; /* Altura para móviles */
         overflow-y: auto;
     }
     h2 {
@@ -252,7 +252,7 @@ h2 {
 @media (min-width: 769px) and (max-width: 1024px) {
     .container {
         grid-template-columns: repeat(2, 1fr);
-        max-height: 75vh; /* Altura para tablets */
+        max-height: 80vh; /* Altura para tablets */
         overflow-y: auto;
     }
     h2 {
@@ -263,7 +263,7 @@ h2 {
 @media (min-width: 1025px) {
     .container {
         grid-template-columns: repeat(3, 1fr);
-        max-height: 80vh; /* Altura para pantallas grandes */
+        max-height: 75vh; /* Altura para pantallas grandes */
         overflow-y: auto;
     }
     h2 {
