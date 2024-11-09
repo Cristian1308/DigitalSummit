@@ -262,7 +262,7 @@ h2 {
 
 @media (min-width: 1025px) {
     .container {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         max-height: 75vh; /* Altura para pantallas grandes */
         overflow-y: auto;
     }
