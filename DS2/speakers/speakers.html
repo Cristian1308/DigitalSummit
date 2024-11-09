@@ -18,50 +18,67 @@
 <main>
   <div class="title2"><h2>SPEAKERS INVITADOS</h2></div>
   <div class="container">
+    <!-- Tarjeta 1 -->
     <div class="card">
-        <div class="carousel">
-            <img src="Mike.jpg" alt="Portada de Mike">
-            <img src="Mike.jpg" alt="Información de Mike">
-        </div>
+      <div class="carousel">
+        <img src="Mike.jpg" alt="Mike" class="carousel-image active">
+        <img src="Alvaro.jpg" alt="Mike Info" class="carousel-image">
+        <button class="prev-btn" onclick="prevSlide(this)">&#10094;</button>
+        <button class="next-btn" onclick="nextSlide(this)">&#10095;</button>
+      </div>
     </div>
+
+    <!-- Tarjeta 2 -->
     <div class="card">
-        <div class="carousel">
-            <img src="Alvaro.jpg" alt="Portada de Álvaro">
-            <img src="Alvaro.jpg" alt="Información de Álvaro">
-        </div>
+      <div class="carousel">
+        <img src="Alvaro.jpg" alt="Alvaro" class="carousel-image active">
+        <img src="Alvaro.jpg" alt="Alvaro Info" class="carousel-image">
+        <button class="prev-btn" onclick="prevSlide(this)">&#10094;</button>
+        <button class="next-btn" onclick="nextSlide(this)">&#10095;</button>
+      </div>
     </div>
+
+    <!-- Tarjeta 3 -->
     <div class="card">
-        <div class="carousel">
-            <img src="Laura.jpg" alt="Portada de Laura">
-            <img src="Laura.jpg" alt="Información de Laura">
-        </div>
+      <div class="carousel">
+        <img src="Laura.jpg" alt="Laura" class="carousel-image active">
+        <img src="Alvaro.jpg" alt="Laura Info" class="carousel-image">
+        <button class="prev-btn" onclick="prevSlide(this)">&#10094;</button>
+        <button class="next-btn" onclick="nextSlide(this)">&#10095;</button>
+      </div>
     </div>
+
+    <!-- Tarjeta 4 -->
     <div class="card">
-        <div class="carousel">
-            <img src="Gerardo.jpg" alt="Portada de Gerardo">
-            <img src="Gerardo.jpg" alt="Información de Gerardo">
-        </div>
+      <div class="carousel">
+        <img src="Gerardo.jpg" alt="Gerardo" class="carousel-image active">
+        <img src="Alvaro.jpg" alt="Gerardo Info" class="carousel-image">
+        <button class="prev-btn" onclick="prevSlide(this)">&#10094;</button>
+        <button class="next-btn" onclick="nextSlide(this)">&#10095;</button>
+      </div>
     </div>
   </div>
 </main>
+
 <script>
-  // script.js
-document.addEventListener("DOMContentLoaded", () => {
-    const carousels = document.querySelectorAll(".carousel");
+  function prevSlide(button) {
+    const carousel = button.parentElement;
+    const images = carousel.querySelectorAll('.carousel-image');
+    let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+    images[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    images[currentIndex].classList.add('active');
+  }
 
-    carousels.forEach((carousel) => {
-        let currentIndex = 0;
-        const images = carousel.querySelectorAll("img");
-        const imageCount = images.length;
-
-        setInterval(() => {
-            // Mover a la siguiente imagen
-            currentIndex = (currentIndex + 1) % imageCount;
-            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }, 3000); // Cambia cada 3 segundos
-    });
-});
-
+  function nextSlide(button) {
+    const carousel = button.parentElement;
+    const images = carousel.querySelectorAll('.carousel-image');
+    let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+    images[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % images.length;
+    images[currentIndex].classList.add('active');
+  }
 </script>
 
-
+</body>
+</html>
