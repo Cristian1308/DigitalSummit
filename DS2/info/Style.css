@@ -6,6 +6,35 @@
     height: 85vh;
 }
 
+
+.download-section {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    color: #333;
+}
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+.download-button {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    background-color: #007bff;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.download-button:hover {
+    background-color: #0056b3;
+}
+
 .recomendaciones {
     margin: 2px 0;
     padding: 10px;
@@ -13,7 +42,7 @@
 }
 
 .recomendaciones h2 {
-    color: #e7e7e7;
+    color: #f1f1f1;
     text-align: center;
 }
 
@@ -24,7 +53,7 @@
 
 .recomendacion h3 {
     margin-top: 4px;
-    color: #918c8c;
+    color: #d4d4d4;
     font-size: 1em;
     margin-bottom: 2px;
 }
@@ -34,6 +63,8 @@
     color: #d8d8d8;
     line-height: 1.6;
 }
+
+
 
 
 .hoteles {

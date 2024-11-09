@@ -1,4 +1,4 @@
-
+/* 
 
 .title2 {
     width: 100%;
@@ -14,19 +14,19 @@ h2 {
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     text-align: center;
-    opacity: 0; /* Inicialmente invisible */
-    animation: titleAnimation 1s forwards; /* Animación al cargar */
+    opacity: 0; 
+    animation: titleAnimation 1s forwards; 
 }
 
-/* Animación para el título */
+
 @keyframes titleAnimation {
     0% {
-        opacity: 0; /* Comienza invisible */
-        transform: translateY(-10px); /* Se mueve hacia arriba */
+        opacity: 0; 
+        transform: translateY(-10px); 
     }
     100% {
-        opacity: 1; /* Totalmente visible */
-        transform: translateY(0); /* Vuelve a su posición original */
+        opacity: 1; 
+        transform: translateY(0); 
     }
 }
 
@@ -34,7 +34,7 @@ h2 {
 .container {
     margin: 5vh;
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); 
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); 
     gap: 20px;
     padding: 20px;
     overflow: auto;
@@ -43,74 +43,58 @@ h2 {
 
 .card {
     padding: 1%;
-    position: relative; /* Necesario para posicionar el pseudo-elemento */
-    overflow: hidden; /* Asegura que el pseudo-elemento no se salga de la tarjeta */
-    border-radius: 5%; /* Mantiene el borde redondeado */
-    width: 100%; /* Asegura que la tarjeta ocupe el 100% de su contenedor */
-    opacity: 0; /* Inicialmente invisible */
-    animation: fadeInScale 0.8s forwards; /* Animación al cargar */
+    position: relative; 
+    overflow: hidden; 
+    border-radius: 5%; 
+    width: 100%;
+    opacity: 0;
+    animation: fadeInScale 0.8s forwards; 
 }
 
-/* Fondo degradado animado */
-/* .card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 5%; 
-    background: linear-gradient(270deg, #BDFF00,  #9dd600);
-    background-size: 400% 400%; 
-    animation: gradientAnimation 4s ease infinite; 
-    z-index: 1; 
-} */
 
-/* Imagen de la tarjeta */
+
 .card img {
     border-radius: 5%;
     width: 100%; 
     height: auto; 
-    /* position: relative; 
-    z-index: 2;  */
+
     border: 2px solid #BDFF00;
 }
 
-/* Animación del fondo degradado */
+
 @keyframes gradientAnimation {
     0% {
-        background-position: 0% 50%; /* Comienza en la posición inicial */
+        background-position: 0% 50%;
     }
     50% {
-        background-position: 100% 50%; /* Se mueve a la posición final */
+        background-position: 100% 50%;
     }
     100% {
-        background-position: 0% 50%; /* Vuelve a la posición inicial */
+        background-position: 0% 50%; 
     }
 }
 
-/* Animación de entrada (fade in + scale) */
+
 @keyframes fadeInScale {
     0% {
-        opacity: 0; /* Inicialmente invisible */
-        transform: scale(0.5); /* Comienza más pequeño */
+        opacity: 0;
+        transform: scale(0.5); 
     }
     50% {
-        opacity: 0.5; /* Medio visible */
-        transform: scale(1); /* Escala un poco más grande */
+        opacity: 0.5;
+        transform: scale(1); 
     }
     100% {
-        opacity: 1; /* Totalmente visible */
-        transform: scale(1); /* Tamaño normal */
+        opacity: 1; 
+        transform: scale(1); 
     }
 }
-/* Media Queries */
-/* Media Queries */
+
 @media (max-height: 800px) {
     .container {
-        height: auto; /* Altura automática para pantallas bajas */
-        max-height: 70vh; /* Limitar altura para permitir scroll */
-        overflow-y: auto; /* Habilita el scroll vertical */
+        height: auto; 
+        max-height: 70vh; 
+        overflow-y: auto; 
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         padding-bottom: 20px;
     }
@@ -118,9 +102,9 @@ h2 {
 
 @media (max-width: 1500px) {
     .container {
-        height: auto; /* Permitir ajuste automático de altura */
-        max-height: 75vh; /* Limitar altura para evitar desbordamiento */
-        overflow-y: auto; /* Habilitar scroll vertical */
+        height: auto; 
+        max-height: 75vh; 
+        overflow-y: auto; 
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         padding: 20px;
     }
@@ -140,7 +124,7 @@ h2 {
 
 @media (max-width: 600px) {
     .container {
-        margin: 3vh 3vh 0vh 1vh;     /* izq derecha  abajo arriba*/ 
+        margin: 3vh 3vh 0vh 1vh;   
         grid-template-columns: 1fr;
         max-height: 74vh;
     }
@@ -171,4 +155,80 @@ h2 {
     }
 
 }
+ */
 
+
+ .title2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 2em;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background-color: #BDFF00;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    opacity: 0;
+    animation: titleAnimation 1s forwards;
+}
+
+@keyframes titleAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    margin: 5vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    overflow: auto;
+}
+
+.card {
+    padding: 1%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5%;
+    width: 100%;
+    animation: fadeInScale 0.8s forwards;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card img {
+    border-radius: 5%;
+    width: 100%;
+    height: auto;
+    border: 2px solid #BDFF00;
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

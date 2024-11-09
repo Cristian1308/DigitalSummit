@@ -7,7 +7,7 @@
   <!-- <div class="mid-spot" onclick="document.body.classList.toggle('gold');"></div> -->
   <nav class="nav">
     <ul class="nav-list">
-      <li class="nav-item"><a href="../Index.html" class="nav-link">Inicio</a></li>
+      <li class="nav-item"><a href="../Index.html" class="nav-link">Entrada</a></li>
       <li class="nav-item"><a href="#" class="nav-link">Speakers</a></li>
       <li class="nav-item"><a href="../mapa/Mapa.html" class="nav-link">Mapa</a></li>
       <li class="nav-item"><a href="../info/Info.html" class="nav-link">Información</a></li>
@@ -19,21 +19,49 @@
   <div class="title2"><h2>SPEAKERS INVITADOS</h2></div>
   <div class="container">
     <div class="card">
-        <img src="Mike.jpg" alt="">
+        <div class="carousel">
+            <img src="Mike.jpg" alt="Portada de Mike">
+            <img src="Mike.jpg" alt="Información de Mike">
+        </div>
     </div>
     <div class="card">
-        <img src="Alvaro.jpg" alt="">
+        <div class="carousel">
+            <img src="Alvaro.jpg" alt="Portada de Álvaro">
+            <img src="Alvaro.jpg" alt="Información de Álvaro">
+        </div>
     </div>
     <div class="card">
-        <img src="Laura.jpg" alt="">
+        <div class="carousel">
+            <img src="Laura.jpg" alt="Portada de Laura">
+            <img src="Laura.jpg" alt="Información de Laura">
+        </div>
     </div>
     <div class="card">
-        <img src="Gerardo.jpg" alt="">
+        <div class="carousel">
+            <img src="Gerardo.jpg" alt="Portada de Gerardo">
+            <img src="Gerardo.jpg" alt="Información de Gerardo">
+        </div>
     </div>
-    <div class="card">
-      <img src="Gerardo.jpg" alt="">
   </div>
-</div>
 </main>
+<script>
+  // script.js
+document.addEventListener("DOMContentLoaded", () => {
+    const carousels = document.querySelectorAll(".carousel");
+
+    carousels.forEach((carousel) => {
+        let currentIndex = 0;
+        const images = carousel.querySelectorAll("img");
+        const imageCount = images.length;
+
+        setInterval(() => {
+            // Mover a la siguiente imagen
+            currentIndex = (currentIndex + 1) % imageCount;
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }, 3000); // Cambia cada 3 segundos
+    });
+});
+
+</script>
 
 
