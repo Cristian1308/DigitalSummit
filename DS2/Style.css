@@ -737,11 +737,10 @@ p {
 
     /* QR Code centrado dentro del boleto */
     .ticket img {
-        border-radius: 15%;
         width: 38%;
         background-color: #fff;
         position: absolute;
-        top: 26.5%;
+        top: 34.5%;
         left: 31%;
         /* transform: translate(-50%, -50%); */
     }
