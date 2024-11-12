@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Lógica para manejar el clic en el botón "Enviar"
   submitButton.addEventListener('click', function () {
-    const emailInput = document.getElementById('emailInputCustom').value.trim();
+    const emailInput = document.getElementById('emailInputCustom').value.trim().toLowerCase();
 
     // Verifica si el checkbox está marcado antes de continuar
     // if (!checkbox.checked) {
@@ -145,7 +145,6 @@ function generarBoleto(qrURL, idBoleto, nombre) {
       htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 }) // Calidad máxima y doble de resolución
           .then(function (dataUrl) {
               boletoImageURL = dataUrl; // Guardar la URL generada para descargar
-              alert("El boleto ha sido generado y está listo para descargar.");
           })
           .catch(function (error) {
               console.error("Error al generar la imagen del boleto:", error);
@@ -167,7 +166,7 @@ document.getElementById('downloadBtn').addEventListener('click', function () {
       link.href = boletoImageURL;
       link.click();
   } else {
-      alert("No se ha generado el boleto aún. Por favor, genera el boleto antes de intentar descargarlo.");
+
   }
 });
 
