@@ -96,6 +96,7 @@ function realizarCompraUnique() {
   window.location.href = "https://pay.hotmart.com/W95072609C?off=cfdr92fq&checkoutMode=10"; // URL de la página de compra
 }
 
+// Función para generar el boleto
 function generarBoleto(qrURL, idBoleto, nombre) {
   const ticketElement = document.getElementById('ticket');
   ticketElement.innerHTML = ''; // Limpiar el contenido previo
@@ -125,12 +126,12 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   const nombreElement = document.createElement('div');
   nombreElement.innerText = nombre;
   nombreElement.style.position = 'absolute';
-  nombreElement.style.top = '66%';
+  nombreElement.style.top = '20%';
   nombreElement.style.left = '50%';
   nombreElement.style.transform = 'translate(-50%, -50%)';
-  nombreElement.style.fontSize = '1.0em';
+  nombreElement.style.fontSize = '1.5em';
   nombreElement.style.fontWeight = 'bold';
-  nombreElement.style.color = '#000000';
+  nombreElement.style.color = '#FFFFFF';
 
   // Agregar el nombre y el QR al contenedor del boleto
   ticketElement.appendChild(nombreElement);
@@ -143,7 +144,8 @@ function generarBoleto(qrURL, idBoleto, nombre) {
       // Generar la imagen del boleto en alta calidad
       htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 }) // Calidad máxima y doble de resolución
           .then(function (dataUrl) {
-              boletoImageURL = dataUrl; // Guardar la URL generada para descarga
+              boletoImageURL = dataUrl; // Guardar la URL generada para descargar
+              alert("El boleto ha sido generado y está listo para descargar.");
           })
           .catch(function (error) {
               console.error("Error al generar la imagen del boleto:", error);
@@ -156,7 +158,8 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   };
 }
 
-// Función para descargar el boleto como PNG
+
+// Evento para descargar el boleto como PNG
 document.getElementById('downloadBtn').addEventListener('click', function () {
   if (boletoImageURL) {
       const link = document.createElement('a');
