@@ -146,7 +146,7 @@ function generarBoleto(qrURL, idBoleto, nombre) {
     // Si el tamaño de fuente es demasiado pequeño, detener el bucle
     if (fontSize <= 0.5) break;
   }
-  
+
   // Agregar el nombre y el QR al contenedor del boleto
   ticketElement.appendChild(nombreElement);
   ticketElement.appendChild(qrImg);
@@ -156,7 +156,7 @@ function generarBoleto(qrURL, idBoleto, nombre) {
 
   qrImg.onload = function () {
       // Generar la imagen del boleto en alta calidad
-      htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 }) // Calidad máxima y doble de resolución
+      htmlToImage.toPng(ticketElement, { quality: 0.5, pixelRatio: 1 }) // Calidad máxima y doble de resolución
           .then(function (dataUrl) {
               boletoImageURL = dataUrl; // Guardar la URL generada para descargar
           })
