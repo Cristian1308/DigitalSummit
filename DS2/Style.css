@@ -1014,7 +1014,11 @@ p {
     }
     
 
-
+        /* Botones de acciones */
+    .ticket-actions {
+        width: 55%;
+            
+        }
     
 
 }
