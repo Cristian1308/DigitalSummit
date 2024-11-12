@@ -750,40 +750,28 @@ p {
         margin-top: 1%;    
         display: flex;
         justify-content: space-around; /* Espaciado entre los botones */
-        width: 35vh;
+        width: 37vh;
         padding: 10px;
         background-color: rgb(19, 19, 19);
-        border-radius: 16px;
+        
     }
 
 
-    #downloadBtn {
+    #downloadBtn, #cancelBtn{
         font-size: 70%;
-        border: 4px solid #000000;
-        /* background: linear-gradient(to right, #00FF8C, #00BEBE); */
-        color: #000000;
+        border: 2px solid #BDFF00;
+        color: #BDFF00;
+        background-color: transparent;
         font-weight: bold;
         padding: 10px 20px;
-        /* border: none; */
         border-radius: 5px;
         cursor: pointer;
+        border-radius: 1vh; 
     }
-    
-    /* Botón Cancelar */
-    #cancelBtn {
-        font-size: 70%;
-        border: 4px solid #000000;
-        color: rgb(0, 0, 0);
-        font-weight: bold;
-        padding: 10px 20px;
-        /* border: none; */
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    
+
     /* Efecto hover para ambos botones */
     #downloadBtn:hover, #cancelBtn:hover {
-        opacity: 0.8;
+        opacity: 0.6;
     }
 
 
