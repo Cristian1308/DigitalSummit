@@ -115,7 +115,7 @@ function generarBoleto(qrURL, idBoleto, nombre) {
           ticketElement.style.backgroundImage = "url('general.png')";
           break;
       case 'd':
-          ticketElement.style.backgroundImage = "url('diamond.png')";
+          ticketElement.style.backgroundImage = "url('Diamond.png')";
           break;
       default:
           alert("Tipo de boleto no reconocido. Verifica el ID.");
@@ -126,14 +126,12 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   const nombreElement = document.createElement('div');
   nombreElement.innerText = nombre;
   nombreElement.style.position = 'absolute';
-  nombreElement.style.top = '66%';
+  nombreElement.style.top = '65.5%';
   nombreElement.style.left = '50%';
   nombreElement.style.transform = 'translate(-50%, -50%)';
   nombreElement.style.fontSize = '1.0em';
   nombreElement.style.fontWeight = 'bold';
   nombreElement.style.color = '#000000';
-  nombreElement.style.whiteSpace = 'nowrap'; // Evita que el texto se desborde a una segunda línea
-  
 
   // Agregar el nombre y el QR al contenedor del boleto
   ticketElement.appendChild(nombreElement);
@@ -144,9 +142,10 @@ function generarBoleto(qrURL, idBoleto, nombre) {
 
   qrImg.onload = function () {
       // Generar la imagen del boleto en alta calidad
-      htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 1.5 }) // Calidad máxima y doble de resolución
+      htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 }) // Calidad máxima y doble de resolución
           .then(function (dataUrl) {
               boletoImageURL = dataUrl; // Guardar la URL generada para descargar
+              alert("El boleto ha sido generado y está listo para descargar.");
           })
           .catch(function (error) {
               console.error("Error al generar la imagen del boleto:", error);
@@ -159,8 +158,7 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   };
 }
 
-
-// Evento para descargar el boleto como PNG
+// Función para descargar el boleto como PNG
 document.getElementById('downloadBtn').addEventListener('click', function () {
   if (boletoImageURL) {
       const link = document.createElement('a');
@@ -168,7 +166,7 @@ document.getElementById('downloadBtn').addEventListener('click', function () {
       link.href = boletoImageURL;
       link.click();
   } else {
-
+      alert("No se ha generado el boleto aún. Por favor, genera el boleto antes de intentar descargarlo.");
   }
 });
 
