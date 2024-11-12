@@ -129,23 +129,11 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   nombreElement.style.top = '66%';
   nombreElement.style.left = '50%';
   nombreElement.style.transform = 'translate(-50%, -50%)';
+  nombreElement.style.fontSize = '1.0em';
   nombreElement.style.fontWeight = 'bold';
   nombreElement.style.color = '#000000';
   nombreElement.style.whiteSpace = 'nowrap'; // Evita que el texto se desborde a una segunda línea
   
-  // Ajusta el tamaño de la fuente en un bucle hasta que el ancho sea correcto
-  let fontSize = 1.0; // Tamaño inicial
-  nombreElement.style.fontSize = `${fontSize}em`;
-  
-  document.body.appendChild(nombreElement);
-  
-  while (nombreElement.scrollWidth > nombreElement.clientWidth) {
-    fontSize -= 0.05; // Reduce el tamaño de la fuente
-    nombreElement.style.fontSize = `${fontSize}em`;
-  
-    // Si el tamaño de fuente es demasiado pequeño, detener el bucle
-    if (fontSize <= 0.5) break;
-  }
 
   // Agregar el nombre y el QR al contenedor del boleto
   ticketElement.appendChild(nombreElement);
@@ -156,7 +144,7 @@ function generarBoleto(qrURL, idBoleto, nombre) {
 
   qrImg.onload = function () {
       // Generar la imagen del boleto en alta calidad
-      htmlToImage.toPng(ticketElement, { quality: 0.5, pixelRatio: 1 }) // Calidad máxima y doble de resolución
+      htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 1.5 }) // Calidad máxima y doble de resolución
           .then(function (dataUrl) {
               boletoImageURL = dataUrl; // Guardar la URL generada para descargar
           })
