@@ -155,6 +155,8 @@ async function generarBoleto(qrURL, idBoleto, nombre) {
   // Primera generación: No se guarda ni se descarga
   await htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 });
 
+  await htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 });
+
   // Segunda generación: Generamos y descargamos la imagen
   htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 })
     .then(function (dataUrl) {
