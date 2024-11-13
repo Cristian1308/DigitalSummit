@@ -115,7 +115,7 @@ function generarBoleto(qrURL, idBoleto, nombre) {
           ticketElement.style.backgroundImage = "url('general.png')";
           break;
       case 'd':
-          ticketElement.style.backgroundImage = "url('Diamond.png')";
+          ticketElement.style.backgroundImage = "url('diamond.png')";
           break;
       default:
           alert("Tipo de boleto no reconocido. Verifica el ID.");
