@@ -129,7 +129,7 @@ async function generarBoleto(qrURL, idBoleto, nombre) {
   const nombreElement = document.createElement('div');
   nombreElement.innerText = nombre;
   nombreElement.style.position = 'absolute';
-  nombreElement.style.top = '65.5%';
+  nombreElement.style.top = '64.5%';
   nombreElement.style.left = '50%';
   nombreElement.style.transform = 'translate(-50%, -50%)';
   nombreElement.style.fontSize = '1.0em';
