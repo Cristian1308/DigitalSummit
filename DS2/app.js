@@ -135,6 +135,7 @@ async function generarBoleto(qrURL, idBoleto, nombre) {
   nombreElement.style.fontSize = '1.0em';
   nombreElement.style.fontWeight = 'bold';
   nombreElement.style.color = '#000000';
+  nombreElement.style.whiteSpace = 'nowrap'; // Evita que el texto se desborde a una segunda línea
 
   // Agregar el nombre y el QR al contenedor del boleto
   ticketElement.appendChild(nombreElement);
