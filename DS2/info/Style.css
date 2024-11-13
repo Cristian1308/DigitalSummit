@@ -321,7 +321,7 @@ h2 {
 
 .faq-section {
     /* background: #fffffff6; */
-    padding: 20px;
+    padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -336,8 +336,8 @@ h2 {
 
 /* Estilos para cada pregunta */
 .faq {
-    border-bottom: 1px solid #4e4e4e;
-    padding: 15px 0;
+    border-bottom: 1px solid #3f3f3f;
+    padding: 10px 0;
     cursor: pointer;
     position: relative;
 }
@@ -349,7 +349,7 @@ h2 {
 .faq-question {
     font-weight: bold;
     color: #b1b1b1;
-    font-size: 18px;
+    font-size: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -361,7 +361,7 @@ h2 {
     overflow: hidden;
     color: #acacac;
     transition: max-height 0.3s ease;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 /* Clase activa para expandir la respuesta */
