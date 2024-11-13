@@ -176,12 +176,26 @@ function descargarBoleto() {
     link.href = boletoImageURL;
     link.click();
 
-    // Resetear la URL después de descargar para evitar múltiples descargas
-    boletoImageURL = '';
   } else {
     alert("No se ha generado el boleto aún. Por favor, intenta de nuevo.");
   }
 }
+
+
+// Función para restablecer el contenido y las variables del boleto
+document.getElementById('downloadBtn').onclick = function() {
+  if (boletoImageURL) {
+      const link = document.createElement('a');
+      link.download = 'boleto.png';
+      link.href = boletoImageURL;
+      link.click();
+
+      // Resetear la URL después de descargar para evitar múltiples descargas
+      boletoImageURL = '';
+  } else {
+      alert("No se ha generado el boleto aún. Por favor, intenta de nuevo.");
+  }
+};
 
 // Función para restablecer el contenido y las variables del boleto
 function resetBoleto() {
