@@ -526,5 +526,14 @@ h2 {
         flex-direction: column;
     }
 
+    .faq-question {
+        font-size: 14px;
+    }
+    
+    /* Estilos para la respuesta oculta */
+    .faq-answer {
+        font-size: 12px;
+    }
+
 }
 
