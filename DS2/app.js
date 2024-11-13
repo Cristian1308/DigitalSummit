@@ -96,7 +96,6 @@ function realizarCompraUnique() {
   window.location.href = "https://pay.hotmart.com/W95072609C?off=cfdr92fq&checkoutMode=10"; // URL de la página de compra
 }
 
-// Función asincrónica para generar el boleto
 async function generarBoleto(qrURL, idBoleto, nombre) {
   const ticketElement = document.getElementById('ticket');
   ticketElement.innerHTML = ''; // Limpiar el contenido previo
@@ -153,28 +152,27 @@ async function generarBoleto(qrURL, idBoleto, nombre) {
   htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 })
     .then(function (dataUrl) {
       boletoImageURL = dataUrl; // Guardar la URL generada para descargar
-      alert("El boleto ha sido generado y está listo para descargar.");
+      descargarBoleto(); // Llamar a la función para descargar automáticamente el boleto
     })
     .catch(function (error) {
       console.error("Error al generar la imagen del boleto:", error);
     });
 }
 
-// Función para descargar el boleto como PNG
-document.getElementById('downloadBtn').addEventListener('click', function () {
+// Función para descargar el boleto como PNG automáticamente
+function descargarBoleto() {
   if (boletoImageURL) {
     const link = document.createElement('a');
     link.download = 'boleto.png';
     link.href = boletoImageURL;
     link.click();
 
-    // Resetear la URL después de descargar
+    // Resetear la URL después de descargar para evitar múltiples descargas
     boletoImageURL = '';
   } else {
-    alert("No se ha generado el boleto aún. Por favor, genera el boleto antes de intentar descargarlo.");
+    alert("No se ha generado el boleto aún. Por favor, intenta de nuevo.");
   }
-});
-
+}
 
 
 
