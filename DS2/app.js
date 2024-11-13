@@ -1,7 +1,7 @@
 const validUsers = new Map(); // Almacenamos correos y datos del CSV
 const boletoURL = 'boleto.png'; // URL pública del boleto de fondo
 const eventDate = new Date('2024-12-02T00:00:00'); // Fecha del evento: 2 de diciembre, 2024
-let boletoImageURL = null; // Variable para almacenar la URL del boleto
+
 
 
 // Cargar lista de correos y datos desde el CSV
@@ -96,6 +96,10 @@ function realizarCompraUnique() {
   window.location.href = "https://pay.hotmart.com/W95072609C?off=cfdr92fq&checkoutMode=10"; // URL de la página de compra
 }
 
+// Inicializar una variable para almacenar la URL de la imagen del boleto
+let boletoImageURL = '';
+
+// Función asincrónica para generar el boleto
 async function generarBoleto(qrURL, idBoleto, nombre) {
   const ticketElement = document.getElementById('ticket');
   ticketElement.innerHTML = ''; // Limpiar el contenido previo
@@ -139,7 +143,7 @@ async function generarBoleto(qrURL, idBoleto, nombre) {
   // Mostrar el contenedor del boleto
   document.getElementById('ticketContainer').style.display = 'flex';
 
-  // Esperar a que el QR esté completamente cargado
+  // Esperar a que el QR esté completamente cargado antes de continuar
   await new Promise((resolve, reject) => {
     qrImg.onload = resolve;
     qrImg.onerror = () => {
@@ -148,22 +152,22 @@ async function generarBoleto(qrURL, idBoleto, nombre) {
     };
   });
 
-  // Generar la imagen del boleto en alta calidad
-  htmlToImage.toJpeg(ticketElement, { quality: 0.95, pixelRatio: 2 })
+  // Generar la imagen del boleto en formato JPG después de que el QR esté cargado
+  htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 }) // Cambiado para JPG
     .then(function (dataUrl) {
       boletoImageURL = dataUrl; // Guardar la URL generada para descargar
-      descargarBoleto(); // Llamar a la función para descargar automáticamente el boleto
+      descargarBoleto(); // Descargar automáticamente el boleto
     })
     .catch(function (error) {
       console.error("Error al generar la imagen del boleto:", error);
     });
 }
 
-// Función para descargar el boleto como PNG automáticamente
+// Función para descargar el boleto como JPG automáticamente
 function descargarBoleto() {
   if (boletoImageURL) {
     const link = document.createElement('a');
-    link.download = 'boleto.jpg';
+    link.download = 'boleto.png';
     link.href = boletoImageURL;
     link.click();
 
@@ -173,6 +177,7 @@ function descargarBoleto() {
     alert("No se ha generado el boleto aún. Por favor, intenta de nuevo.");
   }
 }
+
 
 
 
