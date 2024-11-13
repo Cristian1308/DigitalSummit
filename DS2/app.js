@@ -108,18 +108,18 @@ function generarBoleto(qrURL, idBoleto, nombre) {
 
   // Cambiar el fondo del boleto según el tipo de idBoleto
   switch (idBoleto) {
-      case 'p':
-          ticketElement.style.backgroundImage = "url('preferencial.png')";
-          break;
-      case 'g':
-          ticketElement.style.backgroundImage = "url('general.png')";
-          break;
-      case 'd':
-          ticketElement.style.backgroundImage = "url('diamond.png')";
-          break;
-      default:
-          alert("Tipo de boleto no reconocido. Verifica el ID.");
-          return;
+    case 'p':
+      ticketElement.style.backgroundImage = "url('preferencial.png')";
+      break;
+    case 'g':
+      ticketElement.style.backgroundImage = "url('general.png')";
+      break;
+    case 'd':
+      ticketElement.style.backgroundImage = "url('diamond.png')";
+      break;
+    default:
+      alert("Tipo de boleto no reconocido. Verifica el ID.");
+      return;
   }
 
   // Insertar el nombre en el boleto
@@ -140,36 +140,42 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   // Mostrar el contenedor del boleto
   document.getElementById('ticketContainer').style.display = 'flex';
 
+  // Cargar la imagen QR antes de generar el boleto
   qrImg.onload = function () {
+    // Pequeño retraso para asegurar la carga en iOS
+    setTimeout(() => {
       // Generar la imagen del boleto en alta calidad
-      htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 }) // Calidad máxima y doble de resolución
-          .then(function (dataUrl) {
-              boletoImageURL = dataUrl; // Guardar la URL generada para descargar
-              alert("El boleto ha sido generado y está listo para descargar.");
-          })
-          .catch(function (error) {
-              console.error("Error al generar la imagen del boleto:", error);
-          });
+      htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 })
+        .then(function (dataUrl) {
+          boletoImageURL = dataUrl; // Guardar la URL generada para descargar
+          alert("El boleto ha sido generado y está listo para descargar.");
+        })
+        .catch(function (error) {
+          console.error("Error al generar la imagen del boleto:", error);
+        });
+    }, 500); // Retraso de 500 ms
   };
 
   // Manejo de error en la carga del QR
   qrImg.onerror = function () {
-      alert("Error al cargar el código QR. Verifica la URL del QR.");
+    alert("Error al cargar el código QR. Verifica la URL del QR.");
   };
 }
 
 // Función para descargar el boleto como PNG
 document.getElementById('downloadBtn').addEventListener('click', function () {
   if (boletoImageURL) {
-      const link = document.createElement('a');
-      link.download = 'boleto.png';
-      link.href = boletoImageURL;
-      link.click();
+    const link = document.createElement('a');
+    link.download = 'boleto.png';
+    link.href = boletoImageURL;
+    link.click();
+
+    // Resetear la URL después de descargar
+    boletoImageURL = '';
   } else {
-      alert("No se ha generado el boleto aún. Por favor, genera el boleto antes de intentar descargarlo.");
+    alert("No se ha generado el boleto aún. Por favor, genera el boleto antes de intentar descargarlo.");
   }
 });
-
 
 
 
