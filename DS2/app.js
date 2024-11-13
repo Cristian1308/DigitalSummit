@@ -99,7 +99,7 @@ function realizarCompraUnique() {
 // Inicializar una variable para almacenar la URL de la imagen del boleto
 let boletoImageURL = '';
 
-// Función asincrónica para generar el boleto
+// Función asincrónica para generar el boleto y realizar una doble generación
 async function generarBoleto(qrURL, idBoleto, nombre) {
   const ticketElement = document.getElementById('ticket');
   ticketElement.innerHTML = ''; // Limpiar el contenido previo
@@ -152,8 +152,11 @@ async function generarBoleto(qrURL, idBoleto, nombre) {
     };
   });
 
-  // Generar la imagen del boleto en formato JPG después de que el QR esté cargado
-  htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 }) // Cambiado para JPG
+  // Primera generación: No se guarda ni se descarga
+  await htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 });
+
+  // Segunda generación: Generamos y descargamos la imagen
+  htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 })
     .then(function (dataUrl) {
       boletoImageURL = dataUrl; // Guardar la URL generada para descargar
       descargarBoleto(); // Descargar automáticamente el boleto
@@ -177,10 +180,6 @@ function descargarBoleto() {
     alert("No se ha generado el boleto aún. Por favor, intenta de nuevo.");
   }
 }
-
-
-
-
 
 // Función para restablecer el contenido y las variables del boleto
 function resetBoleto() {
