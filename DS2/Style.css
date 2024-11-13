@@ -892,6 +892,10 @@ p {
         top: 33em; 
     }
 
+    .ticket-actions {
+        width: 29vh;
+    }
+
 
 }
 
