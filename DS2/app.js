@@ -96,15 +96,15 @@ function realizarCompraUnique() {
   window.location.href = "https://pay.hotmart.com/W95072609C?off=cfdr92fq&checkoutMode=10"; // URL de la página de compra
 }
 
-// Función para generar el boleto
-function generarBoleto(qrURL, idBoleto, nombre) {
+// Función asincrónica para generar el boleto
+async function generarBoleto(qrURL, idBoleto, nombre) {
   const ticketElement = document.getElementById('ticket');
   ticketElement.innerHTML = ''; // Limpiar el contenido previo
 
   // Crear y configurar el elemento de la imagen del QR
   const qrImg = document.createElement('img');
   qrImg.id = 'qrCode';
-  qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${qrURL}`; // Tamaño del QR aumentado
+  qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${qrURL}`;
 
   // Cambiar el fondo del boleto según el tipo de idBoleto
   switch (idBoleto) {
@@ -140,26 +140,24 @@ function generarBoleto(qrURL, idBoleto, nombre) {
   // Mostrar el contenedor del boleto
   document.getElementById('ticketContainer').style.display = 'flex';
 
-  // Cargar la imagen QR antes de generar el boleto
-  qrImg.onload = function () {
-    // Pequeño retraso para asegurar la carga en iOS
-    setTimeout(() => {
-      // Generar la imagen del boleto en alta calidad
-      htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 })
-        .then(function (dataUrl) {
-          boletoImageURL = dataUrl; // Guardar la URL generada para descargar
-          alert("El boleto ha sido generado y está listo para descargar.");
-        })
-        .catch(function (error) {
-          console.error("Error al generar la imagen del boleto:", error);
-        });
-    }, 500); // Retraso de 500 ms
-  };
+  // Esperar a que el QR esté completamente cargado
+  await new Promise((resolve, reject) => {
+    qrImg.onload = resolve;
+    qrImg.onerror = () => {
+      alert("Error al cargar el código QR. Verifica la URL del QR.");
+      reject();
+    };
+  });
 
-  // Manejo de error en la carga del QR
-  qrImg.onerror = function () {
-    alert("Error al cargar el código QR. Verifica la URL del QR.");
-  };
+  // Generar la imagen del boleto en alta calidad
+  htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 })
+    .then(function (dataUrl) {
+      boletoImageURL = dataUrl; // Guardar la URL generada para descargar
+      alert("El boleto ha sido generado y está listo para descargar.");
+    })
+    .catch(function (error) {
+      console.error("Error al generar la imagen del boleto:", error);
+    });
 }
 
 // Función para descargar el boleto como PNG
@@ -176,6 +174,7 @@ document.getElementById('downloadBtn').addEventListener('click', function () {
     alert("No se ha generado el boleto aún. Por favor, genera el boleto antes de intentar descargarlo.");
   }
 });
+
 
 
 
