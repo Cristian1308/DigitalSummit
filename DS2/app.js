@@ -149,7 +149,7 @@ async function generarBoleto(qrURL, idBoleto, nombre) {
   });
 
   // Generar la imagen del boleto en alta calidad
-  htmlToImage.toPng(ticketElement, { quality: 1, pixelRatio: 2 })
+  htmlToImage.toJpeg(ticketElement, { quality: 0.95, pixelRatio: 2 })
     .then(function (dataUrl) {
       boletoImageURL = dataUrl; // Guardar la URL generada para descargar
       descargarBoleto(); // Llamar a la función para descargar automáticamente el boleto
@@ -163,7 +163,7 @@ async function generarBoleto(qrURL, idBoleto, nombre) {
 function descargarBoleto() {
   if (boletoImageURL) {
     const link = document.createElement('a');
-    link.download = 'boleto.png';
+    link.download = 'boleto.jpg';
     link.href = boletoImageURL;
     link.click();
 
