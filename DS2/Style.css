@@ -354,7 +354,7 @@ p {
 }
 
 .use p {
-    font-size: 0.8em;
+    font-size: 1em;
     position: relative; width: fit-content; margin: auto;
     color: #d8ecf8;
     text-shadow: 0 2px 16px rgba(174,207,242,.24);
@@ -371,14 +371,13 @@ p {
 }
 
 .use a{
-    
     color: white;
 }
 
 
 #consentCheckbox {
-    width: 15px; /* Ancho del checkbox */
-    height: 15px; /* Altura del checkbox */
+    width: 12px; /* Ancho del checkbox */
+    height: 12px; /* Altura del checkbox */
     margin-right: 10px; /* Espacio entre el checkbox y el texto */
     cursor: pointer; /* Cambia el cursor al pasar sobre el checkbox */
 }
