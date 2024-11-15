@@ -211,6 +211,7 @@ function resetBoleto() {
 // Función para cerrar el boleto
 document.getElementById('cancelBtn').addEventListener('click', function () {
   document.getElementById('ticketContainer').style.display = 'none'; // Ocultar el boleto
+  location.reload();
 });
 
 
