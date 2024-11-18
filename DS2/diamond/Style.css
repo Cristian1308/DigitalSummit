@@ -15,17 +15,9 @@
 }
 
 .container-p h2{
-    background-clip: text;
-  background-image: linear-gradient(to right, #09f1b8, #00a2ff);
-  color: var(--color-background);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight);
-  letter-spacing: var(--letter-spacing);
-  padding: calc(--stroke-width / 26);
-  -webkit-text-stroke-color: transparent;
-  -webkit-text-stroke-width: var(--stroke-width);
-  font-family: Poppins, sans-serif;
-  font-size: 5rem;
+    color: #BDFF00;
+    font-weight: 900;
+    font-size: 5rem;
 }
 
 .container-p p{
