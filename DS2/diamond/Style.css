@@ -15,7 +15,7 @@
 }
 
 .container-p h2{
-    font-size: 5rem; /* Tamaño grande para resaltar el efecto */
+    font-size: 7rem; /* Tamaño grande para resaltar el efecto */
     font-weight: bold;
     color: transparent; /* Elimina el color de relleno */
     -webkit-text-stroke: 2px #b011ff; /* Borde alrededor del texto */
@@ -24,9 +24,9 @@
 }
 
 .container-p p{
-    font-size: 1rem;
+    font-size: 1.3rem;
     text-align: center;
-    width: 42%;
+    width: 50%;
     margin: 5%;
     color: aliceblue;
 }
