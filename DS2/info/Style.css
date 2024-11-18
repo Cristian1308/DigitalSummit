@@ -383,7 +383,59 @@ h2 {
 
 
 
+.cronograma {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid darkcyan;
+  }
 
+  .dia {
+    flex: 1;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  .dia:last-child {
+    border-right: none;
+  }
+
+  .dia h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .horario {
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+  }
+
+  .horario:first-child {
+    border-top: none;
+  }
+
+  .horario span {
+    display: block;
+  }
+
+  .horario .hora {
+    font-weight: bold;
+    color: #555;
+  }
+
+  .horario .actividad {
+    color: #777;
+  }
+
+ 
 
 
 /* Ajustes para pantallas medianas */
