@@ -443,6 +443,19 @@ h2 {
   }
 
  
+@media  (max-width: 1000px) {
+    .cronograma {
+        width: 700px;
+      }
+    
+    
+      .dia h2 {
+        font-size: 1.3rem;
+      }
+    
+}
+
+
 
 
 /* Ajustes para pantallas medianas */
@@ -462,6 +475,10 @@ h2 {
     section{
         flex-direction: column;
     }
+
+
+
+
 
 
 }
@@ -492,6 +509,12 @@ h2 {
     section{
         flex-direction: column;
     }
+
+    .cronograma {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+      }
 
 
 }
