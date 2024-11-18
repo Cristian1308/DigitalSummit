@@ -413,8 +413,8 @@ h2 {
     border-right: none;
   }
 
-  .dia h2 {
-    font-size: 1.5rem;
+  .dia1 h2,.dia2 h2,.dia3 h2 {
+    font-size: 1.2rem;
     color: #333;
     margin-bottom: 10px;
     text-align: center;
@@ -434,11 +434,13 @@ h2 {
   }
 
   .horario .hora {
+    font-size: 0.9rem;
     font-weight: bold;
     color: #b1b1b1;
   }
 
   .horario .actividad {
+    font-size: 0.9rem;
     color: #777;
   }
 
@@ -447,11 +449,7 @@ h2 {
     .cronograma {
         width: 700px;
       }
-    
-    
-      .dia h2 {
-        font-size: 1.3rem;
-      }
+
     
 }
 
