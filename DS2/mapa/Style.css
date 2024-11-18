@@ -202,7 +202,9 @@ h2 {
 }
 
 
-
+.mapa-video{
+    display: flex;
+}
 
 
 .image-map-section {
@@ -283,6 +285,11 @@ h2 {
 
     .image-container {
         width: 85%;
+    }
+
+    .mapa-video{
+        display: flex;
+        flex-direction: column;
     }
 }
 
