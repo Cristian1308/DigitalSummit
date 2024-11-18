@@ -422,7 +422,7 @@ h2 {
 
   .horario {
     padding: 10px 0;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #3f3f3f;
   }
 
   .horario:first-child {
@@ -435,7 +435,7 @@ h2 {
 
   .horario .hora {
     font-weight: bold;
-    color: #555;
+    color: #b1b1b1;
   }
 
   .horario .actividad {
