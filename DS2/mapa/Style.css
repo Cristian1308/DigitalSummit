@@ -285,6 +285,7 @@ h2 {
     }
 }
 
+
 /* Ajustes para pantallas pequeñas (móviles) */
 @media (max-width: 767px) {
     .map-container {
@@ -318,8 +319,8 @@ h2 {
 }
 
 
-@media (max-width: 500px) {
 
+@media (max-width: 500px) {
     .container-p{
         height: 85vh;
     }
