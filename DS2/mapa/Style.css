@@ -112,10 +112,6 @@ h2 {
     background-color: #8dc000;
 }
 
-
-
-
-
 .transporte {
     margin-top: 2%; /* Arriba, derecha, abajo, izquierda */
     background-color: #1a1a1adc;
@@ -235,9 +231,6 @@ h2 {
 }
 
 
-
-
-
 .video-section {
     width: 100%;
     max-width: 2200px;
@@ -317,6 +310,11 @@ h2 {
         max-width: 80%;
     }
 
+    .mapa-video{
+        display: flex;
+        flex-direction: column;
+    }
+
 }
 
 
@@ -353,11 +351,13 @@ h2 {
         padding: 8px 10px;
     }
 
+    .mapa-video{
+        display: flex;
+        flex-direction: column;
+    }
+
 
 }
-
-
-
 
 
 
