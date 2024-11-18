@@ -386,20 +386,27 @@ h2 {
 .cronograma {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
-    max-width: 1200px;
+    gap: 30px;
+    width: 1000px;
     margin: 20px auto;
-    background: #ffffff;
+    background: transparent;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 10px;
-    border: 1px solid darkcyan;
   }
 
-  .dia {
+  .dia1, .dia2, .dia3 {
+    background-color: #1a1a1adc;
     flex: 1;
-    border-right: 1px solid #ddd;
     padding: 10px;
+  }
+
+  .dia1{
+    border-radius: 20px 0 0 20px; /* Solo las esquinas derechas */
+  }
+
+  .dia3{
+    border-radius: 0 20px 20px 0; /* Solo las esquinas derechas */
   }
 
   .dia:last-child {
