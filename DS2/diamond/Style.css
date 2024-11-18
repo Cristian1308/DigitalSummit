@@ -15,9 +15,12 @@
 }
 
 .container-p h2{
-    color: #b011ff;
-    font-weight: 1000;
-    font-size: 5rem;
+    font-size: 5rem; /* Tamaño grande para resaltar el efecto */
+    font-weight: bold;
+    color: transparent; /* Elimina el color de relleno */
+    -webkit-text-stroke: 2px #b011ff; /* Borde alrededor del texto */
+    text-align: center; /* Centrar el texto */
+    margin: 20px 0;
 }
 
 .container-p p{
