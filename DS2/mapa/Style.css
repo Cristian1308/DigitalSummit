@@ -370,7 +370,10 @@ h2 {
         grid-template-columns: repeat(auto-fit, minmax(97px, 1fr));
     }
 
-
+    .mapa-video{
+        display: flex;
+        flex-direction: column;
+    }
 
 }
 
