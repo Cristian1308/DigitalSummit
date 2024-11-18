@@ -398,6 +398,7 @@ h2 {
   .dia1, .dia2, .dia3 {
     background-color: #1a1a1adc;
     flex: 1;
+    text-align: center;
     padding: 10px;
   }
 
