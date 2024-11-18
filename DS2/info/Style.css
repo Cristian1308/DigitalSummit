@@ -517,6 +517,11 @@ h2 {
       }
 
 
+    .dia1, .dia2, .dia3 {
+        border-radius: 20px;
+    }
+
+
 }
 
 
