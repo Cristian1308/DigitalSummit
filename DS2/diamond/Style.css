@@ -9,11 +9,84 @@
     height: 75vh;
 }
 
-
 :root {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background-color:black;
   --glow-color: #b011ff;
+  --glowcol:#b011ff;
+  --txtcol:#a253c7;
+  --txtcoldark:#c39cd4;
+  --flycol:rgba(30, 30, 30, 0.6);
+  --glowsize:50px;
+  --fontsize: 7rem;
 }
 
+
+
+/* TITULO------------------------------------------------------------------------- */
+
+
+@keyframes flicker{
+  0%{text-shadow: 0px 0px var(--glowsize) var(--glowcol), 0px 0px 6px var(--glowcol); color:var(--txtcol);}
+  80%{text-shadow: 0px 0px var(--glowsize) var(--glowcol), 0px 0px 6px var(--glowcol); color:var(--txtcol);}
+  90%{text-shadow: none; color:var(--txtcoldark);}
+  95%{text-shadow: 0px 0px var(--glowsize) var(--glowcol), 0px 0px 6px var(--glowcol); color:var(--txtcol);}
+  100%{text-shadow: none; color:var(--txtcoldark);}
+}
+@keyframes fly{
+  0%{transform:translateX(0px) translatey(calc(var(--fontsize)*0.3)) rotate(40deg) scale(0.25,0.1);}
+  30%{transform:translateX(calc(var(--fontsize)*0.8)) translatey(calc(var(--fontsize)*0.5)) rotate(0deg) scale(0.25,0.1);}
+  60%{transform:translateX(calc(var(--fontsize)*1)) translatey(calc(var(--fontsize)*0.2)) rotate(-20deg) scale(0.25,0.1);}
+  80%{transform:translateX(calc(var(--fontsize)*1.1)) translatey(0px) rotate(-50deg) scale(0.25,0.1);}
+  100%{transform:translateX(calc(var(--fontsize)*0.9)) translatey(calc(var(--fontsize)*-0.6)) rotate(0deg) scale(0.25,0.1);}
+}
+@keyframes fly1{
+  0%{transform:translateX(-100px) translatey(calc(var(--fontsize)*-0.3)) rotate(-30deg) scale(0.25,0.1);}
+  30%{transform:translateX(calc(var(--fontsize)*-1)) translatey(calc(var(--fontsize)*-1)) rotate(0deg) scale(0.25,0.1);}
+  60%{transform:translateX(calc(var(--fontsize)*-1)) translatey(calc(var(--fontsize)*0.5)) rotate(10deg) scale(0.25,0.1);}
+  80%{transform:translateX(calc(var(--fontsize)*-1.1)) translatey(0px) rotate(20deg) scale(0.25,0.1);}
+  100%{transform:translateX(calc(var(--fontsize)*-0.9)) translatey(calc(var(--fontsize)*-0.6)) rotate(0deg) scale(0.25,0.1);}
+}
+
+#title{
+  text-align:center;
+  position:relative;
+  color:var(--txtcoldark);
+  font-size:var(--fontsize);
+  z-index:-1;
+  animation-name: flicker;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+#title::before{
+  content:'\25CF';
+  position:absolute;
+  color: var(--flycol);
+  text-shadow:none;
+  animation-name: fly;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease;
+}
+#title::after{
+  content:'\25CF';
+  position:absolute;
+  color: var(--flycol);
+  text-shadow:none;
+  animation-name: fly1;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: ease;
+}
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------- */
 .container-p h2{
     font-size: 7rem; /* Tamaño grande para resaltar el efecto */
     font-weight: bold;
@@ -222,39 +295,50 @@
   }
 }
 
- @media only screen and (max-width: 600px) {
-  .glowing-btn{
-    font-size: 1em;
-  }
 
-} 
 
 @media (max-width: 700px) {
+  :root {
+    --fontsize: 6rem; /* Cambia el tamaño de la fuente para pantallas pequeñas */
+  }
 
-    .container-p h2{
-        font-size: 6rem; 
-        margin-bottom: 10%;
-    }
-    
-    .container-p p{
-        font-size: 1rem;
-        width: 85%;
-    }
-    
-    
-    .glowing-btn {
-      font-size: 1.2em;
-    }
+  
+  .container-p p{
+      font-size: 1.3rem;
+      width: 85%;
+  }
+  
+  
+  .glowing-btn {
+    font-size: 1.5em;
+  }
 }
 
 
-@media (max-width: 440px) {
-    .container-p h2{
-        font-size: 3rem; 
+
+
+@media only screen and (max-width: 600px) {
+    :root {
+      --fontsize: 5rem; /* Cambia el tamaño de la fuente para pantallas pequeñas */
     }
+    .glowing-btn{
+      font-size: 1.3em;
+    }
+
+} 
+
+
+
+
+@media (max-width: 500px) {
+  :root {
+    --fontsize: 4.1rem; /* Cambia el tamaño de la fuente para pantallas muy pequeñas */
+  }
+  
+
     
     .container-p p{
-        font-size: 0.5rem;
+        font-size: 1rem;
         width: 80%;
 
     }
@@ -262,6 +346,6 @@
     
     .glowing-btn {
 
-      font-size: 1.2em;
+      font-size: 1.4em;
     }
 }
