@@ -113,12 +113,15 @@ async function generarBoleto(qrURL, idBoleto, nombre) {
   switch (idBoleto) {
     case 'p':
       ticketElement.style.backgroundImage = "url('preferencial.png')";
+      // document.getElementById('serDiamond').style.display = 'block';
       break;
     case 'g':
       ticketElement.style.backgroundImage = "url('general.png')";
+      // document.getElementById('serDiamond').style.display = 'block';
       break;
     case 'd':
       ticketElement.style.backgroundImage = "url('diamond.png')";
+      // document.getElementById('serDiamond').style.display = 'none';
       break;
     default:
       alert("Tipo de boleto no reconocido. Verifica el ID.");
