@@ -1049,12 +1049,12 @@ p {
 @media (max-width : 500px) {
 
     .nav-list {
-        column-gap: 17px; 
+        column-gap: 13px; 
 
     }
 
     .nav-link {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
 
@@ -1094,12 +1094,12 @@ p {
 @media (max-width : 400px) {
 
     .nav-list {
-        column-gap: 19px; 
+        column-gap: 12px; 
 
     }
 
     .nav-link {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
     }
 
     .title img {
