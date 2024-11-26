@@ -21,7 +21,6 @@ function cargarListaCorreosDesdeURL(url) {
         const { email, nombre, qrLink, idBoleto } = user;
         if (email && qrLink) validUsers.set(email, { nombre, qrLink, idBoleto });
       });
-      console.log('Usuarios cargados:', validUsers);
     })
     .catch(error => console.error('Error al cargar los datos:', error));
 }
