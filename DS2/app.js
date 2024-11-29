@@ -6,7 +6,23 @@ const eventDate = new Date('2024-12-02T00:00:00'); // Fecha del evento: 2 de dic
 
 // Cargar lista de correos y datos desde el CSV
 window.onload = function () {
-  cargarListaCorreosDesdeURL('https://script.google.com/macros/s/AKfycbwfZ9_mgpZnEsDX_07U4U0c3Gp752UIkrXdyr3OkYBnBotsWCmBZ5uMZbWLwB5GsUw6-A/exec'); // Reemplaza con el enlace de tu Apps Script
+  (function cargarListaCorreos() {
+    const url = 'https://script.google.com/macros/s/AKfycbwfZ9_mgpZnEsDX_07U4U0c3Gp752UIkrXdyr3OkYBnBotsWCmBZ5uMZbWLwB5GsUw6-A/exec'; // Reemplaza con el enlace de tu Apps Script
+
+    fetch(url)
+      .then(response => {
+        if (!response.ok) throw new Error('Error al cargar los datos');
+        return response.json();
+      })
+      .then(users => {
+        users.forEach(user => {
+          const { email, nombre, qrLink, idBoleto } = user;
+          if (email && qrLink) validUsers.set(email, { nombre, qrLink, idBoleto });
+        });
+      })
+      .catch(error => console.error('Error al cargar los datos:', error));
+  })();
+
   iniciarCuentaRegresiva();
 };
 
