@@ -31,17 +31,14 @@ h2 {
     text-decoration: none;
     padding: 10px 20px;
     color: white;
-    background-color: #007bff;
+    background-color: #0071c2;
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s;
 }
 .download-button:hover {
-    background-color: #0056b3;
+    background-color: #005b99;
 }
-
-
-
 
 .hoteles {
     background-color: #1a1a1adc;
